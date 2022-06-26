@@ -18,20 +18,21 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
--- Table structure for jadwal_keberangkatan
+-- Table structure for user
 -- ----------------------------
-DROP TABLE IF EXISTS `jadwal_keberangkatan`;
-CREATE TABLE `jadwal_keberangkatan` (
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_pembayaran` int DEFAULT NULL,
-  `id_paket_wisata` int DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_pembayaran_fk` (`id_pembayaran`),
-  KEY `id_paket_wisata` (`id_paket_wisata`),
-  CONSTRAINT `id_paket_wisata` FOREIGN KEY (`id_paket_wisata`) REFERENCES `paket_wisata` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `id_pembayaran_fk` FOREIGN KEY (`id_pembayaran`) REFERENCES `pembayaran` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  `username` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `no_hp` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `is_active` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'yes',
+  `role` enum('admin','member') COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Table structure for paket_wisata
@@ -48,6 +49,24 @@ CREATE TABLE `paket_wisata` (
   `img_paket_wisata` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kode_paket_wisata` (`kode_paket_wisata`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- ----------------------------
+-- Table structure for pemesanan
+-- ----------------------------
+DROP TABLE IF EXISTS `pemesanan`;
+CREATE TABLE `pemesanan` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `kode_pesanan` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `date_pesanan` datetime DEFAULT NULL,
+  `id_user` int DEFAULT NULL,
+  `nama_peserta` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `no_hp` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `jumlah_rombongan` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `kode_pesanan` (`kode_pesanan`),
+  KEY `id_user_fk` (`id_user`),
+  CONSTRAINT `id_user_fk` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
@@ -70,39 +89,20 @@ CREATE TABLE `pembayaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
--- Table structure for pemesanan
+-- Table structure for jadwal_keberangkatan
 -- ----------------------------
-DROP TABLE IF EXISTS `pemesanan`;
-CREATE TABLE `pemesanan` (
+DROP TABLE IF EXISTS `jadwal_keberangkatan`;
+CREATE TABLE `jadwal_keberangkatan` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `kode_pesanan` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  `date_pesanan` datetime DEFAULT NULL,
-  `id_user` int DEFAULT NULL,
-  `nama_peserta` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `no_hp` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `jumlah_rombongan` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `id_pembayaran` int DEFAULT NULL,
+  `id_paket_wisata` int DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `kode_pesanan` (`kode_pesanan`),
-  KEY `id_user_fk` (`id_user`),
-  CONSTRAINT `id_user_fk` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `id_pembayaran_fk` (`id_pembayaran`),
+  KEY `id_paket_wisata` (`id_paket_wisata`),
+  CONSTRAINT `id_paket_wisata` FOREIGN KEY (`id_paket_wisata`) REFERENCES `paket_wisata` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `id_pembayaran_fk` FOREIGN KEY (`id_pembayaran`) REFERENCES `pembayaran` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
-
--- ----------------------------
--- Table structure for user
--- ----------------------------
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `nama` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `alamat` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `no_hp` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `is_active` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT 'yes',
-  `role` enum('admin','member') COLLATE utf8mb4_bin DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
 -- Records of user

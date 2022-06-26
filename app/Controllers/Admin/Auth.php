@@ -3,18 +3,21 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-// use App\Models\UserModel;
+use App\Models\UserModel;
 
 class Auth extends BaseController
 {
     protected $userModel;
     public function __construct()
     {
-        // $this->userModel = new UserModel();
+        $this->userModel = new UserModel();
     }
 
     public function index()
     {
+        if ($this->session->get('isLogin') == 'yes') {
+            return redirect()->to('/admin/dashboard');
+        }
         return view('admin/login');
     }
     
@@ -24,21 +27,27 @@ class Auth extends BaseController
             'username' => $this->request->getVar('username')
         ];
 
-        $db = \Config\Database::connect();
-        $user = $db->query("SELECT * FROM user");
-        dd($user);
+        $user = $this->userModel->getUserLogin($data);
+        // $pass = password_hash('admingotour', PASSWORD_BCRYPT);
+        // var_dump(password_hash('admingotour', PASSWORD_BCRYPT));
+        // dd(password_verify('admingotour', '$2y$10$KKKy9/XNNE7.LcVaa6uOb.L.ddk3JQH/i1Cw2s1kaw8gSmvLStaxO'));
+        
+        if ($user == null || !password_verify($this->request->getVar('password'), $user['password'])) {
+            // $this->session->setFlashdata('error', 'Username or password wrong');
+            return redirect()->to('/admin/login')->withInput()->with('error', 'Username or password wrong');
+        }
+        
+        $this->session->set('username', $user['username']);
+        $this->session->set('isLogin', 'yes');
+        $this->session->set('name', $user['nama']);
+        $this->session->set('role', $user['role']);
+        $this->session->set('isActive', $user['is_active']);
+        return redirect()->to('admin/dashboard');
+    }
 
-        dd($data);
-        var_dump($this->userModel->getUserLogin($data));die;
-        dd($this->userModel->getUserLogin($data));
-        // dd($this->request->getVar());
-        $pass = password_hash('admingotour', PASSWORD_BCRYPT);
-        var_dump(password_hash('admingotour', PASSWORD_BCRYPT));
-        dd(password_verify('admingotour', '$2y$10$KKKy9/XNNE7.LcVaa6uOb.L.ddk3JQH/i1Cw2s1kaw8gSmvLStaxO'));
-        // $pass = password_verify()
-        // if (!password_verify()) {
-        //     # code...
-        // }
-        return view('admin/dashboard');
+    public function logout()
+    {
+        session_destroy();
+        return redirect()->to('/admin/login');
     }
 }

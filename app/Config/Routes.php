@@ -38,6 +38,7 @@ $routes->get('/admin', 'Admin\Dashboard::index'); // Go to dashboard admin
 $routes->get('/admin/login', 'Admin\Auth::index', ['as' => 'admin.login']); // Go to login admin
 $routes->addRedirect('/admin/auth', 'admin.login'); // Go to login admin
 $routes->post('/admin/login', 'Admin\Auth::login'); // action login admin
+$routes->get('/admin/logout', 'Admin\Auth::logout'); // action logout admin
 
 /*
  * --------------------------------------------------------------------

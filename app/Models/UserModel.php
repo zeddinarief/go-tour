@@ -10,8 +10,7 @@ class UserModel extends Model
     protected $allowedFields = ['username', 'password', 'nama', 'alamat', 'no_hp', 'email', 'is_active', 'role'];
 
     public function getUserLogin($filter) {
-        // $user = $this->where($filter)->first();
-        $user = $this->findAll();
+        $user = $this->where($filter)->first();
         return $user;
     }
 }
