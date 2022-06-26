@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Member;
+
+use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
@@ -9,8 +11,4 @@ class Home extends BaseController
         return view('member/home');
     }
     
-    public function test()
-    {
-        return view('admin/dashboard');
-    }
 }

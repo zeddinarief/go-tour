@@ -31,7 +31,13 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Member\Home::index'); // Go to home member
+
+// Admin
+$routes->get('/admin', 'Admin\Dashboard::index'); // Go to dashboard admin
+$routes->get('/admin/login', 'Admin\Auth::index', ['as' => 'admin.login']); // Go to login admin
+$routes->addRedirect('/admin/auth', 'admin.login'); // Go to login admin
+$routes->post('/admin/login', 'Admin\Auth::login'); // action login admin
 
 /*
  * --------------------------------------------------------------------
