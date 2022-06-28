@@ -30,9 +30,9 @@
     <link rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
     <link rel="stylesheet" href="assets/css/demos/demo-11.css">
     <style>
-        .promo {
-            text-decoration: line-through;
-        }
+    .promo {
+        text-decoration: line-through;
+    }
     </style>
 </head>
 
@@ -763,8 +763,5 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/demos/demo-11.js"></script>
 </body>
-
-
-<!-- molla/index-11.html  22 Nov 2019 09:58:42 GMT -->
 
 </html>
