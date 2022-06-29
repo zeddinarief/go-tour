@@ -20,7 +20,7 @@ class Member extends BaseController
     {
         // This function will show list of member
 
-        if (!$this->session->get('isLogin') == 'yes') {
+        if ($this->session->get('isLogin') != 'yes' || $this->session->get('role') != 'admin') {
             return redirect()->to('admin/login');
         }
 

@@ -28,7 +28,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
+                            <h3 class="card-title">Daftar member</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -62,7 +62,10 @@
                                                 <a href="/admin/member/<?= $value['id'] ?>" type="button" class="btn btn-block btn-primary">Detail</a>
                                             </td>
                                         </tr>
-                                    <?php } ?>
+                                    <?php
+                                        $no++; 
+                                        } 
+                                    ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>

@@ -49,27 +49,11 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link" data-toggle="dropdown" href="#">
                         <i class="far fa-user"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
+                        <a href="<?= base_url() ?>/admin/logout" class="dropdown-item">
+                            Logout
                         </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                     </div>
                 </li>
             </ul>
@@ -111,9 +95,17 @@
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>/admin/member" class="nav-link <?= ($menu == 'member') ? 'active': '' ?>">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Member
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>/admin/wisata" class="nav-link <?= ($menu == 'wisata') ? 'active': '' ?>">
+                                <i class="nav-icon fas fa-map"></i>
+                                <p>
+                                    Paket Wisata
                                 </p>
                             </a>
                         </li>
