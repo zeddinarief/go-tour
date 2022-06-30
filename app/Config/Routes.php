@@ -37,6 +37,9 @@ $routes->addRedirect('/auth', 'member.login'); // Go to login member
 $routes->post('/login', 'Member\Auth::login'); // action login member
 $routes->get('/logout', 'Member\Auth::logout'); // action logout member
 $routes->post('/register', 'Member\Auth::save'); // action register member
+$routes->get('/wisata', 'Member\PaketWisata::index'); // Go to list wisata 
+$routes->get('/wisata/detail', 'Member\PaketWisata::detail'); // Go to list wisata 
+$routes->get('/pesanan', 'Member\Pesanan::index'); // Go to Pesanan page
 
 // Admin
 $routes->get('/admin', 'Admin\Dashboard::index'); // Go to dashboard admin
