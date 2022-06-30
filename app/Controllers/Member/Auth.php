@@ -18,7 +18,12 @@ class Auth extends BaseController
         if ($this->session->get('isLogin') == 'yes' && $this->session->get('role') == 'member') {
             return redirect()->to('/');
         }
-        return view('member/login');
+
+        $data = [
+            'validation' => \Config\Services::validation()
+        ];
+
+        return view('member/login', $data);
     }
     
     public function login()
@@ -38,11 +43,7 @@ class Auth extends BaseController
         }
         
         // Set user session
-        $this->session->set('username', $user['username']);
-        $this->session->set('isLogin', 'yes');
-        $this->session->set('name', $user['nama']);
-        $this->session->set('role', $user['role']);
-        $this->session->set('isActive', $user['is_active']);
+        $this->setUserSession($user);
 
         return redirect()->to('/');
     }
@@ -55,11 +56,58 @@ class Auth extends BaseController
     }
 
     // Register section
-    public function register()
+    public function save() // Save new member data
     {
-        if ($this->session->get('isLogin') == 'yes' && $this->session->get('role') == 'member') {
-            return redirect()->to('/');
+        // dd($this->request->getVar());
+        if (!$this->validate([
+            'new_email' => 'required',
+            'new_username' => [
+                'rules' => 'required|is_unique[user.username]',
+                'errors' => [
+                    'is_unique' => 'The username already exist'
+                ]
+            ],
+            'new_password' => 'required',
+            'new_password_matches' => [
+                'rules' => 'required|matches[new_password]',
+                'errors' => [
+                    'matches' => 'The password confirmation not match'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('/login')->withInput()->with('validation', $validation);
         }
-        return view('member/login');
+
+        $this->userModel->save([
+            'username' => $this->request->getVar('new_username'),
+            'nama' => $this->request->getVar('new_nama'),
+            'email' => $this->request->getVar('new_email'),
+            'password' => password_hash($this->request->getVar('new_password'), PASSWORD_BCRYPT),
+            'alamat' => $this->request->getVar('new_alamat'),
+            'no_hp' => $this->request->getVar('new_nohp'),
+            'role' => 'member'
+        ]);
+
+        $data = [
+            'username' => $this->request->getVar('new_username'),
+            'role' => 'member'
+        ];
+
+        $user = $this->userModel->getUser($data);
+
+        // Set user session
+        $this->setUserSession($user);
+
+        return redirect()->to('/');
+    }
+
+    function setUserSession($user)
+    {
+        $this->session->set('username', $user['username']);
+        $this->session->set('isLogin', 'yes');
+        $this->session->set('name', $user['nama']);
+        $this->session->set('role', $user['role']);
+        $this->session->set('isActive', $user['is_active']);
     }
 }

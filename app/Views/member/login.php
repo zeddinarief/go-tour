@@ -18,10 +18,12 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
+                            <span style="color: red"><?= session()->getFlashdata('loginError') ?></span>
                             <form action="<?= base_url() ?>/login" method="post">
+                                <?= csrf_field() ?>
                                 <div class="form-group">
                                     <label for="singin-email-2">Username *</label>
-                                    <input type="text" class="form-control" id="singin-email-2" name="username" required>
+                                    <input type="text" class="form-control" id="singin-email-2" name="username" value="<?= old('username') ?>" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group">
@@ -40,15 +42,41 @@
                             </form>
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-                            <form action="#">
+                            <form action="<?= base_url() ?>/register" method="post">
+                                <?= csrf_field() ?>
                                 <div class="form-group">
-                                    <label for="register-email-2">Alamat Email Kamu *</label>
-                                    <input type="email" class="form-control" id="register-email-2" name="register-email" required>
+                                    <label for="register-email-2">Email *</label>
+                                    <input type="email" class="form-control" id="register-email-2" name="new_email" value="<?= old('new_email') ?>" required>
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-email-2">Nama *</label>
+                                    <input type="text" class="form-control"  name="new_nama" value="<?= old('new_nama') ?>" required>
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-email-2">Username *</label>
+                                    <input type="text" class="form-control"  name="new_username" value="<?= old('username') ?>" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group">
-                                    <label for="register-password-2">Kata Sandi *</label>
-                                    <input type="password" class="form-control" id="register-password-2" name="register-password" required>
+                                    <label for="register-password-2">Password *</label>
+                                    <input type="password" class="form-control" name="new_password" required>
+                                </div><!-- End .form-group -->
+
+                                <div class="form-group">
+                                    <label for="register-password-2">Confirm Password *</label>
+                                    <input type="password" class="form-control" name="new_password_matches" required>
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-password-2">Alamat </label>
+                                    <input type="text" class="form-control" name="new_alamat" >
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-password-2">No Hp </label>
+                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" >
                                 </div><!-- End .form-group -->
 
                                 <div class="form-footer">
@@ -73,6 +101,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
                             <form action="<?= base_url() ?>/login" method="post">
+                                <?= csrf_field() ?>
                                 <div class="form-group">
                                     <label for="singin-email-2">Username *</label>
                                     <input type="text" class="form-control" id="singin-email-2" name="username" required>
@@ -94,15 +123,42 @@
                             </form>
                         </div><!-- .End .tab-pane -->
                         <div class="tab-pane fade show active" id="register-2" role="tabpanel" aria-labelledby="register-tab-2">
-                            <form action="#">
+                            <span style="color: red;"><?= $validation->listErrors() ?></span>
+                            <form action="<?= base_url() ?>/register" method="post">
+                                <?= csrf_field() ?>
                                 <div class="form-group">
-                                    <label for="register-email-2">Alamat Email Kamu *</label>
-                                    <input type="email" class="form-control" id="register-email-2" name="register-email" required>
+                                    <label for="register-email-2">Email *</label>
+                                    <input type="email" class="form-control" id="register-email-2" name="new_email" value="<?= old('new_email') ?>" required>
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-email-2">Nama *</label>
+                                    <input type="text" class="form-control"  name="new_nama" value="<?= old('new_nama') ?>" required>
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-email-2">Username *</label>
+                                    <input type="text" class="form-control"  name="new_username" value="<?= old('username') ?>" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group">
-                                    <label for="register-password-2">Kata Sandi *</label>
-                                    <input type="password" class="form-control" id="register-password-2" name="register-password" required>
+                                    <label for="register-password-2">Password *</label>
+                                    <input type="password" class="form-control" name="new_password" required>
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-password-2">Confirm Password *</label>
+                                    <input type="password" class="form-control" name="new_password_matches" required>
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-password-2">Alamat </label>
+                                    <input type="text" class="form-control" name="new_alamat" >
+                                </div><!-- End .form-group -->
+                                
+                                <div class="form-group">
+                                    <label for="register-password-2">No Hp </label>
+                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" >
                                 </div><!-- End .form-group -->
 
                                 <div class="form-footer">

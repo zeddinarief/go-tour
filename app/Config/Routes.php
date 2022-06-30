@@ -36,6 +36,7 @@ $routes->get('/login', 'Member\Auth::index', ['as' => 'member.login']); // Go to
 $routes->addRedirect('/auth', 'member.login'); // Go to login member
 $routes->post('/login', 'Member\Auth::login'); // action login member
 $routes->get('/logout', 'Member\Auth::logout'); // action logout member
+$routes->post('/register', 'Member\Auth::save'); // action register member
 
 // Admin
 $routes->get('/admin', 'Admin\Dashboard::index'); // Go to dashboard admin
