@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 27/06/2022 01:33:08
+ Date: 01/07/2022 06:04:02
 */
 
 SET NAMES utf8mb4;
@@ -40,7 +40,7 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `paket_wisata`;
 CREATE TABLE `paket_wisata` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `kode_paket_wisata` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `kode_paket_wisata` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `nama_paket_wisata` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `jumlah_rombongan` int DEFAULT NULL,
   `harga` int DEFAULT NULL,
@@ -60,13 +60,29 @@ CREATE TABLE `pemesanan` (
   `kode_pesanan` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   `date_pesanan` datetime DEFAULT NULL,
   `id_user` int DEFAULT NULL,
+  `id_wisata` int DEFAULT NULL,
   `nama_peserta` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `no_hp` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `jumlah_rombongan` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kode_pesanan` (`kode_pesanan`),
   KEY `id_user_fk` (`id_user`),
-  CONSTRAINT `id_user_fk` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `id_wisata_fk` (`id_wisata`),
+  CONSTRAINT `id_user_fk` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `id_wisata_fk` FOREIGN KEY (`id_wisata`) REFERENCES `paket_wisata` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- ----------------------------
+-- Table structure for daftar_peserta
+-- ----------------------------
+DROP TABLE IF EXISTS `daftar_peserta`;
+CREATE TABLE `daftar_peserta` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `id_pesanan` int DEFAULT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_pesanan_fk2` (`id_pesanan`),
+  CONSTRAINT `id_pesanan_fk2` FOREIGN KEY (`id_pesanan`) REFERENCES `pemesanan` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
@@ -75,7 +91,7 @@ CREATE TABLE `pemesanan` (
 DROP TABLE IF EXISTS `pembayaran`;
 CREATE TABLE `pembayaran` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `kode_pembayaran` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `kode_pembayaran` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `id_pesanan` int DEFAULT NULL,
   `total_biaya` int DEFAULT NULL,
   `metode_bayar` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
