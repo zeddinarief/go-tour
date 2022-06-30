@@ -8,10 +8,17 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        if (!$this->session->get('isLogin') == 'yes') {
+        // This function will show dashboard page
+        
+        if ($this->session->get('isLogin') != 'yes' || $this->session->get('role') != 'admin') { // Check is user logged in
             return redirect()->to('admin/login');
         }
-        return view('admin/dashboard');
+
+        $data = [
+            'menu' => 'dashboard'
+        ];
+
+        return view('admin/dashboard', $data);
     }
     
 }

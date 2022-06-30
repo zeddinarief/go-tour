@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-<!-- molla/login.html  22 Nov 2019 10:04:03 GMT -->
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -58,11 +55,11 @@
 
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
-                                <li class="megamenu-container">
+                                <li class="megamenu-container active">
                                     <a href="index.html" class="sf-with-ul">Beranda</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="sf-with-ul">Promo</a>
+                                    <a href="category.html" class="sf-with-ul">Promo</a>
 
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
@@ -229,123 +226,99 @@
             </div><!-- End .header-middle -->
         </header><!-- End .header -->
 
-        <main>
-        <div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17"
-            style="background-image: url('assets/images/bg-login.jpg')">
-            <div class="container">
-                <div class="form-box">
-                    <div class="form-tab">
-                        <ul class="nav nav-pills nav-fill" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab"
-                                    aria-controls="signin-2" aria-selected="false">Masuk</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" id="register-tab-2" data-toggle="tab" href="#register-2"
-                                    role="tab" aria-controls="register-2" aria-selected="true">Daftar</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="tab-pane fade" id="signin-2" role="tabpanel" aria-labelledby="signin-tab-2">
-                                <form action="#">
-                                    <div class="form-group">
-                                        <label for="singin-email-2">Nama Pengguna atau Alamat Email *</label>
-                                        <input type="text" class="form-control" id="singin-email-2" name="singin-email"
-                                            required>
-                                    </div><!-- End .form-group -->
+        <main class="main">
+            <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title text-uppercase">Nur Hasanah<span>Member</span></h1>
+                </div><!-- End .container -->
+            </div><!-- End .page-header -->
 
-                                    <div class="form-group">
-                                        <label for="singin-password-2">Kata Sandi *</label>
-                                        <input type="password" class="form-control" id="singin-password-2"
-                                            name="singin-password" required>
-                                    </div><!-- End .form-group -->
+            <div class="page-content">
+                <div class="checkout">
+                    <div class="container">
+                        <form action="#">
+                            <div class="row mt-4">
+                                <div class="col-lg-9 mx-auto">
+                                    <div class="row summary-title">
+                                        <div class="col-6 my-auto">
+                                            <h5 class="mb-0">Data Profil</h5>
+                                        </div>
+                                        <div class="col-6 my-auto">
+                                            <a href="#ubah-profil" data-toggle="modal"
+                                                class="btn btn-outline-primary-2 float-right my-auto"><span>Ubah
+                                                    Profil</span><i class="icon-edit"></i></a>
+                                        </div>
+                                    </div>
 
-                                    <div class="form-footer">
-                                        <button type="submit" class="btn btn-outline-primary-2">
-                                            <span>MASUK</span>
-                                            <i class="icon-long-arrow-right"></i>
-                                        </button>
-
-
-                                        <a href="#" class="forgot-link">Lupa kata sandi?</a>
-                                    </div><!-- End .form-footer -->
-                                </form>
-                                <div class="form-choice">
-                                    <p class="text-center">atau masuk menggunakan</p>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <a href="#" class="btn btn-login btn-g">
-                                                <i class="icon-google"></i>
-                                                Google
-                                            </a>
-                                        </div><!-- End .col-6 -->
+                                            <label class="text-primary">Nama Depan *</label>
+                                            <input type="text" class="form-control" required disabled value="Nur">
+                                        </div>
+
                                         <div class="col-sm-6">
-                                            <a href="#" class="btn btn-login btn-f">
-                                                <i class="icon-facebook-f"></i>
-                                                Facebook
-                                            </a>
-                                        </div><!-- End .col-6 -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .form-choice -->
-                            </div><!-- .End .tab-pane -->
-                            <div class="tab-pane fade show active" id="register-2" role="tabpanel"
-                                aria-labelledby="register-tab-2">
-                                <form action="#">
-                                    <div class="form-group">
-                                        <label for="register-email-2">Alamat Email Kamu *</label>
-                                        <input type="email" class="form-control" id="register-email-2"
-                                            name="register-email" required>
-                                    </div><!-- End .form-group -->
+                                            <label class="text-primary">Nama Belakang *</label>
+                                            <input type="text" class="form-control" required disabled value="Hasanah">
+                                        </div>
+                                    </div>
 
-                                    <div class="form-group">
-                                        <label for="register-password-2">Kata Sandi *</label>
-                                        <input type="password" class="form-control" id="register-password-2"
-                                            name="register-password" required>
-                                    </div><!-- End .form-group -->
+                                    <label class="text-primary">Alamat Domisili *</label>
+                                    <input type="text" class="form-control" required disabled
+                                        value="Jl. Mayjen Pandjaitan No.14 Lowokwaru Malang">
 
-                                    <div class="form-footer">
-                                        <button type="submit" class="btn btn-outline-primary-2">
-                                            <span>DAFTAR</span>
-                                            <i class="icon-long-arrow-right"></i>
-                                        </button>
-
-
-                                    </div><!-- End .form-footer -->
-                                </form>
-                                <div class="form-choice">
-                                    <p class="text-center">atau mendaftar menggunakan</p>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <a href="#" class="btn btn-login btn-g">
-                                                <i class="icon-google"></i>
-                                                Google
-                                            </a>
-                                        </div><!-- End .col-6 -->
+                                            <label class="text-primary">No Telp Aktif *</label>
+                                            <input type="text" class="form-control" required disabled
+                                                value="085666109182">
+                                        </div>
+
                                         <div class="col-sm-6">
-                                            <a href="#" class="btn btn-login  btn-f">
-                                                <i class="icon-facebook-f"></i>
-                                                Facebook
-                                            </a>
-                                        </div><!-- End .col-6 -->
-                                    </div><!-- End .row -->
-                                </div><!-- End .form-choice -->
-                            </div><!-- .End .tab-pane -->
-                        </div><!-- End .tab-content -->
-                    </div><!-- End .form-tab -->
-                </div><!-- End .form-box -->
-            </div><!-- End .container -->
-        </div><!-- End .login-page section-bg -->
-        </main><!-- End .main -->
+                                            <label class="text-primary">Alamat Email Aktif *</label>
+                                            <input type="text" class="form-control" required disabled
+                                                value="nurhasanah11@gmail.com">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9 mx-auto mt-5">
+                                    <div class="row summary-title">
+                                        <div class="col-6 my-auto">
+                                            <h5 class=" mb-0">Informasi Akun</h5>
+                                        </div>
+                                        <div class="col-6 my-auto">
+                                            <a href="#ubah-akun" data-toggle="modal"
+                                                class="btn btn-outline-primary-2 float-right my-auto"><span>Ubah
+                                                    Akun</span><i class="icon-edit"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label class="text-primary">Nama Pengguna *</label>
+                                            <input type="text" class="form-control" required disabled
+                                                value="Nur Hasanah">
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label class="text-primary">Kata Sandi *</label>
+                                            <input type="password" class="form-control" required value="12345678"
+                                                disabled>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
         <footer class="footer footer-2">
             <div class="footer-bottom">
                 <div class="container">
                     <p class="footer-copyright">Copyright © 2022 Go Tour & Travel Malang. All Rights Reserved.</p>
-                    <!-- End .footer-copyright -->
-                    <!-- <ul class="footer-menu">
-                        <li><a href="#">Terms Of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul> -->
-
                     <div class="social-icons social-icons-color">
                         <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i
                                 class="icon-facebook-f"></i></a>
@@ -357,10 +330,11 @@
                                 class="icon-youtube"></i></a>
                         <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i
                                 class="icon-pinterest"></i></a>
-                    </div><!-- End .soial-icons -->
-                </div><!-- End .container -->
-            </div><!-- End .footer-bottom -->
-        </footer><!-- End .footer -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </div><!-- End .page-wrapper -->
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 
@@ -413,124 +387,108 @@
         </div><!-- End .mobile-menu-wrapper -->
     </div><!-- End .mobile-menu-container -->
 
-    <!-- Sign in / Register Modal -->
-    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Ubah Data Profil-->
+    <div class="modal fade" id="ubah-profil" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="icon-close"></i></span>
-                    </button>
-
                     <div class="form-box">
-                        <div class="form-tab">
-                            <ul class="nav nav-pills nav-fill" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="signin-tab" data-toggle="tab" href="#signin"
-                                        role="tab" aria-controls="signin" aria-selected="true">Masuk</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
-                                        aria-controls="register" aria-selected="false">Mendaftar</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="tab-content-5">
-                                <div class="tab-pane fade show active" id="signin" role="tabpanel"
-                                    aria-labelledby="signin-tab">
-                                    <form action="#">
-                                        <div class="form-group">
-                                            <label for="singin-email">Nama Pengguna atau Email *</label>
-                                            <input type="text" class="form-control" id="singin-email"
-                                                name="singin-email" required>
-                                        </div><!-- End .form-group -->
+                        <h3 class="mb-4 mt-2">Ubah Profil</h3>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Nama Depan *</label>
+                                <input type="text" class="form-control" required value="Nur">
+                            </div>
 
-                                        <div class="form-group">
-                                            <label for="singin-password">Kata Sandi*</label>
-                                            <input type="password" class="form-control" id="singin-password"
-                                                name="singin-password" required>
-                                        </div><!-- End .form-group -->
+                            <div class="col-sm-6">
+                                <label>Nama Belakang *</label>
+                                <input type="text" class="form-control" required value="Hasanah">
+                            </div>
+                        </div>
 
-                                        <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
-                                                <span>MASUK</span>
-                                                <i class="icon-long-arrow-right"></i>
-                                            </button>
+                        <label>Alamat Domisili *</label>
+                        <input type="text" class="form-control" required
+                            value="Jl. Mayjen Panjaitan No.14 Lowokwaru Malang">
 
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input"
-                                                    id="signin-remember">
-                                                <label class="custom-control-label" for="signin-remember">Remember
-                                                    Me</label>
-                                            </div><!-- End .custom-checkbox -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>No Telp Aktif *</label>
+                                <input type="text" class="form-control" required value="085604561222">
+                            </div>
 
-                                            <a href="#" class="forgot-link">Lupa kata sandi?</a>
-                                        </div><!-- End .form-footer -->
-                                    </form>
-                                    <div class="form-choice">
-                                        <p class="text-center">atau masuk menggunakan</p>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Google
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Facebook
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .form-choice -->
-                                </div><!-- .End .tab-pane -->
-                                <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                                    <form action="#">
-                                        <div class="form-group">
-                                            <label for="register-email">Masukkan alamat email *</label>
-                                            <input type="email" class="form-control" id="register-email"
-                                                name="register-email" required>
-                                        </div><!-- End .form-group -->
+                            <div class="col-sm-6">
+                                <label>Alamat Email Aktif *</label>
+                                <input type="text" class="form-control" required value="nurhasanah11@gmail.com">
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                                    <i class="icon-close ml-0"></i>
+                                    Batal
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" class="btn btn-primary btn-block ">
+                                    <i class="icon-check"></i>
+                                    Simpan Perubahan
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                                        <div class="form-group">
-                                            <label for="register-password">Kata sandi *</label>
-                                            <input type="password" class="form-control" id="register-password"
-                                                name="register-password" required>
-                                        </div><!-- End .form-group -->
+    <!-- Ubah Data Akun-->
+    <div class="modal fade" id="ubah-akun" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="form-box">
+                        <h3 class="mb-4 mt-2">Ubah Akun</h3>
 
-                                        <div class="form-footer">
-                                            <button type="submit" class="btn btn-outline-primary-2">
-                                                <span>SIGN UP</span>
-                                                <i class="icon-long-arrow-right"></i>
-                                            </button>
+                        <label>Nama Pengguna *</label>
+                        <input type="text" class="form-control" required value="Nur Hasanah">
 
-                                        </div><!-- End .form-footer -->
-                                    </form>
-                                    <div class="form-choice">
-                                        <p class="text-center">atau masuk meggunakan</p>
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login btn-g">
-                                                    <i class="icon-google"></i>
-                                                    Google
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                            <div class="col-sm-6">
-                                                <a href="#" class="btn btn-login  btn-f">
-                                                    <i class="icon-facebook-f"></i>
-                                                    Facebook
-                                                </a>
-                                            </div><!-- End .col-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .form-choice -->
-                                </div><!-- .End .tab-pane -->
-                            </div><!-- End .tab-content -->
-                        </div><!-- End .form-tab -->
-                    </div><!-- End .form-box -->
-                </div><!-- End .modal-body -->
-            </div><!-- End .modal-content -->
-        </div><!-- End .modal-dialog -->
-    </div><!-- End .modal -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Kata Sandi Lama</label>
+                                <input type="password" id="inputPassword" class="form-control" required disabled
+                                    value="12345678">
+                                <div class="custom-control custom-checkbox mt-0">
+                                    <input type="checkbox" class="custom-control-input" id="checkout-create-acc"
+                                        onclick="cekPassword()">
+                                    <label class="custom-control-label" for="checkout-create-acc">Lihat kata
+                                        sandi</label>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Kata Sandi Baru</label>
+                                <input type="password" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                                    <i class="icon-close ml-0"></i>
+                                    Batal
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" class="btn btn-primary btn-block ">
+                                    <i class="icon-check"></i>
+                                    Simpan Perubahan
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Plugins JS File -->
     <script src="assets/js/jquery.min.js"></script>
@@ -541,9 +499,20 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        function cekPassword() {
+            var x = document.getElementById("inputPassword");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 
 
-<!-- molla/login.html  22 Nov 2019 10:04:03 GMT -->
+<!-- molla/checkout.html  22 Nov 2019 09:55:06 GMT -->
 
 </html>

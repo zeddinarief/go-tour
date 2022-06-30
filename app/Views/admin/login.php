@@ -26,6 +26,7 @@
       <p class="login-box-msg">Sign in to Go Tour admin</p>
 
       <form action="/admin/login" method="post">
+        <?= csrf_field() ?>
         <?php if(session()->getFlashdata('error') !== NULL): ?>
         <span style="color: red"><?= session()->getFlashdata('error') ?></span>
         <?php endif ?>

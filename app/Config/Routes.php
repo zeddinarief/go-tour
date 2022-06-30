@@ -32,6 +32,14 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Member\Home::index'); // Go to home member
+$routes->get('/login', 'Member\Auth::index', ['as' => 'member.login']); // Go to login member
+$routes->addRedirect('/auth', 'member.login'); // Go to login member
+$routes->post('/login', 'Member\Auth::login'); // action login member
+$routes->get('/logout', 'Member\Auth::logout'); // action logout member
+$routes->post('/register', 'Member\Auth::save'); // action register member
+$routes->get('/wisata', 'Member\PaketWisata::index'); // Go to list wisata 
+$routes->get('/wisata/detail', 'Member\PaketWisata::detail'); // Go to list wisata 
+$routes->get('/pesanan', 'Member\Pesanan::index'); // Go to Pesanan page
 
 // Admin
 $routes->get('/admin', 'Admin\Dashboard::index'); // Go to dashboard admin
@@ -39,6 +47,8 @@ $routes->get('/admin/login', 'Admin\Auth::index', ['as' => 'admin.login']); // G
 $routes->addRedirect('/admin/auth', 'admin.login'); // Go to login admin
 $routes->post('/admin/login', 'Admin\Auth::login'); // action login admin
 $routes->get('/admin/logout', 'Admin\Auth::logout'); // action logout admin
+$routes->get('/admin/wisata', 'Admin\PaketWisata::index', ['as' => 'admin.wisata']); // Go to list wisata admin
+$routes->addRedirect('/admin/paketwisata', 'admin.wisata'); // Go to list wisata admin
 
 /*
  * --------------------------------------------------------------------

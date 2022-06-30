@@ -15,7 +15,7 @@ class Auth extends BaseController
 
     public function index()
     {
-        if ($this->session->get('isLogin') == 'yes') {
+        if ($this->session->get('isLogin') == 'yes' && $this->session->get('role') == 'admin') {
             return redirect()->to('/admin/dashboard');
         }
         return view('admin/login');
@@ -24,29 +24,32 @@ class Auth extends BaseController
     public function login()
     {
         $data = [
-            'username' => $this->request->getVar('username')
+            'username' => $this->request->getVar('username'),
+            'role' => 'admin'
         ];
 
-        $user = $this->userModel->getUserLogin($data);
+        $user = $this->userModel->getUser($data); // This will get user by username and role
         // $pass = password_hash('admingotour', PASSWORD_BCRYPT);
         // var_dump(password_hash('admingotour', PASSWORD_BCRYPT));
         // dd(password_verify('admingotour', '$2y$10$KKKy9/XNNE7.LcVaa6uOb.L.ddk3JQH/i1Cw2s1kaw8gSmvLStaxO'));
         
         if ($user == null || !password_verify($this->request->getVar('password'), $user['password'])) {
-            // $this->session->setFlashdata('error', 'Username or password wrong');
             return redirect()->to('/admin/login')->withInput()->with('error', 'Username or password wrong');
         }
         
+        // Set user session
         $this->session->set('username', $user['username']);
         $this->session->set('isLogin', 'yes');
         $this->session->set('name', $user['nama']);
         $this->session->set('role', $user['role']);
         $this->session->set('isActive', $user['is_active']);
+
         return redirect()->to('admin/dashboard');
     }
 
     public function logout()
     {
+        // Destroy the session
         session_destroy();
         return redirect()->to('/admin/login');
     }
