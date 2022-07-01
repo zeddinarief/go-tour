@@ -79,7 +79,6 @@
 
                                 <div class="form-group">
                                     <label for="register-password-2">Alamat </label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control" name="new_alamat" value="<?= old('new_alamat') ?>">
                                 </div><!-- End .form-group -->
                                 
@@ -87,15 +86,6 @@
                                     <label for="register-password-2">No Hp </label>
                                     <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" value="<?= old('new_nohp') ?>">
                                 </div><!-- End .form-group -->
-=======
-                                    <input type="text" class="form-control" name="new_alamat">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="register-password-2">No Hp </label>
-                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*">
-                                </div>
->>>>>>> eaa2fb844c4842ff18b3f02c4d4c70d099d73fca
 
                                 <div class="form-footer">
                                     <button type="submit" class="btn btn-outline-primary-2">
@@ -163,14 +153,8 @@
 
                                 <div class="form-group">
                                     <label for="register-email-2">Username *</label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control"  name="new_username" value="<?= old('new_username') ?>" required>
                                 </div><!-- End .form-group -->
-=======
-                                    <input type="text" class="form-control" name="new_username"
-                                        value="<?= old('username') ?>" required>
-                                </div>
->>>>>>> eaa2fb844c4842ff18b3f02c4d4c70d099d73fca
 
                                 <div class="form-group">
                                     <label for="register-password-2">Password *</label>
@@ -184,7 +168,6 @@
 
                                 <div class="form-group">
                                     <label for="register-password-2">Alamat </label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control" name="new_alamat" value="<?= old('new_alamat') ?>">
                                 </div><!-- End .form-group -->
                                 
@@ -192,15 +175,6 @@
                                     <label for="register-password-2">No Hp </label>
                                     <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" value="<?= old('new_nohp') ?>">
                                 </div><!-- End .form-group -->
-=======
-                                    <input type="text" class="form-control" name="new_alamat">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="register-password-2">No Hp </label>
-                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*">
-                                </div>
->>>>>>> eaa2fb844c4842ff18b3f02c4d4c70d099d73fca
 
                                 <div class="form-footer">
                                     <button type="submit" class="btn btn-outline-primary-2">
