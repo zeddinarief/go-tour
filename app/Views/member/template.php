@@ -25,14 +25,20 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
     <link rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.css" rel="stylesheet" />
+
     <!-- Main CSS File -->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/plugins/nouislider/nouislider.css">
     <link rel="stylesheet" href="assets/css/demos/demo-11.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        .promo {
-            text-decoration: line-through;
-        }
+    .promo {
+        text-decoration: line-through;
+    }
     </style>
 </head>
 
@@ -50,18 +56,14 @@
                         <a href="index.html" class="logo">
                             <img src="assets/images/logo.png" alt="Logo" width="82" height="25">
                         </a>
-                    </div><!-- End .header-left -->
-
-                    <div class="header-right">
 
                         <nav class="main-nav">
                             <ul class="menu sf-arrows">
                                 <li class="megamenu-container active">
-                                    <a href="index.html" class="sf-with-ul">Beranda</a>
+                                    <a href="<?= base_url() ?>/" class="sf-with-ul">Beranda</a>
                                 </li>
                                 <li>
-                                    <a href="category.html" class="sf-with-ul">Promo</a>
-
+                                    <a href="#" class="sf-with-ul">Promo</a>
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
                                             <div class="col-md-8">
@@ -69,16 +71,12 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="menu-title">Promo Trip Gunung</div>
-                                                            <!-- End .menu-title -->
                                                             <ul>
                                                                 <li><a href="#"><span>Trip Gunung Panderman<span
                                                                                 class="tip tip-new">New</span></span></a>
                                                                 </li>
-
                                                             </ul>
-
                                                             <div class="menu-title">Promo Trip Pantai</div>
-                                                            <!-- End .menu-title -->
                                                             <ul>
                                                                 <li><a href="#"><span>Trip Pantai
                                                                             Selatan<span
@@ -87,79 +85,68 @@
                                                                 <li><a href="#">Trip Pantai
                                                                         Ngliyep</a></li>
                                                             </ul>
-                                                        </div><!-- End .col-md-6 -->
-
+                                                        </div>
                                                         <div class="col-md-6">
-
                                                             <div class="menu-title">Promo Trip Rekreasi</div>
-                                                            <!-- End .menu-title -->
                                                             <ul>
                                                                 <li><a href="#" class="text-muted">Belum Tersedia</a>
                                                                 </li>
-
                                                             </ul>
-                                                        </div><!-- End .col-md-6 -->
-                                                    </div><!-- End .row -->
-                                                </div><!-- End .menu-col -->
-                                            </div><!-- End .col-md-8 -->
-
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html" class="banner banner-menu">
                                                         <img src="assets/images/menu-promo.jpg" alt="Banner">
-
                                                         <div class="banner-content banner-content-top">
                                                             <div class="banner-title text-white">Ambil
                                                                 <br> Promonya<br><span><strong>segera</strong></span>
                                                             </div>
-                                                            <!-- End .banner-title -->
-                                                        </div><!-- End .banner-content -->
+                                                        </div>
                                                     </a>
-                                                </div><!-- End .banner banner-overlay -->
-                                            </div><!-- End .col-md-4 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .megamenu megamenu-md -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li>
-                                    <a href="product.html" class="sf-with-ul">Kontak</a>
-
+                                    <a href="#" class="sf-with-ul">Kontak</a>
                                     <div class="megamenu megamenu-sm">
                                         <div class="row no-gutters">
                                             <div class="col-md-6">
                                                 <div class="menu-col">
                                                     <div class="menu-title">Kontak Kami</div>
-                                                    <!-- End .menu-title -->
                                                     <ul>
                                                         <li><a href="#">WhatsApp</a></li>
                                                         <li><a href="#">Telegram</a></li>
                                                         <li><a href="#">Facebook</a></li>
                                                         <li><a href="#">Instagram</a></li>
                                                         <li><a href="#">Email</a></li>
-
                                                     </ul>
-                                                </div><!-- End .menu-col -->
-                                            </div><!-- End .col-md-6 -->
-
+                                                </div>
+                                            </div>
                                             <div class="col-md-6">
                                                 <div class="banner banner-overlay">
-                                                    <a href="category.html">
+                                                    <a href="#">
                                                         <img src="assets/images/menu-kontak.jpg" alt="Banner">
-
                                                         <div class="banner-content banner-content-bottom">
                                                             <div class="banner-title text-white">Ingin
                                                                 Bertanya?<br><span><strong>Hubungi Kami</strong></span>
-                                                            </div><!-- End .banner-title -->
-                                                        </div><!-- End .banner-content -->
+                                                            </div>
+                                                        </div>
                                                     </a>
-                                                </div><!-- End .banner -->
-                                            </div><!-- End .col-md-6 -->
-                                        </div><!-- End .row -->
-                                    </div><!-- End .megamenu megamenu-sm -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </li>
+                            </ul>
+                        </nav>
+                    </div>
 
-                            </ul><!-- End .menu -->
-                        </nav><!-- End .main-nav -->
-
+                    <div class="header-right">
                         <div class="header-search">
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
                             <form action="#" method="get">
@@ -167,21 +154,19 @@
                                     <label for="q" class="sr-only">Search</label>
                                     <input type="search" class="form-control" name="q" id="q" placeholder="Cari..."
                                         required>
-                                </div><!-- End .header-search-wrapper -->
+                                </div>
                             </form>
-                        </div><!-- End .header-search -->
+                        </div>
 
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <i class="icon-shopping-cart"></i>
                                 <span class="cart-count">1</span>
-                                <!-- <span class="cart-txt">Rp 350.000,-</span> -->
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
@@ -192,7 +177,7 @@
                                                 <!-- <span class="cart-product-qty">1</span> -->
                                                 Rp 350.000,-
                                             </span>
-                                        </div><!-- End .product-cart-details -->
+                                        </div>
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
@@ -201,31 +186,31 @@
                                         </figure>
                                         <a href="#" class="btn-remove" title="Remove Product"><i
                                                 class="icon-close"></i></a>
-                                    </div><!-- End .product -->
-                                </div><!-- End .cart-product -->
+                                    </div>
+                                </div>
 
                                 <div class="dropdown-cart-total">
                                     <span>Total</span>
-
                                     <span class="cart-total-price">Rp 350.000,-</span>
-                                </div><!-- End .dropdown-cart-total -->
+                                </div>
 
                                 <div class="dropdown-cart-action">
-                                    <a href="cart.html" class="btn btn-primary">Pesanan Saya</a>
-                                    <a href="checkout.html" class="btn btn-outline-primary-2"><span>Bayar</span><i
-                                            class="icon-long-arrow-right"></i></a>
-                                </div><!-- End .dropdown-cart-total -->
-                            </div><!-- End .dropdown-menu -->
-                        </div><!-- End .cart-dropdown -->
-
+                                    <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
+                                            class="fa-regular fa-eye"></i> Lihat
+                                        Pesanan</a>
+                                    <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
+                                            class="icon-long-arrow-right"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
                         <a href="login.html" class="wishlist-link">
                             <i class="icon-user"></i>
                             <span class="wishlist-count bg-danger"></span>
                         </a>
-                    </div><!-- End .header-right -->
-                </div><!-- End .container -->
-            </div><!-- End .header-middle -->
-        </header><!-- End .header -->
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <?= $this->renderSection('content') ?>
 
@@ -233,12 +218,6 @@
             <div class="footer-bottom">
                 <div class="container">
                     <p class="footer-copyright">Copyright © 2022 Go Tour & Travel Malang. All Rights Reserved.</p>
-                    <!-- End .footer-copyright -->
-                    <!-- <ul class="footer-menu">
-                        <li><a href="#">Terms Of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul> -->
-
                     <div class="social-icons social-icons-color">
                         <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i
                                 class="icon-facebook-f"></i></a>
@@ -250,15 +229,15 @@
                                 class="icon-youtube"></i></a>
                         <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i
                                 class="icon-pinterest"></i></a>
-                    </div><!-- End .soial-icons -->
-                </div><!-- End .container -->
-            </div><!-- End .footer-bottom -->
-        </footer><!-- End .footer -->
-    </div><!-- End .page-wrapper -->
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 
     <!-- Mobile Menu -->
-    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+    <div class="mobile-menu-overlay"></div>
 
     <div class="mobile-menu-container">
         <div class="mobile-menu-wrapper">
@@ -295,16 +274,16 @@
                         </ul>
                     </li>
                 </ul>
-            </nav><!-- End .mobile-nav -->
+            </nav>
 
             <div class="social-icons">
                 <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
                 <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
                 <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
                 <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
-            </div><!-- End .social-icons -->
-        </div><!-- End .mobile-menu-wrapper -->
-    </div><!-- End .mobile-menu-container -->
+            </div>
+        </div>
+    </div>
 
     <!-- Plugins JS File -->
     <script src="assets/js/jquery.min.js"></script>
@@ -320,12 +299,18 @@
     <script src="assets/js/bootstrap-input-spinner.js"></script>
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
+
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/demos/demo-11.js"></script>
+
+    <script>
+    const datePicker = MCDatepicker.create({
+        el: '#datepicker',
+        selectedDate: new date(), // today
+    })
+    </script>
 </body>
-
-
-<!-- molla/index-11.html  22 Nov 2019 09:58:42 GMT -->
 
 </html>
