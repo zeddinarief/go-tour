@@ -40,6 +40,7 @@ $routes->post('/register', 'Member\Auth::save'); // action register member
 $routes->get('/wisata', 'Member\PaketWisata::index'); // Go to list wisata 
 $routes->get('/wisata/detail', 'Member\PaketWisata::detail'); // Go to list wisata 
 $routes->get('/pesanan', 'Member\Pesanan::index'); // Go to Pesanan page
+$routes->get('/profile', 'Member\User::index'); // Go to Pesanan page
 
 // Admin
 $routes->get('/admin', 'Admin\Dashboard::index'); // Go to dashboard admin
@@ -49,6 +50,9 @@ $routes->post('/admin/login', 'Admin\Auth::login'); // action login admin
 $routes->get('/admin/logout', 'Admin\Auth::logout'); // action logout admin
 $routes->get('/admin/wisata', 'Admin\PaketWisata::index', ['as' => 'admin.wisata']); // Go to list wisata admin
 $routes->addRedirect('/admin/paketwisata', 'admin.wisata'); // Go to list wisata admin
+$routes->get('/admin/wisata/insert', 'Admin\PaketWisata::insert', ['as' => 'admin.wisata_insert']); // Go to insert wisata admin
+$routes->post('/admin/wisata/insert', 'Admin\PaketWisata::save'); // Action insert wisata admin
+$routes->get('/admin/wisata/(:num)', 'Admin\PaketWisata::detail/$1', ['as' => 'admin.wisata_detail']); // Go to detail wisata admin
 
 /*
  * --------------------------------------------------------------------

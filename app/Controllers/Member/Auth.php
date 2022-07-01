@@ -58,7 +58,6 @@ class Auth extends BaseController
     // Register section
     public function save() // Save new member data
     {
-        // dd($this->request->getVar());
         if (!$this->validate([
             'new_email' => 'required',
             'new_username' => [
@@ -75,8 +74,8 @@ class Auth extends BaseController
                 ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('/login')->withInput()->with('validation', $validation);
+            
+            return redirect()->to('/login')->withInput();
         }
 
         $this->userModel->save([

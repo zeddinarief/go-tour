@@ -56,7 +56,7 @@
                                 
                                 <div class="form-group">
                                     <label for="register-email-2">Username *</label>
-                                    <input type="text" class="form-control"  name="new_username" value="<?= old('username') ?>" required>
+                                    <input type="text" class="form-control"  name="new_username" value="<?= old('new_username') ?>" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group">
@@ -71,12 +71,12 @@
                                 
                                 <div class="form-group">
                                     <label for="register-password-2">Alamat </label>
-                                    <input type="text" class="form-control" name="new_alamat" >
+                                    <input type="text" class="form-control" name="new_alamat" value="<?= old('new_alamat') ?>">
                                 </div><!-- End .form-group -->
                                 
                                 <div class="form-group">
                                     <label for="register-password-2">No Hp </label>
-                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" >
+                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" value="<?= old('new_nohp') ?>">
                                 </div><!-- End .form-group -->
 
                                 <div class="form-footer">
@@ -138,7 +138,7 @@
                                 
                                 <div class="form-group">
                                     <label for="register-email-2">Username *</label>
-                                    <input type="text" class="form-control"  name="new_username" value="<?= old('username') ?>" required>
+                                    <input type="text" class="form-control"  name="new_username" value="<?= old('new_username') ?>" required>
                                 </div><!-- End .form-group -->
 
                                 <div class="form-group">
@@ -153,12 +153,12 @@
                                 
                                 <div class="form-group">
                                     <label for="register-password-2">Alamat </label>
-                                    <input type="text" class="form-control" name="new_alamat" >
+                                    <input type="text" class="form-control" name="new_alamat" value="<?= old('new_alamat') ?>">
                                 </div><!-- End .form-group -->
                                 
                                 <div class="form-group">
                                     <label for="register-password-2">No Hp </label>
-                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" >
+                                    <input type="tel" class="form-control" name="new_nohp" pattern="[0-9]*" value="<?= old('new_nohp') ?>">
                                 </div><!-- End .form-group -->
 
                                 <div class="form-footer">

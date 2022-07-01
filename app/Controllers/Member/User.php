@@ -4,11 +4,11 @@ namespace App\Controllers\Member;
 
 use App\Controllers\BaseController;
 
-class Home extends BaseController
+class User extends BaseController
 {
     public function index()
     {
-        return view('member/home');
+        //
+        return view('member/profile');
     }
-    
 }

@@ -62,8 +62,8 @@
                                                 <a href="/admin/member/<?= $value['id'] ?>" type="button" class="btn btn-block btn-primary">Detail</a>
                                             </td>
                                         </tr>
-                                    <?php
-                                        $no++; 
+                                    <?php   
+                                            $no++; 
                                         } 
                                     ?>
                                 </tbody>
