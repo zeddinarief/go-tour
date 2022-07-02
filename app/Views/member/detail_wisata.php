@@ -128,9 +128,10 @@
                         <div class="product-desc-content">
                             <h3>Fasilitas</h3>
                             <ul>
-                                <li>Akomodasi Perjalanan</li>
-                                <li>Tiket Masuk </li>
-                                <li>Jam Operasional : 24 Jam
+                                <li>Bisa digunakan untuk 3 orang.</li>
+                                <li>Akomodasi perjalanan</li>
+                                <li>Tiket masuk </li>
+                                <li>Pelaksanaan berdasarkan jadwal yang tersedia
                                 </li>
                             </ul>
                         </div>
@@ -281,8 +282,9 @@
 
                         <div class="col-md-8 pl-4">
                             <div class="product-details">
-                                <span class="bg-gray ml-1 px-3">12 Jan 2022</span>
-                                <span class="bg-gray ml-1 px-3">ID : GN12120122</span>
+                                <span class="bg-gray ml-1 px-3">Kategori : Gunung</span>
+                                <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> 3
+                                    Orang</span>
                                 <h3 class="mt-2">Trip Gunung Butak</h3>
                                 <div class="product-price mb-2">
                                     Rp 360.000,-
@@ -300,8 +302,16 @@
                                                     <p class="fa-solid fa-calendar-days text-primary px-1"></p>
                                                 </div>
                                             </div>
-                                            <input type="text" class="form-control" id="inlineFormInputGroup"
-                                                placeholder="Tanggal / Bulan / Tahun" required>
+                                            <select class="form-control" required>
+                                                <option>Silahkan pilih</option>
+                                                <option>Senin, 10 Juli 2022</option>
+                                                <option>Selasa, 11 Juli 2022</option>
+                                                <option>Rabu, 12 Juli 2022</option>
+                                                <option>Kamis, 13 Juli 2022</option>
+                                                <option>Jum'at, 14 Juli 2022</option>
+                                                <option>Sabtu, 15 Juli 2022</option>
+                                                <option>Minggu, 16 Juli 2022</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
