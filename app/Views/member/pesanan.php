@@ -21,14 +21,10 @@
                                 <li>
                                     Pilih salah satu paket wisata.
                                 </li>
+                                <li> Pilih opsi pembayaran.</li>
                                 <li> Unggah bukti pembayaran yang sesuai dengan nominal tertera pada paket wisata.</li>
                                 <li> Tunggu konfirmasi dari sistem bahwa pembayar Anda berhasil divalidasi.</li>
                             </ol>
-                            <a href="#opsi-pembayaran" data-toggle="modal"
-                                class="btn btn-outline-primary-2 btn-order btn-block"><i class="fa-solid fa-coins"></i>
-                                Pilih Opsi
-                                Pembayaran</a>
-
                         </div>
                     </aside>
                     <div class="col-lg-9">
@@ -66,7 +62,12 @@
                                                         </figure>
                                                         <h2 class="product-title w-100">
                                                             <a href="<?= base_url() ?>/wisata/detail">Trip Gunung
-                                                                Panderman</a>
+                                                                Panderman</a> <br>
+                                                            <span class="small text-muted pr-3"><i
+                                                                    class="fa-solid fa-user-group fa-xs"></i> 3
+                                                                Orang</span><br> <span class="small text-muted"><i
+                                                                    class="fa-solid fa-calendar-check"></i> Senin, 10
+                                                                Juli 2022</span>
                                                         </h2>
                                                     </div>
                                                 </td>
@@ -77,18 +78,26 @@
                                                 </td>
                                                 <td class="price-col">
                                                     <div class="tagcloud">
-                                                        <a href="#"
+                                                        <a onclick="hapus_pesanan()"
                                                             class="btn btn-outline-primary btn-rounded btn-shadow"><i
                                                                 class="fa-solid fa-trash-can"></i><span>Hapus</span></a>
-                                                        <a href="#unggah-bukti-pembayaran" data-toggle="modal"
-                                                            class="btn bg-primary text-white btn-rounded btn-shadow"><i
-                                                                class="fa-solid fa-arrow-up-from-bracket"></i><span>Bukti
-                                                                Pembayaran</span></a>
+                                                        <a href="#data-tambahan" data-toggle="modal"
+                                                            class="btn btn-outline-primary text-dark btn-rounded btn-shadow"><i
+                                                                class="fa-solid fa-pen-to-square"></i><span>Data
+                                                                Tambahan</span></a>
                                                     </div>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <a href="#opsi-pembayaran" data-toggle="modal"
+                                        class="btn bg-primary text-white btn-rounded btn-shadow mb-2 mr-2"><i
+                                            class="fa-solid fa-coins"></i><span>1. Pilih Opsi
+                                            Pembayaran</span></a>
+                                    <a href="#unggah-bukti-pembayaran" data-toggle="modal"
+                                        class="btn bg-primary text-white btn-rounded btn-shadow mb-2"><i
+                                            class="fa-solid fa-arrow-up-from-bracket "></i><span>2. Unggah Bukti
+                                            Pembayaran</span></a>
                                 </div>
 
                                 <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2-tab">
@@ -110,7 +119,12 @@
                                                                     alt="Product image"> </a>
                                                         </figure>
                                                         <h2 class="product-title w-100">
-                                                            <a href="#">Trip Gunung Panderman</a>
+                                                            <a href="#">Trip Gunung Panderman</a><br>
+                                                            <span class="small text-muted pr-3"><i
+                                                                    class="fa-solid fa-user-group fa-xs"></i> 3
+                                                                Orang</span><br> <span class="small text-muted"><i
+                                                                    class="fa-solid fa-calendar-check"></i> Senin, 10
+                                                                Juli 2022</span>
                                                         </h2>
                                                     </div>
                                                 </td>
@@ -280,8 +294,9 @@
 
                         <div class="col-md-8 pl-4">
                             <div class="product-details">
-                                <span class="bg-gray ml-1 px-3">12 Jan 2022</span>
-                                <span class="bg-gray ml-1 px-3">ID : GN12120122</span>
+                                <span class="bg-gray ml-1 px-3">Kategori : Gunung</span>
+                                <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> 3
+                                    Orang</span>
                                 <h3 class="mt-2">Trip Gunung Butak</h3>
                                 <div class="product-price mb-2">
                                     Rp 360.000,-
@@ -309,7 +324,8 @@
                             </a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#" class="btn btn-primary btn-block ">
+                            <a data-dismiss="modal" onclick="bukti_pembayaran()"
+                                class="btn btn-primary btn-block text-white ">
                                 <i class="fa-solid fa-paper-plane"></i>
                                 Kirim Bukti
                             </a>
@@ -342,8 +358,9 @@
 
                         <div class="col-md-8 pl-4">
                             <div class="product-details">
-                                <span class="bg-gray ml-1 px-3">12 Jan 2022</span>
-                                <span class="bg-gray ml-1 px-3">ID : GN12120122</span>
+                                <span class="bg-gray ml-1 px-3">Kategori : Gunung</span>
+                                <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> 3
+                                    Orang</span>
                                 <h3 class="mt-2">Trip Gunung Butak</h3>
                                 <div class="product-price mb-2">
                                     Rp 360.000,-
@@ -371,6 +388,89 @@
                             <a href="#" class="btn btn-primary btn-block ">
                                 <i class="icon-close ml-0"></i>
                                 Tutup
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lengkapi Data -->
+<div class="modal fade" id="data-tambahan" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-box">
+                    <h3 class="mb-4 mt-2">Data Tambahan</h3>
+
+                    <label class="text-primary">Nama Wisata</label>
+                    <input type="text" class="form-control" required value="Trip Gunung Panderman" disabled>
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="text-primary">Jumlah Peserta yang Ikut</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p class="fa-solid fa-user-group fa-xs text-primary px-1"></p>
+                                    </div>
+                                </div>
+                                <select class="form-control" required>
+                                    <option>1 orang</option>
+                                    <option>2 orang</option>
+                                    <option selected>3 orang</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="text-primary">Tanggal Keberangkatan</label>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <p class="fa-solid fa-calendar-days text-primary px-1"></p>
+                                    </div>
+                                </div>
+                                <select class="form-control" required>
+                                    <option>Senin, 10 Juli 2022</option>
+                                    <option>Selasa, 11 Juli 2022</option>
+                                    <option>Rabu, 12 Juli 2022</option>
+                                    <option>Kamis, 13 Juli 2022</option>
+                                    <option>Jum'at, 14 Juli 2022</option>
+                                    <option>Sabtu, 15 Juli 2022</option>
+                                    <option>Minggu, 16 Juli 2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="text-primary">Nama Peserta ke-1</label>
+                            <input type="text" id="koordinator" class="form-control" required value="Agus Faesal">
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="text-primary">Nama Peserta ke-2</label>
+                            <input type="text" id="koordinator" class="form-control" required value="Nur Tahfid">
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="text-primary">Nama Peserta ke-3</label>
+                            <input type="text" id="koordinator" class="form-control" required value="Febrian Firdaus">
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="text-primary">No HP Aktif (untuk kontak)</label>
+                            <input type="text" id="koordinator" class="form-control" required value="08618239112">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-sm-6">
+                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                                <i class="fa-solid fa-xmark"></i>
+                                Batal
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="#" onclick="simpan()" data-dismiss="modal" class="btn btn-primary btn-block ">
+                                <i class="fa-solid fa-check"></i>
+                                Simpan Perubahan
                             </a>
                         </div>
                     </div>
