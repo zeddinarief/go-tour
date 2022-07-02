@@ -39,8 +39,11 @@ class PaketWisata extends BaseController
             return redirect()->to('admin/login');
         }
 
+        $wisata = $this->wisataModel->find($id);
+        
         $data = [
-            'menu' => 'wisata'
+            'menu' => 'wisata',
+            'wisata' => $wisata
         ];
 
         return view('admin/wisata/detail_wisata', $data);

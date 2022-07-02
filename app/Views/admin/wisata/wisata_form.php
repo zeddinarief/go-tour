@@ -28,7 +28,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Detail paket wisata</h3>
+                            <h3 class="card-title">Tambah paket wisata</h3>
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-pane" id="settings">

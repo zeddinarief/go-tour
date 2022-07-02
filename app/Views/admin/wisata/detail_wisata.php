@@ -32,49 +32,50 @@
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-pane" id="settings">
-                                <form class="form-horizontal">
+                                <form action="<?= base_url() ?>/admin/wisata/insert" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                    <?= csrf_field() ?>
                                     <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                        <label for="inputName" class="col-sm-2 col-form-label">Nama paket</label>
                                         <div class="col-sm-10">
-                                            <span class="form-control detail-form">testtstdt</span>
+                                            <input type="text" class="form-control" placeholder="Nama paket" name="nama_paket" value="<?= (old('nama_paket')) ? old('nama_paket') : $wisata['nama_paket_wisata'] ?>" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                        <label for="rombongan" class="col-sm-2 col-form-label">Jumlah rombongan</label>
                                         <div class="col-sm-10">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                            <input type="number" class="form-control" name="rombongan" value="<?= (old('rombongan')) ? old('rombongan') : $wisata['jumlah_rombongan'] ?>" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
+                                        <label for="harga" class="col-sm-2 col-form-label">Harga</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputName2" placeholder="Name">
+                                            <input type="tel" class="form-control" placeholder="Harga" pattern="[0-9]*" name="harga" value="<?= (old('harga')) ? old('harga') : $wisata['harga'] ?>" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
+                                        <label class="col-sm-2 col-form-label">Jenis</label>
                                         <div class="col-sm-10">
-                                            <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
+                                            <select name="jenis">
+                                                <option value="Pantai" <?= (((old('jenis')) ? old('jenis') : $wisata['jenis']) == 'Pantai') ? 'selected' : '' ?>>Pantai</option>
+                                                <option value="Gunung" <?= (((old('jenis')) ? old('jenis') : $wisata['jenis']) == 'Gunung') ? 'selected' : '' ?>>Gunung</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+                                        <label for="inputSkills" class="col-sm-2 col-form-label">Tanggal</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
+                                            <input type="datetime-local" class="form-control" name="date" value="<?= (old('date')) ? old('date') : $wisata['date'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Image</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" class="form-control" name="image_paket">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-danger">Submit</button>
+                                            <button type="submit" class="btn btn-info">Submit</button>
                                         </div>
                                     </div>
                                 </form>
