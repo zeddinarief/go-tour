@@ -115,6 +115,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>/admin/pesanan" class="nav-link <?= ($menu == 'pesanan') ? 'active': '' ?>">
+                                <i class="nav-icon fas fa-map"></i>
+                                <p>
+                                    Pesanan
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

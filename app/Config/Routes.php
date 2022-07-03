@@ -53,6 +53,7 @@ $routes->addRedirect('/admin/paketwisata', 'admin.wisata'); // Go to list wisata
 $routes->get('/admin/wisata/insert', 'Admin\PaketWisata::insert', ['as' => 'admin.wisata_insert']); // Go to insert wisata admin
 $routes->post('/admin/wisata/insert', 'Admin\PaketWisata::save'); // Action insert wisata admin
 $routes->get('/admin/wisata/(:num)', 'Admin\PaketWisata::detail/$1', ['as' => 'admin.wisata_detail']); // Go to detail wisata admin
+$routes->get('/admin/pesanan/(:num)', 'Admin\Pesanan::detail/$1', ['as' => 'admin.pesanan_detail']); // Go to detail pesanan admin
 
 /*
  * --------------------------------------------------------------------
