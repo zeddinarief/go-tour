@@ -39,7 +39,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 DROP TABLE IF EXISTS `jenis_wisata`;
 CREATE TABLE `jenis_wisata` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `jenis` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `kode_jenis` varchar(255) COLLATE utf8mb4_bin NOT NULL,
   PRIMARY KEY (`id`)
@@ -60,6 +60,8 @@ CREATE TABLE `paket_wisata` (
   `img_paket_wisata` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kode_paket_wisata` (`kode_paket_wisata`)
+  KEY `id_jenis_fk` (`id_jenis`)
+  CONSTRAINT `id_jenis_fk` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_wisata` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------

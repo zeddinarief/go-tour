@@ -5,7 +5,7 @@
 <main class="main">
     <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
         <div class="container">
-            <h1 class="page-title text-uppercase">Nur Hasanah<span>Member</span></h1>
+            <h1 class="page-title text-uppercase"><?= $member['nama'] ?><span>Member</span></h1>
         </div>
     </div>
 
@@ -28,30 +28,29 @@
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label class="text-primary">Nama Depan *</label>
-                                    <input type="text" class="form-control" required disabled value="Nur">
+                                    <label class="text-primary">Nama Pengguna *</label>
+                                    <input type="text" class="form-control" required disabled value="<?= $member['nama'] ?>">
                                 </div>
-
                                 <div class="col-sm-6">
-                                    <label class="text-primary">Nama Belakang *</label>
-                                    <input type="text" class="form-control" required disabled value="Hasanah">
+                                    <label class="text-primary">Username *</label>
+                                    <input type="text" class="form-control" required disabled value="<?= $member['username'] ?>">
                                 </div>
                             </div>
 
-                            <label class="text-primary">Alamat Domisili *</label>
+                            <label class="text-primary">Alamat Domisili </label>
                             <input type="text" class="form-control" required disabled
-                                value="Jl. Mayjen Pandjaitan No.14 Lowokwaru Malang">
+                                value="<?= $member['alamat'] ?>">
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label class="text-primary">No Telp Aktif *</label>
-                                    <input type="text" class="form-control" required disabled value="085666109182">
+                                    <label class="text-primary">No Telp Aktif </label>
+                                    <input type="text" class="form-control" required disabled value="<?= $member['no_hp'] ?>">
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label class="text-primary">Alamat Email Aktif *</label>
                                     <input type="text" class="form-control" required disabled
-                                        value="nurhasanah11@gmail.com">
+                                        value="<?= $member['email'] ?>">
                                 </div>
                             </div>
                         </div>
@@ -70,7 +69,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label class="text-primary">Nama Pengguna *</label>
-                                    <input type="text" class="form-control" required disabled value="Nur Hasanah">
+                                    <input type="text" class="form-control" required disabled value="<?= $member['nama'] ?>">
                                 </div>
 
                                 <div class="col-sm-6">
@@ -93,50 +92,54 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="form-box">
-                    <h3 class="mb-4 mt-2">Ubah Profil</h3>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label class="text-primary">Nama Depan *</label>
-                            <input type="text" class="form-control" required value="Nur">
+                <form id="updateProfile" action="<?= base_url() ?>/profile/data" method="post">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="id" value="<?= session()->get('user_id') ?>">
+                    <div class="form-box">
+                        <h3 class="mb-4 mt-2">Ubah Profil</h3>
+                        <span style="color: red;" id="validations"></span>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="text-primary">Nama Pengguna *</label>
+                                <input type="text" class="form-control" name="nama" required value="<?= (old('nama')) ? old('nama') : $member['nama'] ?>">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="text-primary">Username *</label>
+                                <input type="text" class="form-control" name="username" required value="<?= (old('username')) ? old('username') : $member['username'] ?>">
+                            </div>
                         </div>
 
-                        <div class="col-sm-6">
-                            <label class="text-primary">Nama Belakang *</label>
-                            <input type="text" class="form-control" required value="Hasanah">
+                        <label class="text-primary">Alamat Domisili </label>
+                        <input type="text" class="form-control" name="alamat"
+                            value="<?= (old('alamat')) ? old('alamat') : $member['alamat'] ?>">
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="text-primary">No Telp Aktif </label>
+                                <input type="tel" class="form-control" pattern="[0-9]*" name="no_hp" value="<?= (old('no_hp')) ? old('no_hp') : $member['no_hp'] ?>">
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label class="text-primary">Alamat Email Aktif *</label>
+                                <input type="email" class="form-control" name="email" required value="<?= (old('email')) ? old('email') : $member['email'] ?>">
+                            </div>
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                                    <i class="fa-solid fa-xmark"></i>
+                                    Batal
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a onclick="simpanProfil()" class="btn btn-primary btn-block ">
+                                    <i class="fa-solid fa-check"></i>
+                                    Simpan Perubahan
+                                </a>
+                            </div>
                         </div>
                     </div>
-
-                    <label class="text-primary">Alamat Domisili *</label>
-                    <input type="text" class="form-control" required
-                        value="Jl. Mayjen Panjaitan No.14 Lowokwaru Malang">
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label class="text-primary">No Telp Aktif *</label>
-                            <input type="text" class="form-control" required value="085604561222">
-                        </div>
-
-                        <div class="col-sm-6">
-                            <label class="text-primary">Alamat Email Aktif *</label>
-                            <input type="text" class="form-control" required value="nurhasanah11@gmail.com">
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-sm-6">
-                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
-                                <i class="fa-solid fa-xmark"></i>
-                                Batal
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="#" onclick="simpan()" data-dismiss="modal" class="btn btn-primary btn-block ">
-                                <i class="fa-solid fa-check"></i>
-                                Simpan Perubahan
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -147,45 +150,49 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="form-box">
-                    <h3 class="mb-4 mt-2">Ubah Akun</h3>
+                <form id="updatePassword" action="<?= base_url() ?>/profile/password" method="post">
+                    <?= csrf_field() ?>
+                    <input type="hidden" name="id" value="<?= session()->get('user_id') ?>">
+                    <div class="form-box">
+                        <h3 class="mb-4 mt-2">Ubah Akun</h3>
+                        <span style="color: red;" id="validation-password"></span>
 
-                    <label class="text-primary">Nama Pengguna *</label>
-                    <input type="text" class="form-control" required value="Nur Hasanah">
+                        <label class="text-primary">Nama Pengguna *</label>
+                        <input type="text" class="form-control" required value="<?= $member['nama'] ?>">
 
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label class="text-primary">Kata Sandi Lama</label>
-                            <input type="password" id="inputPassword" class="form-control" required disabled
-                                value="12345678">
-                            <div class="custom-control custom-checkbox mt-0">
-                                <input type="checkbox" class="custom-control-input" id="checkout-create-acc"
-                                    onclick="cekPassword()">
-                                <label class="custom-control-label" for="checkout-create-acc">Lihat kata
-                                    sandi</label>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="text-primary">Kata Sandi Lama</label>
+                                <input type="password" id="inputPassword" class="form-control" name="password" required>
+                                <div class="custom-control custom-checkbox mt-0">
+                                    <input type="checkbox" class="custom-control-input" id="checkout-create-acc"
+                                        onclick="cekPassword()">
+                                    <label class="custom-control-label" for="checkout-create-acc">Lihat kata
+                                        sandi</label>
+                                </div>
+
                             </div>
-
+                            <div class="col-sm-6">
+                                <label>Kata Sandi Baru</label>
+                                <input type="password" id="inputPassword2" class="form-control" name="new_password" required>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label>Kata Sandi Baru</label>
-                            <input type="password" class="form-control" required>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                                    <i class="fa-solid fa-xmark"></i>
+                                    Batal
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a onclick="simpanPassword()" class="btn btn-primary btn-block ">
+                                    <i class="fa-solid fa-check"></i>
+                                    Simpan Perubahan
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-sm-6">
-                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
-                                <i class="fa-solid fa-xmark"></i>
-                                Batal
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="#" onclick="simpan()" data-dismiss="modal" class="btn btn-primary btn-block ">
-                                <i class="fa-solid fa-check"></i>
-                                Simpan Perubahan
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

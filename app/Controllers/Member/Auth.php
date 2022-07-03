@@ -34,9 +34,6 @@ class Auth extends BaseController
         ];
 
         $user = $this->userModel->getUser($data); // This will get user by username and role
-        // $pass = password_hash('admingotour', PASSWORD_BCRYPT);
-        // var_dump(password_hash('admingotour', PASSWORD_BCRYPT));
-        // dd(password_verify('admingotour', '$2y$10$KKKy9/XNNE7.LcVaa6uOb.L.ddk3JQH/i1Cw2s1kaw8gSmvLStaxO'));
         
         if ($user == null || !password_verify($this->request->getVar('password'), $user['password'])) {
             return redirect()->to('/login')->withInput()->with('loginError', 'Username or password wrong');
@@ -103,6 +100,7 @@ class Auth extends BaseController
 
     function setUserSession($user)
     {
+        $this->session->set('user_id', $user['id']);
         $this->session->set('username', $user['username']);
         $this->session->set('isLogin', 'yes');
         $this->session->set('name', $user['nama']);

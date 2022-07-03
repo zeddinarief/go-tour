@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="toolbox pt-2">
-                        <div class="toolbox-left">
+                        <!-- <div class="toolbox-left">
                             <div class="toolbox-info">
                                 Menampilkan <span>9 dari 56</span> Wisata Tersedia
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="toolbox-right">
                             <div class="toolbox-sort">
@@ -35,212 +35,36 @@
 
                     <div class="products mb-3">
                         <div class="row justify-content-center">
+                            <?php 
+                                foreach ($list_wisata as $wisata => $value) { 
+                            ?>
                             <div class="product-item gunung col-6 col-md-4 col-lg-4">
                                 <div class="product product-4">
                                     <figure class="product-media">
-                                        <span class="product-label bg-danger text-white">Promo</span>
-                                        <a href="#">
+                                        <!-- <span class="product-label bg-danger text-white">Promo</span> -->
+                                        <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>">
                                             <img src="assets/images/gunung-panderman.jpg" alt="Product image"
                                                 class="product-image">
                                         </a>
                                         <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
+                                            <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>" class="btn-product btn-quickview"
                                                 title="Quick view"><span>Selengkapnya</span></a>
                                         </div>
                                     </figure>
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Gunung Panderman</a></h3>
+                                        <h3 class="product-title"><a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"><?= $value['nama_paket_wisata'] ?></a></h3>
                                         <div class="product-price">
-                                            <div class="out-price promo">Rp 150.000 </div>
-                                            <span class="text-danger">&nbsp; Rp 120.000,-</span>
+                                            <?= $value['harga'] ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <?php } ?>
 
-                            <div class="product-item gunung col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label">Tersedia</span>
-                                        <a href="#">
-                                            <img src="assets/images/gunung-butak.jpg" alt="Product image"
-                                                class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="detail-wisata.html"
-                                                class="btn-product"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Gunung Butak</a></h3>
-                                        <div class="product-price">
-                                            Rp 160.000,-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item gunung col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label bg-dark text-white">Belum Tersedia</span>
-                                        <a href="#">
-                                            <img src="assets/images/gunung-kawi.jpg" alt="Product image"
-                                                class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Gunung Kawi</a></h3>
-                                        <div class="out-price ">
-                                            Rp 140.000,-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item pantai col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label bg-danger text-white">Promo</span>
-                                        <a href="#">
-                                            <img src="assets/images/pantai-gatra.jpg" class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Pantai Gatra</a></h3>
-                                        <div class="product-price">
-                                            <div class="out-price promo">Rp 150.000 </div>
-                                            <span class="text-danger">&nbsp; Rp 120.000,-</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item pantai col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label bg-danger text-white">Promo</span>
-                                        <a href="#">
-                                            <img src="assets/images/pantai-clungup.jpg" class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Pantai Clungup</a></h3>
-                                        <div class="product-price">
-                                            <div class="out-price promo">Rp 110.000 </div>
-                                            <span class="text-danger">&nbsp; Rp 90.000,-</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item pantai col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label bg-danger text-white">Promo</span>
-                                        <a href="#">
-                                            <img src="assets/images/pantai-ngliyep.jpg" class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Pantai Ngliyep</a></h3>
-                                        <div class="product-price">
-                                            <div class="out-price promo">Rp 120.000 </div>
-                                            <span class="text-danger">&nbsp; Rp 110.000,-</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item rekreasi col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label">Tersedia</span>
-                                        <a href="#">
-                                            <img src="assets/images/rekreasi-hawai.jpg" alt="Product image"
-                                                class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Hawaii Waterpark</a></h3>
-                                        <div class="product-price">
-                                            <span class="text-danger">&nbsp; Rp 120.000,-</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item rekreasi col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label">Tersedia</span>
-                                        <a href="#">
-                                            <img src="assets/images/rekreasi-jodipan.jpg" alt="Product image"
-                                                class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Kampung Warna Warni & 3D</a>
-                                        </h3>
-                                        <div class="product-price">
-                                            Rp 60.000,-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item rekreasi col-6 col-md-4 col-lg-4">
-                                <div class="product product-4">
-                                    <figure class="product-media">
-                                        <span class="product-label bg-dark text-white">Belum Tersedia</span>
-                                        <a href="#">
-                                            <img src="assets/images/rekreasi-wonosari.jpg" alt="Product image"
-                                                class="product-image">
-                                        </a>
-                                        <div class="product-action">
-                                            <a href="#" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
-                                        </div>
-                                    </figure>
-
-                                    <div class="product-body">
-                                        <h3 class="product-title"><a href="#">Trip Agro Wonosari</a></h3>
-                                        <div class="out-price ">
-                                            Rp 70.000,-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
-                    <nav aria-label="Page navigation">
+                    <!-- <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled">
                                 <a class="page-link page-link-prev" href="#" aria-label="Previous" tabindex="-1"
@@ -259,7 +83,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
                 <aside class="col-lg-3 order-lg-first">
                     <div class="sidebar sidebar-shop pt-2">

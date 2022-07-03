@@ -238,32 +238,35 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="fa-solid fa-circle-user fa-xs"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" style="width:200px">
-                                <div class="dropdown-cart-products">
-                                    <div class="product d-block px-0 py-2">
-                                        <a class="product-title" href="<?= base_url() ?>/profile">
-                                            <p class=" mb-0"><i class="fa-solid fa-user-gear"></i>&nbsp; Detail
-                                                Profil</p>
-                                        </a>
-                                    </div>
-                                    <div class="product d-block px-0 py-2">
-                                        <a class="product-title" href="<?= base_url() ?>/login">
-                                            <p class=" mb-0"> <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
-                                                Keluar / Logout</p>
-                                        </a>
+                        <?php if (session()->get('isLogin') == 'yes' && session()->get('role') == 'member') { ?>
+                            <div class="dropdown cart-dropdown">
+                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" data-display="static">
+                                    <i class="fa-solid fa-circle-user fa-xs"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" style="width:200px">
+                                    <div class="dropdown-cart-products">
+                                        <div class="product d-block px-0 py-2">
+                                            <a class="product-title" href="<?= base_url() ?>/profile">
+                                                <p class=" mb-0"><i class="fa-solid fa-user-gear"></i>&nbsp; Detail
+                                                    Profil</p>
+                                            </a>
+                                        </div>
+                                        <div class="product d-block px-0 py-2">
+                                            <a class="product-title" href="<?= base_url() ?>/logout">
+                                                <p class=" mb-0"> <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
+                                                    Keluar / Logout</p>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } else { ?>
                         <div class="dropdown cart-dropdown">
-                            <a href="<?= base_url() ?>/login" class="search-toggle btn btn-outline-primary"
+                            <a href="<?= base_url() ?>/login" class="btn btn-outline-primary"
                                 role="button"><i class="fa-solid fa-right-to-bracket"></i>Masuk</a>
                         </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -377,8 +380,79 @@
             icon: 'success',
             title: 'Data Berhasil Diperbaharui',
             text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
-            confirmButtonText: 'Ok, saya menegrti'
+            confirmButtonText: 'Ok, saya mengerti'
         })
+    }
+    
+    function simpanProfil() {
+        let url = document.getElementById('updateProfile').action;
+        let csrfToken = '<?= csrf_hash() ?>';
+        
+        let form = document.getElementById('updateProfile');
+        const data = new FormData(form);
+
+        fetch(url, {
+            method: 'POST',
+            headers: {'<?= csrf_header() ?>': csrfToken},
+            body: data
+        }).then(response => {
+            return response.json()
+        }).then(responseJson => {
+            console.log(responseJson)
+            if (responseJson.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Berhasil Diperbaharui',
+                    text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
+                    confirmButtonText: 'Ok, saya mengerti'
+                }).then(function () {
+                    location.reload(); 
+                })
+                $('#ubah-profil').modal('hide');
+                // location.reload();
+            } else {
+                let validations = document.getElementById('validations');
+                validations.innerHTML = '';
+                Object.values(responseJson.messages).forEach(val => {
+                    validations.innerHTML += '* ' + val + '<br>'
+                });
+            }
+        });
+    }
+    
+    function simpanPassword() {
+        let url = document.getElementById('updatePassword').action;
+        let csrfToken = '<?= csrf_hash() ?>';
+        
+        let form = document.getElementById('updatePassword');
+        const data = new FormData(form);
+
+        fetch(url, {
+            method: 'POST',
+            headers: {'<?= csrf_header() ?>': csrfToken},
+            body: data
+        }).then(response => {
+            return response.json()
+        }).then(responseJson => {
+            console.log(responseJson)
+            if (responseJson.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Berhasil Diperbaharui',
+                    text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
+                    confirmButtonText: 'Ok, saya mengerti'
+                }).then(function () {
+                    location.reload(); 
+                })
+                $('#ubah-akun').modal('hide');
+            } else {
+                let validations = document.getElementById('validation-password');
+                validations.innerHTML = '';
+                Object.values(responseJson.messages).forEach(val => {
+                    validations.innerHTML += '* ' + val + '<br>'
+                });
+            }
+        });
     }
 
     function bukti_pembayaran() {
@@ -386,7 +460,7 @@
             icon: 'success',
             title: 'Bukti Pembayaran Berhasil Terkirim',
             text: "Sistem akan melakukan validasi pembayaran Anda segera. Terimakasih!",
-            confirmButtonText: 'Ok, saya menegrti'
+            confirmButtonText: 'Ok, saya mengerti'
         })
     }
 
@@ -441,10 +515,13 @@
     <script>
     function cekPassword() {
         var x = document.getElementById("inputPassword");
+        var y = document.getElementById("inputPassword2");
         if (x.type === "password") {
             x.type = "text";
+            y.type = "text";
         } else {
             x.type = "password";
+            y.type = "password";
         }
     }
     </script>
