@@ -8,8 +8,8 @@
     <section class="content-header">
         <div class="container-fluid">
             <blockquote class="quote-info mt-0 mb-0 ml-0">
-                <h5 id="tip">Pembayaran</h5>
-                <p>Berikut adalah informasi terkait pembayaran wisata yang dilakukan oleh seluruh member</p>
+                <h5 id="tip">Jenis Wisata</h5>
+                <p>Berikut adalah informasi jenis wisata yang merupakan induk atau klasifikasi dari data wisata</p>
             </blockquote>
         </div><!-- /.container-fluid -->
     </section>
@@ -21,10 +21,12 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Daftar pembayaran</h3>
+                            <h3 class="card-title">Daftar paket wisata</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <a href="<?= base_url() ?>/admin/wisata/insert" style="margin-bottom: 10px;"
+                                class="btn btn-info"><i class="fa fa-plus"></i> Tambah</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -42,7 +44,7 @@
                                 <tbody>
                                     <?php 
                                         $no = 1;
-                                        foreach ($daftar_pembayaran as $pembayaran => $value) { 
+                                        foreach ($daftar_wisata as $wisata => $value) { 
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>

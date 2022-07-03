@@ -7,17 +7,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Members</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-                        <li class="breadcrumb-item active">Member</li>
-                    </ol>
-                </div>
-            </div>
+            <blockquote class="quote-info mt-0 mb-0 ml-0">
+                <h5 id="tip">Member</h5>
+                <p>Berikut adalah informasi terkait data member</p>
+            </blockquote>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -50,18 +43,19 @@
                                         $no = 1;
                                         foreach ($members as $member => $value) { 
                                     ?>
-                                        <tr>
-                                            <td><?= $no ?></td>
-                                            <td><?= $value['username'] ?></td>
-                                            <td><?= $value['nama'] ?></td>
-                                            <td><?= $value['alamat'] ?></td>
-                                            <td><?= $value['no_hp'] ?></td>
-                                            <td><?= $value['email'] ?></td>
-                                            <td><?= ($value['is_active']) == 'yes' ? 'Active' : 'Inactive' ?></td>
-                                            <td>
-                                                <a href="/admin/member/<?= $value['id'] ?>" type="button" class="btn btn-block btn-primary">Detail</a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td><?= $no ?></td>
+                                        <td><?= $value['username'] ?></td>
+                                        <td><?= $value['nama'] ?></td>
+                                        <td><?= $value['alamat'] ?></td>
+                                        <td><?= $value['no_hp'] ?></td>
+                                        <td><?= $value['email'] ?></td>
+                                        <td><?= ($value['is_active']) == 'yes' ? 'Active' : 'Inactive' ?></td>
+                                        <td>
+                                            <a href="/admin/member/<?= $value['id'] ?>" type="button"
+                                                class="btn btn-block btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
                                     <?php   
                                             $no++; 
                                         } 

@@ -7,8 +7,14 @@
     <title>Go tour</title>
 
     <base href="<?= base_url('assets') ?>/admin/">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/icons/site.html">
+
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -33,9 +39,9 @@
     <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
     <style>
-        .detail-form {
-            border: none;
-        }
+    .detail-form {
+        border: none;
+    }
     </style>
 </head>
 
@@ -69,11 +75,8 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">GoTour</span>
-            </a>
 
+            <img src="assets/img/logo-bg-dark.png" alt="AdminLTE Logo" class="img-fluid px-5 py-3" style="opacity: .8">
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -88,56 +91,75 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/admin/dashboard" class="nav-link <?= ($menu == 'dashboard') ? 'active': '' ?>">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <a href="<?= base_url() ?>/admin/dashboard"
+                                class="nav-link <?= ($menu == 'dashboard') ? 'active': '' ?>">
+                                <i class="fas fa-th-large pl-1">&nbsp;&nbsp;</i>
                                 <p>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/admin/member" class="nav-link <?= ($menu == 'member') ? 'active': '' ?>">
-                                <i class="nav-icon fas fa-user"></i>
+                            <a href="<?= base_url() ?>/admin/member"
+                                class="nav-link <?= ($menu == 'member') ? 'active': '' ?>">
+                                <i class="fas fa-users pl-1">&nbsp;</i>
                                 <p>
                                     Member
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/admin/wisata" class="nav-link <?= ($menu == 'wisata') ? 'active': '' ?>">
-                                <i class="nav-icon fas fa-map"></i>
-                                <p>
-                                    Paket Wisata
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="<?= base_url() ?>/admin/pesanan" class="nav-link <?= ($menu == 'pesanan') ? 'active': '' ?>">
-                                <i class="nav-icon fas fa-map"></i>
+                            <a href="<?= base_url() ?>/admin/pesanan"
+                                class="nav-link <?= ($menu == 'pesanan') ? 'active': '' ?>">
+                                <i class="fas fa-shopping-bag pl-2">&nbsp;&nbsp;</i>
                                 <p>
                                     Pesanan
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/admin/pembayaran" class="nav-link <?= ($menu == 'pembayaran') ? 'active': '' ?>">
-                                <i class="nav-icon fas fa-map"></i>
+                            <a href="<?= base_url() ?>/admin/pembayaran"
+                                class="nav-link <?= ($menu == 'pembayaran') ? 'active': '' ?>">
+                                <i class="fas fa-comments-dollar pl-1">&nbsp;&nbsp;</i>
                                 <p>
                                     Pembayaran
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url() ?>/admin/jenis-wisata" class="nav-link <?= ($menu == 'jenis_wisata') ? 'active': '' ?>">
-                                <i class="nav-icon fas fa-map"></i>
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-map-marked-alt pl-1">&nbsp;&nbsp;</i>
                                 <p>
-                                    Jenis Wisata
+                                    Wisata
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview" style="display: none;">
+                                <li class="nav-item">
+                                    <a href="<?= base_url() ?>/admin/jenis"
+                                        class="nav-link <?= ($menu == 'jenis_wisata') ? 'active': '' ?>">
+                                        <i class="fas fa-pen pl-1">&nbsp;&nbsp;</i>
+                                        <p>
+                                            Jenis Wisata
+                                        </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url() ?>/admin/wisata"
+                                        class="nav-link <?= ($menu == 'wisata') ? 'active': '' ?>">
+                                        <i class="fas fa-pen pl-1">&nbsp;&nbsp;</i>
+                                        <p>
+                                            Paket Wisata
+                                        </p>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                     </ul>
                 </nav>
@@ -148,13 +170,13 @@
 
         <?= $this->renderSection('content') ?>
 
-        <footer class="main-footer">
+        <!-- <footer class="main-footer">
             <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
             All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
             </div>
-        </footer>
+        </footer> -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -170,7 +192,7 @@
     <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -212,12 +234,14 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="assets/js/pages/dashboard.js"></script><!-- Page specific script -->
     <script>
-        $(function () {
-            $("#example1").DataTable({
-            "responsive": true, "lengthChange": false, "autoWidth": false,
+    $(function() {
+        $("#example1").DataTable({
+            "responsive": true,
+            "lengthChange": false,
+            "autoWidth": false,
             "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-            $('#example2').DataTable({
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
             "paging": true,
             "lengthChange": false,
             "searching": false,
@@ -225,8 +249,8 @@
             "info": true,
             "autoWidth": false,
             "responsive": true,
-            });
         });
+    });
     </script>
 </body>
 

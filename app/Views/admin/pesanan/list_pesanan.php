@@ -7,17 +7,10 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Members</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-                        <li class="breadcrumb-item active">Wisata</li>
-                    </ol>
-                </div>
-            </div>
+            <blockquote class="quote-info mt-0 mb-0 ml-0">
+                <h5 id="tip">Pesanan</h5>
+                <p>Berikut adalah informasi terkait pesanan wisata yang dilakukan oleh seluruh member</p>
+            </blockquote>
         </div><!-- /.container-fluid -->
     </section>
 
@@ -32,7 +25,8 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="<?= base_url() ?>/admin/wisata/insert" style="margin-bottom: 10px;" class="btn btn-info"><i class="fa fa-plus"></i> Tambah</a>
+                            <a href="<?= base_url() ?>/admin/wisata/insert" style="margin-bottom: 10px;"
+                                class="btn btn-info"><i class="fa fa-plus"></i> Tambah</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -51,19 +45,20 @@
                                         $no = 1;
                                         foreach ($daftar_wisata as $wisata => $value) { 
                                     ?>
-                                        <tr>
-                                            <td><?= $no ?></td>
-                                            <td><?= $value['img_paket_wisata'] ?></td>
-                                            <td><?= $value['kode_paket_wisata'] ?></td>
-                                            <td><?= $value['nama_paket_wisata'] ?></td>
-                                            <td><?= $value['jumlah_rombongan'] ?></td>
-                                            <td><?= $value['harga'] ?></td>
-                                            <td><?= $value['jenis'] ?></td>
-                                            <td><?= $value['date'] ?></td>
-                                            <td>
-                                                <a href="/admin/wisata/<?= $value['id'] ?>" type="button" class="btn btn-block btn-primary">Detail</a>
-                                            </td>
-                                        </tr>
+                                    <tr>
+                                        <td><?= $no ?></td>
+                                        <td><?= $value['img_paket_wisata'] ?></td>
+                                        <td><?= $value['kode_paket_wisata'] ?></td>
+                                        <td><?= $value['nama_paket_wisata'] ?></td>
+                                        <td><?= $value['jumlah_rombongan'] ?></td>
+                                        <td><?= $value['harga'] ?></td>
+                                        <td><?= $value['jenis'] ?></td>
+                                        <td><?= $value['date'] ?></td>
+                                        <td>
+                                            <a href="/admin/wisata/<?= $value['id'] ?>" type="button"
+                                                class="btn btn-block btn-primary">Detail</a>
+                                        </td>
+                                    </tr>
                                     <?php
                                             $no++; 
                                         } 
