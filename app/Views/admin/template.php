@@ -123,6 +123,22 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>/admin/pembayaran" class="nav-link <?= ($menu == 'pembayaran') ? 'active': '' ?>">
+                                <i class="nav-icon fas fa-map"></i>
+                                <p>
+                                    Pembayaran
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url() ?>/admin/jenis-wisata" class="nav-link <?= ($menu == 'jenis_wisata') ? 'active': '' ?>">
+                                <i class="nav-icon fas fa-map"></i>
+                                <p>
+                                    Jenis Wisata
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

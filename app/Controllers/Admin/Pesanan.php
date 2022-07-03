@@ -16,8 +16,15 @@ class Pesanan extends BaseController
 
     public function index()
     {
-        dd($this->pesananModel->getAllPesanan());
-        return view('admin/pesanan/list_pesanan');
+        $listPesanan = $this->pesananModel->getAllPesanan();
+        dd($listPesanan);
+
+        $data = [
+            'menu' => 'pesanan',
+            'list_pesanan' => $listPesanan
+        ];
+
+        return view('admin/pesanan/list_pesanan', $data);
     }
 
     public function detail($id)

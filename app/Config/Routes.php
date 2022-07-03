@@ -54,6 +54,7 @@ $routes->get('/admin/wisata/insert', 'Admin\PaketWisata::insert', ['as' => 'admi
 $routes->post('/admin/wisata/insert', 'Admin\PaketWisata::save'); // Action insert wisata admin
 $routes->get('/admin/wisata/(:num)', 'Admin\PaketWisata::detail/$1', ['as' => 'admin.wisata_detail']); // Go to detail wisata admin
 $routes->get('/admin/pesanan/(:num)', 'Admin\Pesanan::detail/$1', ['as' => 'admin.pesanan_detail']); // Go to detail pesanan admin
+$routes->get('/admin/pembayaran/(:num)', 'Admin\Pembayaran::detail/$1', ['as' => 'admin.pembayaran_detail']); // Go to detail pesanan admin
 
 /*
  * --------------------------------------------------------------------
