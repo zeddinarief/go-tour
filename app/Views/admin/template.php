@@ -31,6 +31,12 @@
     <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+    <style>
+        .detail-form {
+            border: none;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

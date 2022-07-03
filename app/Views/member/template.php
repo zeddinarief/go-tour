@@ -39,6 +39,10 @@
     .promo {
         text-decoration: line-through;
     }
+
+    .swal-modal {
+        padding: 30px;
+    }
     </style>
 </head>
 
@@ -147,7 +151,7 @@
                     </div>
 
                     <div class="header-right">
-                        <div class="header-search">
+                        <!-- <div class="header-search">
                             <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
                             <form action="#" method="get">
                                 <div class="header-search-wrapper">
@@ -156,31 +160,29 @@
                                         required>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
 
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="icon-shopping-cart"></i>
-                                <span class="cart-count">1</span>
+                                <i class="fa-solid fa-bag-shopping fa-xs"></i>
+                                <span class="cart-count bg-danger"></span>
                             </a>
-
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
-                                                <a href="product.html">Trip Gunung Panderman</a>
+                                                <a href="<?= base_url() ?>/wisata/detail">Trip Gunung Panderman</a>
                                             </h4>
 
-                                            <span class="cart-product-info">
-                                                <!-- <span class="cart-product-qty">1</span> -->
-                                                Rp 350.000,-
-                                            </span>
+                                            <span class="small text-muted pr-3"><i
+                                                    class="fa-solid fa-user-group fa-xs"></i> 3
+                                                Orang</span>
                                         </div>
 
                                         <figure class="product-image-container">
-                                            <a href="product.html" class="product-image">
+                                            <a href="<?= base_url() ?>/wisata/detail" class="product-image">
                                                 <img src="assets/images/gunung-panderman.jpg" alt="product">
                                             </a>
                                         </figure>
@@ -196,17 +198,72 @@
 
                                 <div class="dropdown-cart-action">
                                     <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
-                                            class="fa-regular fa-eye"></i> Lihat
+                                            class="fa-solid fa-eye"></i>Lihat
                                         Pesanan</a>
                                     <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
                                             class="icon-long-arrow-right"></i></a> -->
                                 </div>
                             </div>
                         </div>
-                        <a href="login.html" class="wishlist-link">
-                            <i class="icon-user"></i>
-                            <span class="wishlist-count bg-danger"></span>
-                        </a>
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <i class="fa-solid fa-bell fa-xs"></i>
+                                <span class="cart-count bg-danger"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-cart-products">
+                                    <div class="product d-block px-0 py-2">
+                                        <a class="text-dark" href="<?= base_url() ?>/pesanan">
+                                            <p class=" mb-0 text-dark"> Trip Gunung
+                                                Butak</p>
+                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i>
+                                                Sudah
+                                                Lunas</span>&emsp; <span class="pl-auto text-info"><i
+                                                    class="fa-regular fa-calendar-check"></i>
+                                                11 07 2022</span>
+                                        </a>
+                                    </div>
+                                    <div class="product d-block px-0 py-2">
+                                        <a class="text-dark" href="<?= base_url() ?>/pesanan">
+                                            <p class=" mb-0 text-dark"> Trip Gunung
+                                                Panderman</p>
+                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i>
+                                                Sudah
+                                                Lunas</span>&emsp; <span class="pl-auto text-info"><i
+                                                    class="fa-regular fa-calendar-check"></i>
+                                                11 07 2022</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <i class="fa-solid fa-circle-user fa-xs"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" style="width:200px">
+                                <div class="dropdown-cart-products">
+                                    <div class="product d-block px-0 py-2">
+                                        <a class="product-title" href="<?= base_url() ?>/profile">
+                                            <p class=" mb-0"><i class="fa-solid fa-user-gear"></i>&nbsp; Detail
+                                                Profil</p>
+                                        </a>
+                                    </div>
+                                    <div class="product d-block px-0 py-2">
+                                        <a class="product-title" href="<?= base_url() ?>/login">
+                                            <p class=" mb-0"> <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
+                                                Keluar / Logout</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown cart-dropdown">
+                            <a href="<?= base_url() ?>/login" class="search-toggle btn btn-outline-primary"
+                                role="button"><i class="fa-solid fa-right-to-bracket"></i>Masuk</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -300,6 +357,8 @@
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/mc-datepicker/dist/mc-calendar.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
@@ -310,6 +369,84 @@
         el: '#datepicker',
         selectedDate: new date(), // today
     })
+    </script>
+
+    <script>
+    function simpan() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Data Berhasil Diperbaharui',
+            text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
+            confirmButtonText: 'Ok, saya menegrti'
+        })
+    }
+
+    function bukti_pembayaran() {
+        Swal.fire({
+            icon: 'success',
+            title: 'Bukti Pembayaran Berhasil Terkirim',
+            text: "Sistem akan melakukan validasi pembayaran Anda segera. Terimakasih!",
+            confirmButtonText: 'Ok, saya menegrti'
+        })
+    }
+
+    function hapus_pesanan() {
+        Swal.fire({
+            title: 'Hapus Pesanan',
+            text: "Apakah Anda yakin menghapus pesanan wisata tersebut?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Pesanan Telah Terhapus!',
+                    'Silahkan memilih paket wisata lain yang sesuai',
+                    'success'
+                )
+            }
+        })
+    }
+
+    function sweet_rekening() {
+        /* Get the text field */
+        let copyText = document.getElementById("rekening");
+
+        copyText.readOnly = true;
+
+        /* Change the input's type to text so its text becomes selectable */
+        copyText.type = 'text';
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+
+        swal({
+            title: "Nomor Rekening Mandiri Berhasil di Salin!",
+            // text: "You clicked the button!",
+            icon: "success",
+            button: false,
+            timer: 1500,
+        });
+        copyText.type = 'hidden';
+    }
+    </script>
+
+    <script>
+    function cekPassword() {
+        var x = document.getElementById("inputPassword");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
     </script>
 </body>
 
