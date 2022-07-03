@@ -11,7 +11,7 @@
  Target Server Version : 80026
  File Encoding         : 65001
 
- Date: 01/07/2022 06:04:02
+ Date: 03/07/2022 10:33:48
 */
 
 SET NAMES utf8mb4;
@@ -35,6 +35,17 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
+-- Table structure for jenis_wisata
+-- ----------------------------
+DROP TABLE IF EXISTS `jenis_wisata`;
+CREATE TABLE `jenis_wisata` (
+  `id` int NOT NULL,
+  `jenis` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `kode_jenis` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- ----------------------------
 -- Table structure for paket_wisata
 -- ----------------------------
 DROP TABLE IF EXISTS `paket_wisata`;
@@ -44,7 +55,7 @@ CREATE TABLE `paket_wisata` (
   `nama_paket_wisata` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `jumlah_rombongan` int DEFAULT NULL,
   `harga` int DEFAULT NULL,
-  `jenis` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `id_jenis` int DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `img_paket_wisata` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -61,7 +72,6 @@ CREATE TABLE `pemesanan` (
   `date_pesanan` datetime DEFAULT NULL,
   `id_user` int DEFAULT NULL,
   `id_wisata` int DEFAULT NULL,
-  `nama_peserta` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `no_hp` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `jumlah_rombongan` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -93,6 +103,7 @@ CREATE TABLE `pembayaran` (
   `id` int NOT NULL AUTO_INCREMENT,
   `kode_pembayaran` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
   `id_pesanan` int DEFAULT NULL,
+  `nama_paket` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `total_biaya` int DEFAULT NULL,
   `metode_bayar` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `status_bayar` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
