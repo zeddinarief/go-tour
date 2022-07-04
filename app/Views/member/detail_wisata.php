@@ -267,7 +267,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="form-box">
+                <div class="form-box pb-3">
                     <h5 class="mb-4 mt-2">Pemesanan Paket Wisata</h5>
                     <div class="row">
                         <div class="col-md-4">
@@ -303,7 +303,7 @@
                                                 </div>
                                             </div>
                                             <select class="form-control" required>
-                                                <option>Silahkan pilih</option>
+                                                <option disabled="disabled" selected="selected">Silahkan pilih</option>
                                                 <option>Senin, 10 Juli 2022</option>
                                                 <option>Selasa, 11 Juli 2022</option>
                                                 <option>Rabu, 12 Juli 2022</option>
@@ -322,13 +322,13 @@
                     </div>
                     <div class="row mt-5">
                         <div class="col-sm-6">
-                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block  mb-2">
                                 <i class="icon-close ml-0"></i>
                                 Batal
                             </a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="<?= base_url() ?>/pesanan" class="btn btn-primary btn-block ">
+                            <a href="<?= base_url() ?>/pesanan" class="btn btn-primary btn-block mb-2 ">
                                 <i class="icon-shopping-cart"></i>
                                 Lakukan Pemesanan
                             </a>

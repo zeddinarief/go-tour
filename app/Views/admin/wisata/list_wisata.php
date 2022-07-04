@@ -54,7 +54,9 @@
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
-                                        <td><?= $value['img_paket_wisata'] ?></td>
+                                        <td style="max-width:60px"><img src="<?= base_url('img/wisata/' . $value['img_paket_wisata']) ?>"
+                                                class="img-fluid" alt=""></td>
+                                        <!-- <td><?= $value['img_paket_wisata'] ?></td> -->
                                         <td><?= $value['kode_paket_wisata'] ?></td>
                                         <td><?= $value['nama_paket_wisata'] ?></td>
                                         <td><?= $value['jumlah_rombongan'] ?></td>
@@ -97,6 +99,7 @@
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+
 </div>
 <!-- /.content-wrapper -->
 

@@ -21,9 +21,13 @@
                                 <li>
                                     Pilih salah satu paket wisata.
                                 </li>
-                                <li> Pilih opsi pembayaran.</li>
-                                <li> Unggah bukti pembayaran yang sesuai dengan nominal tertera pada paket wisata.</li>
-                                <li> Tunggu konfirmasi dari sistem bahwa pembayar Anda berhasil divalidasi.</li>
+                                <li> Isikan Data Tambahan</li>
+                                <li> Pilih opsi pembayaran dan lakukan pembayaran sesuai dengan nominal
+                                    tertera (bukti pembayaran mohon
+                                    disimpan)</li>
+                                <li> Unggah bukti pembayaran yang sebelumnya telah dilakukan.</li>
+                                <li> Tunggu konfirmasi dari sistem bahwa pembayar Anda berhasil divalidasi dan
+                                    setelahnya Anda akan dihubungi oleh admin kami.</li>
                             </ol>
                         </div>
                     </aside>
@@ -81,22 +85,25 @@
                                                         <a onclick="hapus_pesanan()"
                                                             class="btn btn-outline-primary btn-rounded btn-shadow"><i
                                                                 class="fa-solid fa-trash-can"></i><span>Hapus</span></a>
-                                                        <a href="#data-tambahan" data-toggle="modal"
+                                                        <!-- <a href="#data-tambahan" data-toggle="modal"
                                                             class="btn btn-outline-primary text-dark btn-rounded btn-shadow"><i
                                                                 class="fa-solid fa-pen-to-square"></i><span>Data
-                                                                Tambahan</span></a>
+                                                                Tambahan</span></a> -->
                                                     </div>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <a href="#data-tambahan" data-toggle="modal"
+                                        class="btn bg-primary text-white btn-rounded btn-shadow mb-2 mr-2"><i
+                                            class="fa-solid fa-pen-to-square"></i><span>1. Data Tambahan</span></a>
                                     <a href="#opsi-pembayaran" data-toggle="modal"
                                         class="btn bg-primary text-white btn-rounded btn-shadow mb-2 mr-2"><i
-                                            class="fa-solid fa-coins"></i><span>1. Pilih Opsi
+                                            class="fa-solid fa-coins"></i><span>2. Pilih Opsi
                                             Pembayaran</span></a>
                                     <a href="#unggah-bukti-pembayaran" data-toggle="modal"
                                         class="btn bg-primary text-white btn-rounded btn-shadow mb-2"><i
-                                            class="fa-solid fa-arrow-up-from-bracket "></i><span>2. Unggah Bukti
+                                            class="fa-solid fa-arrow-up-from-bracket "></i><span>3. Unggah Bukti
                                             Pembayaran</span></a>
                                 </div>
 
@@ -162,7 +169,10 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="form-box">
-                    <h5 class="mb-4 mt-2">Opsi Pembayaran</h5>
+                    <h5 class="mt-2">Opsi Pembayaran</h5>
+                    <h5 class="product-price mb-2 text-danger bg-gray p-2"> Nominal Pembayaran : <b>&nbsp;
+                            Rp 360.000,-</b>
+                    </h5>
                     <div class="col-12">
                         <ul class="nav nav-pills justify-content-center" id="tabs-6" role="tablist">
                             <li class="nav-item">
@@ -181,9 +191,7 @@
                         <div class="tab-content" id="tab-content-6">
                             <div class="tab-pane fade show active" id="tab-21" role="tabpanel"
                                 aria-labelledby="tab-21-tab">
-                                <img class="img-fluid"
-                                    src="https://baitulmal.acehprov.go.id/assets/img/news/paperless_-bayar-zakat-ke-bma-bisa-via-qris.jpeg"
-                                    alt="">
+                                <img class="img-fluid" src="assets/images/qr-code.jpg" alt="">
                             </div>
                             <div class="tab-pane fade" id="tab-22" role="tabpanel" aria-labelledby="tab-22-tab">
                                 <div class="row mt-3">
@@ -261,7 +269,7 @@
                     <div class="row mt-5">
 
                         <div class="col-sm-6 mx-auto">
-                            <a href="#" class="btn btn-primary btn-block ">
+                            <a href="#" data-dismiss="modal" class="btn btn-primary btn-block ">
                                 <i class="fa-solid fa-xmark ml-0"></i>
                                 Tutup
                             </a>
@@ -304,11 +312,36 @@
 
                                 <div class="product-details-footer">
                                     <div class="product-cat">
+                                        <span>Pilih pembayaran yang sudah digunakan</span>
+
+                                        <div class="w-100">
+
+                                            <div class="input-group mb-2 mt-1">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <p class="fa-solid fa-coins text-primary px-1"></p>
+                                                    </div>
+                                                </div>
+                                                <select class="form-control" required>
+                                                    <option disabled="disabled" selected="selected">Silahkan pilih
+                                                    </option>
+                                                    <option>Bank BCA</option>
+                                                    <option>Bank BRI</option>
+                                                    <option>Bank Mandiri</option>
+                                                    <option>GOPAY</option>
+                                                    <option>OVO</option>
+                                                    <option>DANA</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="product-cat">
                                         <span>Pastikan nominal pembayaran sudah benar. (format jpg, jpeg, png,
                                             atau pdf)</span>
 
                                     </div>
-                                    <div class="custom-file mt-2">
+                                    <div class="custom-file mt-1">
                                         <input type="file" class="custom-file-input" id="customFile">
                                         <label class="custom-file-label" for="customFile">Choose file</label>
                                     </div>
@@ -385,7 +418,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6">
-                            <a href="#" class="btn btn-primary btn-block ">
+                            <a data-dismiss="modal" class="btn btn-primary btn-block ">
                                 <i class="icon-close ml-0"></i>
                                 Tutup
                             </a>
