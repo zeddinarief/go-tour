@@ -131,7 +131,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?= ($menu == 'jenis_wisata' || $menu == 'wisata') ? 'menu-open': '' ?>">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-map-marked-alt pl-1">&nbsp;&nbsp;</i>
                                 <p>
@@ -139,9 +139,9 @@
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: none;">
+                            <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="<?= base_url() ?>/admin/jenis"
+                                    <a href="<?= base_url() ?>/admin/jenis_wisata"
                                         class="nav-link <?= ($menu == 'jenis_wisata') ? 'active': '' ?>">
                                         <i class="fas fa-pen pl-1">&nbsp;&nbsp;</i>
                                         <p>

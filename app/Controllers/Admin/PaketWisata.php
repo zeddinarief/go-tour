@@ -3,17 +3,20 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\JenisWisataModel;
 use App\Models\WisataModel;
 
 class PaketWisata extends BaseController
 {
 
     protected $wisataModel;
+    protected $jenisWisataModel;
 
     public function __construct()
     {
         // Call userModel fuction
         $this->wisataModel = new WisataModel();
+        $this->jenisWisataModel = new JenisWisataModel();
     }
     
     public function index() 
@@ -40,9 +43,11 @@ class PaketWisata extends BaseController
         }
 
         $wisata = $this->wisataModel->find($id);
+        $listJenis = $this->jenisWisataModel->findAll();
         
         $data = [
             'menu' => 'wisata',
+            'list_jenis' => $listJenis,
             'wisata' => $wisata
         ];
 
@@ -55,8 +60,11 @@ class PaketWisata extends BaseController
             return redirect()->to('admin/login');
         }
 
+        $listJenis = $this->jenisWisataModel->findAll();
+
         $data = [
             'menu' => 'wisata',
+            'list_jenis' => $listJenis,
             'validation' => \Config\Services::validation()
         ];
 
@@ -79,30 +87,20 @@ class PaketWisata extends BaseController
             $img->move('img/wisata', $namaImg);
         }
 
-        switch ($this->request->getVar('jenis')) {
-            case 'gunung':
-                $kode = 'G';
-                break;
-            case 'pantai':
-                $kode = 'P';
-                break;
-            
-            default:
-                break;
-        }
+        $jenis = $this->jenisWisataModel->find($this->request->getPost('id_jenis'));
 
         $this->wisataModel->save([
             'nama_paket_wisata' => $this->request->getVar('nama_paket'),
             'jumlah_rombongan' => $this->request->getVar('rombongan'),
             'harga' => $this->request->getVar('harga'),
-            'jenis' => $this->request->getVar('jenis'),
-            'date' => $this->request->getVar('date'),
+            'id_jenis' => $this->request->getVar('id_jenis'),
+            'date' => date('Y-m-d H:i:s'),
             'img_paket_wisata' => $namaImg
         ]);
         
         $id = $this->wisataModel->getInsertID();
 
-        $code = $this->getCode($kode, $id);
+        $code = $this->getCode($jenis['kode_jenis'], $id);
         $this->wisataModel->save([
             'id' => $id,
             'kode_paket_wisata' => $code

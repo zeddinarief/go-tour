@@ -54,7 +54,7 @@
                                         <td><?= $value['nama_paket_wisata'] ?></td>
                                         <td><?= $value['jumlah_rombongan'] ?></td>
                                         <td><?= $value['harga'] ?></td>
-                                        <td><?= $value['jenis'] ?></td>
+                                        <td><?= $value['id_jenis'] ?></td>
                                         <td><?= $value['date'] ?></td>
                                         <td>
                                             <a href="/admin/wisata/<?= $value['id'] ?>" type="button"

@@ -14,7 +14,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?= base_url() ?>/admin/wisata">Wisata</a></li>
-                        <li class="breadcrumb-item active">Detail</li>
+                        <li class="breadcrumb-item active">Add</li>
                     </ol>
                 </div>
             </div>
@@ -55,16 +55,11 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Jenis</label>
                                         <div class="col-sm-10">
-                                            <select name="jenis">
-                                                <option value="pantai">Pantai</option>
-                                                <option value="Gunung">Gunung</option>
+                                            <select class="form-control" name="id_jenis">
+                                                <?php foreach ($list_jenis as $jenis => $value) { ?>
+                                                    <option value="<?= $value['id'] ?>" <?= (old('id_jenis') == $value['id']) ? 'selected' : '' ?> ><?= $value['jenis'] ?></option>
+                                                <?php } ?>
                                             </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputSkills" class="col-sm-2 col-form-label">Tanggal</label>
-                                        <div class="col-sm-10">
-                                            <input type="datetime-local" class="form-control" name="date" value="<?= old('date') ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">

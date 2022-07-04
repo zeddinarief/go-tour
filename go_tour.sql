@@ -59,9 +59,9 @@ CREATE TABLE `paket_wisata` (
   `date` datetime DEFAULT NULL,
   `img_paket_wisata` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `kode_paket_wisata` (`kode_paket_wisata`)
-  KEY `id_jenis_fk` (`id_jenis`)
-  CONSTRAINT `id_jenis_fk` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_wisata` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  KEY `kode_paket_wisata` (`kode_paket_wisata`),
+  KEY `id_jenis_fk` (`id_jenis`),
+  CONSTRAINT `id_jenis_fk` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_wisata` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
@@ -74,12 +74,15 @@ CREATE TABLE `pemesanan` (
   `date_pesanan` datetime DEFAULT NULL,
   `id_user` int DEFAULT NULL,
   `id_wisata` int DEFAULT NULL,
+  `id_jadwal` int DEFAULT NULL,
   `no_hp` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `jumlah_rombongan` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kode_pesanan` (`kode_pesanan`),
   KEY `id_user_fk` (`id_user`),
   KEY `id_wisata_fk` (`id_wisata`),
+  KEY `id_jadwal_fk` (`id_jadwal`),
+  CONSTRAINT `id_jadwal_fk` FOREIGN KEY (`id_jadwal`) REFERENCES `jadwal_keberangkatan` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `id_user_fk` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `id_wisata_fk` FOREIGN KEY (`id_wisata`) REFERENCES `paket_wisata` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;

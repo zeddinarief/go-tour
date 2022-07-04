@@ -55,16 +55,17 @@
                                     <div class="form-group row">
                                         <label class="col-sm-2 col-form-label">Jenis</label>
                                         <div class="col-sm-10">
-                                            <select name="jenis">
-                                                <option value="Pantai" <?= (((old('jenis')) ? old('jenis') : $wisata['jenis']) == 'Pantai') ? 'selected' : '' ?>>Pantai</option>
-                                                <option value="Gunung" <?= (((old('jenis')) ? old('jenis') : $wisata['jenis']) == 'Gunung') ? 'selected' : '' ?>>Gunung</option>
+                                            <select class="form-control" name="id_jenis">
+                                                <?php foreach ($list_jenis as $jenis => $value) { ?>
+                                                    <option value="<?= $value['id'] ?>" <?= (((old('jenis')) ? old('jenis') : $wisata['id_jenis']) == $value['id']) ? 'selected' : '' ?> ><?= $value['jenis'] ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputSkills" class="col-sm-2 col-form-label">Tanggal</label>
                                         <div class="col-sm-10">
-                                            <input type="datetime-local" class="form-control" name="date" value="<?= (old('date')) ? old('date') : $wisata['date'] ?>">
+                                            <input type="text" disabled class="form-control" name="date" value="<?= (old('date')) ? old('date') : $wisata['date'] ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -82,6 +83,40 @@
                             </div>
                             <!-- /.tab-pane -->
                         </div><!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Jadwal Keberangkatan</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <a href="<?= base_url() ?>/admin/jenis_wisata/insert" style="margin-bottom: 10px;"
+                                class="btn btn-info"><i class="fa fa-plus"></i> Tambah</a>
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tanggal</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tanggal</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
                 </div>

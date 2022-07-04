@@ -19,44 +19,39 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                <?php if (session()->getFlashdata('data_added') !== NULL) { ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('data_added') ?>
+                    </div>
+                <?php } ?>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Daftar paket wisata</h3>
+                            <h3 class="card-title">Daftar jenis wisata</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="<?= base_url() ?>/admin/wisata/insert" style="margin-bottom: 10px;"
+                            <a href="<?= base_url() ?>/admin/jenis_wisata/insert" style="margin-bottom: 10px;"
                                 class="btn btn-info"><i class="fa fa-plus"></i> Tambah</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar</th>
+                                        <th>Jenis wisata</th>
                                         <th>Kode</th>
-                                        <th>Nama paket</th>
-                                        <th>Jumlah rombongan</th>
-                                        <th>Harga</th>
-                                        <th>Jenis</th>
-                                        <th>Tanggal</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
                                         $no = 1;
-                                        foreach ($daftar_wisata as $wisata => $value) { 
+                                        foreach ($daftar_jenis_wisata as $jenis => $value) { 
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
-                                        <td><?= $value['img_paket_wisata'] ?></td>
-                                        <td><?= $value['kode_paket_wisata'] ?></td>
-                                        <td><?= $value['nama_paket_wisata'] ?></td>
-                                        <td><?= $value['jumlah_rombongan'] ?></td>
-                                        <td><?= $value['harga'] ?></td>
                                         <td><?= $value['jenis'] ?></td>
-                                        <td><?= $value['date'] ?></td>
+                                        <td><?= $value['kode_jenis'] ?></td>
                                         <td>
-                                            <a href="/admin/wisata/<?= $value['id'] ?>" type="button"
+                                            <a href="/admin/jenis_wisata/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
                                         </td>
                                     </tr>
@@ -68,13 +63,8 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar</th>
+                                        <th>Jenis wisata</th>
                                         <th>Kode</th>
-                                        <th>Nama paket</th>
-                                        <th>Jumlah rombongan</th>
-                                        <th>Harga</th>
-                                        <th>Jenis</th>
-                                        <th>Tanggal</th>
                                         <th></th>
                                     </tr>
                                 </tfoot>
