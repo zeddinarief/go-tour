@@ -26,14 +26,26 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
+                    <?php if (session()->getFlashdata('data_edited') !== NULL) { ?>
+                        <div class="alert alert-success" role="alert">
+                            <?= session()->getFlashdata('data_edited') ?>
+                        </div>
+                    <?php } ?>
+                    <?php foreach ($validation->getErrors() as $err => $val) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= $val ?>
+                        </div>
+                    <?php } ?>
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Detail paket wisata</h3>
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-pane" id="settings">
-                                <form action="<?= base_url() ?>/admin/wisata/insert" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <form action="<?= base_url() ?>/admin/wisata/<?= $wisata['id'] ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
                                     <?= csrf_field() ?>
+                                    <input type="hidden" name="id" value="<?= $wisata['id'] ?>">
+                                    <input type="hidden" name="old_image_paket" value="<?= $wisata['img_paket_wisata'] ?>">
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Nama paket</label>
                                         <div class="col-sm-10">

@@ -13,7 +13,7 @@ class WisataModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['kode_paket_wisata', 'nama_paket_wisata', 'jumlah_rombongan', 'harga', 'jenis', 'date', 'img_paket_wisata'];
+    protected $allowedFields    = ['kode_paket_wisata', 'nama_paket_wisata', 'jumlah_rombongan', 'harga', 'id_jenis', 'date', 'img_paket_wisata'];
 
     // Dates
     protected $useTimestamps = false;

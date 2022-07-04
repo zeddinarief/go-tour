@@ -84,7 +84,10 @@ class JenisWisata extends BaseController
             return redirect()->to('/admin/jenis_wisata/insert')->withInput();
         }
 
-        $this->jenisWisataModel->save($this->request->getPost());
+        $this->jenisWisataModel->save([
+            'jenis' => $this->request->getPost('jenis'),
+            'kode_jenis' => strtoupper($this->request->getPost('kode_jenis'))
+        ]);
 
         return redirect()->to('admin/jenis_wisata')->with('data_added', 'Data berhasil ditambahkan');
     }

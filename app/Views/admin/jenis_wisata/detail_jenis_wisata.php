@@ -26,7 +26,16 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <span style="color: red;"><?= $validation->listErrors() ?></span>
+                    <?php if (session()->getFlashdata('data_edited') !== NULL) { ?>
+                        <div class="alert alert-success" role="alert">
+                            <?= session()->getFlashdata('data_edited') ?>
+                        </div>
+                    <?php } ?>
+                    <?php foreach ($validation->getErrors() as $err => $val) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= $val ?>
+                        </div>
+                    <?php } ?>
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Detail jenis wisata</h3>

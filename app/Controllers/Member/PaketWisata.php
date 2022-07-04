@@ -3,15 +3,18 @@
 namespace App\Controllers\Member;
 
 use App\Controllers\BaseController;
+use App\Models\JenisWisataModel;
 use App\Models\WisataModel;
 
 class PaketWisata extends BaseController
 {
 
     protected $wisataModel;
+    protected $jenisWisataModel;
     public function __construct()
     {
         $this->wisataModel = new WisataModel();
+        $this->jenisWisataModel = new JenisWisataModel();
     }
 
     public function index()
@@ -24,8 +27,16 @@ class PaketWisata extends BaseController
         return view('member/wisata', $data);
     }
 
-    public function detail()
+    public function detail($kode)
     {
-        return view('member/detail_wisata');
+        $wisata = $this->wisataModel->where(['kode_paket_wisata' => $kode])->first();
+        $jenisWisata = $this->jenisWisataModel->where(['id' => $wisata['id_jenis']])->first();
+
+        $data = [
+            'wisata' => $wisata,
+            'jenis_wisata' => $jenisWisata
+        ];
+
+        return view('member/detail_wisata', $data);
     }
 }

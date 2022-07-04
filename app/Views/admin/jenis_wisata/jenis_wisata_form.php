@@ -26,9 +26,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="alert alert-danger" role="alert">
-                        <?= $validation->listErrors() ?>
-                    </div>
+                    <?php foreach ($validation->getErrors() as $err => $val) { ?>
+                        <div class="alert alert-danger" role="alert">
+                            <?= $val ?>
+                        </div>
+                    <?php } ?>
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Tambah jenis wisata</h3>
@@ -40,13 +42,13 @@
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Jenis Wisata</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Jenis wisata" name="jenis" required>
+                                            <input type="text" class="form-control" placeholder="Jenis wisata" name="jenis" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="rombongan" class="col-sm-2 col-form-label">Kode Jenis</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="kode_jenis" placeholder="Ex: 'G', 'P', 'T'" required>
+                                            <input type="text" class="form-control" name="kode_jenis" placeholder="Ex: 'G', 'P', 'T'" >
                                         </div>
                                     </div>
 

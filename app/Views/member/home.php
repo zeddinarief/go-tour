@@ -191,7 +191,7 @@
                     <figure class="product-media">
                         <!-- <span class="product-label bg-danger text-white">Promo</span> -->
                         <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>">
-                            <img src="assets/images/gunung-panderman.jpg" alt="Product image" class="product-image">
+                            <img src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="Product image" class="product-image">
                         </a>
                         <div class="product-action">
                             <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>" class="btn-product"
@@ -202,7 +202,7 @@
                         <h3 class="product-title"><a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"><?= $value['nama_paket_wisata'] ?></a>
                         </h3>
                         <div class="product-price">
-                            <?= $value['harga'] ?>
+                            Rp <?= $value['harga'] ?>,-
                         </div>
                     </div>
                 </div>

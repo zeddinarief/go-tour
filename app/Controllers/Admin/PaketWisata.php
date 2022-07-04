@@ -48,7 +48,8 @@ class PaketWisata extends BaseController
         $data = [
             'menu' => 'wisata',
             'list_jenis' => $listJenis,
-            'wisata' => $wisata
+            'wisata' => $wisata,
+            'validation' => \Config\Services::validation()
         ];
 
         return view('admin/wisata/detail_wisata', $data);
@@ -69,6 +70,44 @@ class PaketWisata extends BaseController
         ];
 
         return view('admin/wisata/wisata_form', $data);
+    }
+
+    public function update($id)
+    {
+        if (!$this->validate([
+            'image_paket' => 'uploaded[image_paket]|max_size[image_paket,2048]|is_image[image_paket]|mime_in[image_paket,image/jpg,image/jpeg,image/png]'
+        ])) {
+            return redirect()->to('admin/wisata/' . $id)->withInput();
+        }
+
+        $img = $this->request->getFile('image_paket');        
+
+        if ($img->getError() !== 4) {
+            $namaImg = $img->getName();
+
+            $img->move('img/wisata', $namaImg);
+        } else {
+            $namaImg = $this->request->getPost('old_image_paket');
+        }
+
+        $jenis = $this->jenisWisataModel->find($this->request->getPost('id_jenis'));
+
+        $this->wisataModel->save([
+            'nama_paket_wisata' => $this->request->getVar('nama_paket'),
+            'jumlah_rombongan' => $this->request->getVar('rombongan'),
+            'harga' => $this->request->getVar('harga'),
+            'id_jenis' => $this->request->getVar('id_jenis'),
+            'img_paket_wisata' => $namaImg
+        ]);
+        
+        $id = $this->wisataModel->getInsertID();
+
+        $code = $this->getCode($jenis['kode_jenis'], $id);
+        $this->wisataModel->save([
+            'id' => $id,
+            'kode_paket_wisata' => $code
+        ]);
+        return redirect()->to('admin/wisata/' . $id)->with('data_edited', 'Data berhasil diubah');
     }
 
     public function save()
@@ -105,7 +144,7 @@ class PaketWisata extends BaseController
             'id' => $id,
             'kode_paket_wisata' => $code
         ]);
-        return redirect()->to('admin/wisata');
+        return redirect()->to('admin/wisata')->with('data_added', 'Data berhasil ditambahkan');
     }
 
     public function getCode($jenis, $id)
