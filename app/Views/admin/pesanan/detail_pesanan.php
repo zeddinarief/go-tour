@@ -8,13 +8,10 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1>Pesanan</h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
+                <div class="col-12">
+                    <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="<?= base_url() ?>/admin/pesanan">Pesanan</a></li>
-                        <li class="breadcrumb-item active">Detail</li>
+                        <li class="breadcrumb-item active">Detail Pesanan</li>
                     </ol>
                 </div>
             </div>
@@ -28,54 +25,144 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Detail pesanan</h3>
+                            <blockquote class="quote-info mt-0 mb-0 ml-0">
+                                <h5 id="tip">Detail Pesanan</h5>
+                                <p>Berikut adalah informasi terkait detail pesanan</p>
+                            </blockquote>
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-pane" id="settings">
-                                <form action="<?= base_url() ?>/admin/pesanan/insert" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <form action="<?= base_url() ?>/admin/pesanan/insert" enctype="multipart/form-data"
+                                    method="post" class="form-horizontal">
                                     <?= csrf_field() ?>
                                     <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Nama paket</label>
+                                        <label for="inputName" class="col-sm-2 col-form-label">Kode Pesanan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Nama paket" name="nama_paket" value="" required>
+                                            <input type="text" class="form-control" placeholder="Kode Pesanan"
+                                                name="kode_pesanan" value="GN-0722P051" disabled required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="rombongan" class="col-sm-2 col-form-label">Jumlah rombongan</label>
+                                        <label for="inputName" class="col-sm-2 col-form-label">Waktu
+                                            Pesanan</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" name="rombongan" value="" required>
+                                            <input type="text" class="form-control" placeholder="Waktu Pembayaran"
+                                                name="waktu_pembayaran" value="2 Juni 2022 14:34" disabled required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="harga" class="col-sm-2 col-form-label">Harga</label>
+                                        <label for="inputName" class="col-sm-2 col-form-label">Nama Member
+                                            Pemesan</label>
                                         <div class="col-sm-10">
-                                            <input type="tel" class="form-control" placeholder="Harga" pattern="[0-9]*" name="harga" value="" required>
+                                            <input type="text" class="form-control" placeholder="Nama Member Pemesan"
+                                                name="nama_pemesan" value="Agus Nur Hadi" disabled required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Jenis</label>
+                                        <label for="inputName" class="col-sm-2 col-form-label">Nama Paket Wisata</label>
                                         <div class="col-sm-10">
-                                            <select name="jenis">
-                                                <option value="Pantai">Pantai</option>
-                                                <option value="Gunung">Gunung</option>
-                                            </select>
+                                            <input type="text" class="form-control" placeholder="Nama Paket WIsata"
+                                                name="nama_wisata" value="Trip Gunung Butak" disabled required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="inputSkills" class="col-sm-2 col-form-label">Tanggal</label>
+                                        <label for="inputName" class="col-sm-2 col-form-label">Harga Paket
+                                            Wisata</label>
                                         <div class="col-sm-10">
-                                            <input type="datetime-local" class="form-control" name="date" value="">
+                                            <input type="text" class="form-control" placeholder="Harga Paket Wisata"
+                                                name="harga_wisata" value="Rp 350.000,-" disabled required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Image</label>
+                                        <label for="inputName" class="col-sm-2 col-form-label">Kuota Anggota
+                                            Rombongan</label>
                                         <div class="col-sm-10">
-                                            <input type="file" class="form-control" name="image_paket">
+                                            <input type="text" class="form-control" placeholder="Harga Paket Wisata"
+                                                name="kuota_anggota_rombongan" value="Maksimal 3 Orang" disabled
+                                                required>
                                         </div>
                                     </div>
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Nama Koordinator
+                                            Wisata</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Nama Member Pemesan"
+                                                name="nama_pemesan" value="Agus Nur Hadi" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">No Telp
+                                            Koordinator</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Nomor Telp Koordinator"
+                                                name="no_telp_koordinator" value="086765615444" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Nama - Nama Peserta
+                                            Wisata</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control"
+                                                placeholder="Nama - Nama Peserta Wisata" name="nama_peserta"
+                                                value="Agus Nur Hadi, Bagaskoro Anugerah, Nur Wahidah" disabled
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Metode Pembayaran</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Metodee Pembayaran"
+                                                name="metode_pembayaran" value="Transfer Bank BRI" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Status Pembayaran</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="Status Pembayaran"
+                                                name="status_pembayaran" value="Sudah Melakukan Pembayaran" disabled
+                                                required>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Bukti Pembayaran</label>
+                                        <div class="col-sm-10">
+                                            <div class="row">
+                                                <div class="col-md-6 col-12">
+                                                    <img src="https://www.jagel.id/api/listimage/v/Bukti-Kirim-Dan-Bukti-Transfer-0-2825bf08e67ee555.jpg"
+                                                        class="img-fluid" alt="">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-5">
+                                        <label for="inputName" class="col-sm-2 col-form-label">Bagaimana hasil
+                                            konfirmasi pembayaran?</label>
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios"
+                                                    id="exampleRadios1" value="option1">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    <b>Pembayaran valid</b>, nominal bukti pembayaran sudah sesuai.
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios"
+                                                    id="exampleRadios3" value="option3">
+                                                <label class="form-check-label" for="exampleRadios3">
+                                                    <b>Pembayaran tidak valid</b>, ada ketidaksesuaian pada pembayaran.
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-info">Submit</button>
+                                            <button type="submit" class="btn btn-success mt-5">Simpan Konfirmasi
+                                                Pembayaran</button>
                                         </div>
                                     </div>
                                 </form>

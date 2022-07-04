@@ -33,4 +33,13 @@ class Member extends BaseController
 
         return view('admin/list_member', $data);
     }
+
+    public function detail($id)
+    {
+        $data = [
+            'menu' => 'member'
+        ];
+
+        return view('admin/member/detail_member', $data);
+    }
 }

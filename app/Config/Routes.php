@@ -58,6 +58,7 @@ $routes->get('/admin/wisata/(:num)', 'Admin\PaketWisata::detail/$1', ['as' => 'a
 $routes->get('/admin/pesanan/(:num)', 'Admin\Pesanan::detail/$1', ['as' => 'admin.pesanan_detail']); // Go to detail pesanan admin
 $routes->get('/admin/pembayaran/(:num)', 'Admin\Pembayaran::detail/$1', ['as' => 'admin.pembayaran_detail']); // Go to detail pesanan admin
 $routes->get('/admin/jenis', 'Admin\JenisWisata::index', ['as' => 'admin.jenis_wisata']); // Go to list jenis wisata admin
+$routes->get('/admin/member/(:num)', 'Admin\Member::detail/$1', ['as' => 'admin.member_detail']); // Go to detail member
 /*
  * --------------------------------------------------------------------
  * Additional Routing
