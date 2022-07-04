@@ -29,14 +29,13 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar</th>
-                                        <th>Kode</th>
-                                        <th>Nama paket</th>
-                                        <th>Jumlah rombongan</th>
-                                        <th>Harga</th>
-                                        <th>Jenis</th>
-                                        <th>Tanggal</th>
-                                        <th></th>
+                                        <th>Kode Pembayaran</th>
+                                        <th>Kode Pesanan</th>
+                                        <th>Nama Paket</th>
+                                        <th>Harga Paket</th>
+                                        <th>Status Pembayaran</th>
+                                        <th>Tanggal Pembayaran</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,14 +65,13 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar</th>
-                                        <th>Kode</th>
-                                        <th>Nama paket</th>
-                                        <th>Jumlah rombongan</th>
-                                        <th>Harga</th>
-                                        <th>Jenis</th>
-                                        <th>Tanggal</th>
-                                        <th></th>
+                                        <th>Kode Pembayaran</th>
+                                        <th>Kode Pesanan</th>
+                                        <th>Nama Paket</th>
+                                        <th>Harga Paket</th>
+                                        <th>Status Pembayaran</th>
+                                        <th>Tanggal Pembayaran</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </tfoot>
                             </table>

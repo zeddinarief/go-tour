@@ -33,4 +33,41 @@ class Member extends BaseController
 
         return view('admin/list_member', $data);
     }
+
+    public function detail($id)
+    {
+        if ($this->session->get('isLogin') != 'yes' || $this->session->get('role') != 'admin') {
+            return redirect()->to('admin/login');
+        }
+
+        $member = $this->userModel->find($id);
+
+        $data = [
+            'menu' => 'member',
+            'validation' => \Config\Services::validation(),
+            'member' => $member
+        ];
+
+        return view('admin/member/detail_member', $data);
+    }
+
+    public function update($id)
+    {
+        if (!$this->validate([
+            'nama' => 'required',
+            'email' => 'required|valid_email',
+            'username' => [
+                'rules' => 'required|is_unique[user.username,id,{id}]',
+                'errors' => [
+                    'is_unique' => 'The username already exist.'
+                ]
+            ]
+        ])) {
+            return redirect()->to('/admin/member/' . $id)->withInput();
+        }
+
+        $this->userModel->save($this->request->getPost());
+
+        return redirect()->to('/admin/member/' . $id);
+    }
 }
