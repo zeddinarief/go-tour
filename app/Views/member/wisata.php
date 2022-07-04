@@ -47,12 +47,14 @@
                                                 class="product-image">
                                         </a>
                                         <div class="product-action">
-                                            <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>" class="btn-product btn-quickview"
-                                                title="Quick view"><span>Selengkapnya</span></a>
+                                            <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"
+                                                class="btn-product" title="Quick view"><span>Selengkapnya</span></a>
                                         </div>
                                     </figure>
                                     <div class="product-body">
-                                        <h3 class="product-title"><a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"><?= $value['nama_paket_wisata'] ?></a></h3>
+                                        <h3 class="product-title"><a
+                                                href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"><?= $value['nama_paket_wisata'] ?></a>
+                                        </h3>
                                         <div class="product-price">
                                             <?= $value['harga'] ?>
                                         </div>
