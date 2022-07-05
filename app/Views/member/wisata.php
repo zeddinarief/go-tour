@@ -41,10 +41,12 @@
                             <div class="product-item gunung col-6 col-md-4 col-lg-4">
                                 <div class="product product-4">
                                     <figure class="product-media">
-                                        <!-- <span class="product-label bg-danger text-white">Promo</span> -->
+                                        <span class="product-label bg-danger text-white"><i
+                                                class="fa-solid fa-user-group fa-xs"></i>
+                                            <?= $value['jumlah_rombongan'] ?> Orang</span>
                                         <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>">
-                                            <img src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="Product image"
-                                                class="product-image">
+                                            <img src="<?= base_url('img/wisata/' . $value['img_paket_wisata']) ?>"
+                                                alt="Product image" class="product-image">
                                         </a>
                                         <div class="product-action">
                                             <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"
