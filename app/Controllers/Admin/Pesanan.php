@@ -17,7 +17,6 @@ class Pesanan extends BaseController
     public function index()
     {
         $listPesanan = $this->pesananModel->getAllPesanan();
-        dd($listPesanan);
 
         $data = [
             'menu' => 'pesanan',

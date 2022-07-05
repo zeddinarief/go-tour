@@ -40,6 +40,7 @@ $routes->post('/register', 'Member\Auth::save'); // action register member
 $routes->get('/wisata', 'Member\PaketWisata::index'); // Go to list wisata 
 $routes->get('/wisata/(:alphanum)', 'Member\PaketWisata::detail/$1'); // Go to detail wisata 
 $routes->get('/pesanan', 'Member\Pesanan::index'); // Go to Pesanan page
+$routes->post('/pesanan', 'Member\Pesanan::save'); // Action add Pesanan page
 $routes->get('/profile', 'Member\User::index'); // Go to Pesanan page
 $routes->post('/profile/data', 'Member\User::updateProfile'); // Action update profile data
 $routes->post('/profile/password', 'Member\User::updatePassword'); // Action update profile password

@@ -60,22 +60,20 @@
                                                 <td class="product-col">
                                                     <div class="product">
                                                         <figure class="product-media">
-                                                            <a href="<?= base_url() ?>/wisata/detail"><img
-                                                                    src="assets/images/gunung-panderman.jpg"
+                                                            <a href="<?= base_url() ?>/wisata/<?= $wisata['id'] ?>"><img
+                                                                    src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
                                                                     alt="Product image"> </a>
                                                         </figure>
                                                         <h2 class="product-title w-100">
-                                                            <a href="<?= base_url() ?>/wisata/detail">Trip Gunung
-                                                                Panderman</a> <br>
+                                                            <a href="<?= base_url() ?>/wisata/<?= $wisata['id'] ?>"><?= $wisata['nama_paket_wisata'] ?></a> <br>
                                                             <span class="small text-muted pr-3"><i
-                                                                    class="fa-solid fa-user-group fa-xs"></i> 3
+                                                                    class="fa-solid fa-user-group fa-xs"></i> <?= $wisata['jumlah_rombongan'] ?>
                                                                 Orang</span><br> <span class="small text-muted"><i
-                                                                    class="fa-solid fa-calendar-check"></i> Senin, 10
-                                                                Juli 2022</span>
+                                                                    class="fa-solid fa-calendar-check"></i> <?= $jadwal['date'] ?></span>
                                                         </h2>
                                                     </div>
                                                 </td>
-                                                <td class="text-left">Rp 350.000,-</td>
+                                                <td class="text-left">Rp <?= $wisata['harga'] ?>,-</td>
                                                 <td class="text-left">
                                                     <span class="text-danger"><i class="fa-regular fa-clock"></i> Belum
                                                         Lunas</span>

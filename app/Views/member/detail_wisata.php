@@ -273,75 +273,74 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
-                <div class="form-box pb-3">
-                    <h5 class="mb-4 mt-2">Pemesanan Paket Wisata</h5>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="product-gallery">
-                                <figure class="product-main-image">
-                                    <img id="product-zoom" src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
-                                        data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="product image">
-                                </figure>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-8 pl-4">
-                            <div class="product-details">
-                                <span class="bg-gray ml-1 px-3">Kategori : <?= $jenis_wisata['jenis'] ?></span>
-                                <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i>
-                                    <?= $wisata['jumlah_rombongan'] ?>
-                                    Orang</span>
-                                <h3 class="mt-2"><?= $wisata['nama_paket_wisata'] ?></h3>
-                                <div class="product-price mb-2">
-                                    Rp <?= $wisata['harga'] ?>,-
+                <form action="<?= base_url() ?>/pesanan" method="post">
+                    <input type="hidden" name="id_wisata" value="<?= $wisata['id'] ?>">
+                    <div class="form-box pb-3">
+                        <h5 class="mb-4 mt-2">Pemesanan Paket Wisata</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="product-gallery">
+                                    <figure class="product-main-image">
+                                        <img id="product-zoom" src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                            data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="product image">
+                                    </figure>
+    
                                 </div>
-
-
-                                <div class="product-cat">
-                                    <p class="mb-1">Pilih tanggal wisata Anda :</p>
-                                    <div class="w-100">
-                                        <label class="sr-only" for="inlineFormInputGroup">Pilih tanggal wisata Anda
-                                            :</label>
-                                        <div class="input-group mb-2">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text">
-                                                    <p class="fa-solid fa-calendar-days text-primary px-1"></p>
+                            </div>
+    
+                            <div class="col-md-8 pl-4">
+                                <div class="product-details">
+                                    <span class="bg-gray ml-1 px-3">Kategori : <?= $jenis_wisata['jenis'] ?></span>
+                                    <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i>
+                                        <?= $wisata['jumlah_rombongan'] ?>
+                                        Orang</span>
+                                    <h3 class="mt-2"><?= $wisata['nama_paket_wisata'] ?></h3>
+                                    <div class="product-price mb-2">
+                                        Rp <?= $wisata['harga'] ?>,-
+                                    </div>
+    
+    
+                                    <div class="product-cat">
+                                        <p class="mb-1">Pilih tanggal wisata Anda :</p>
+                                        <div class="w-100">
+                                            <label class="sr-only" for="inlineFormInputGroup">Pilih tanggal wisata Anda
+                                                :</label>
+                                            <div class="input-group mb-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text">
+                                                        <p class="fa-solid fa-calendar-days text-primary px-1"></p>
+                                                    </div>
                                                 </div>
+                                                <select class="form-control" name="id_jadwal" required>
+                                                    <option disabled="disabled" selected="selected">Silahkan pilih</option>
+                                                    <?php foreach ($list_jadwal as $jadwal => $value) { ?>
+                                                        <option value="<?= $value['id'] ?>"><?= $value['date'] ?></option>
+                                                    <?php } ?>
+                                                </select>
                                             </div>
-                                            <select class="form-control" required>
-                                                <option disabled="disabled" selected="selected">Silahkan pilih</option>
-                                                <option>Senin, 10 Juli 2022</option>
-                                                <option>Selasa, 11 Juli 2022</option>
-                                                <option>Rabu, 12 Juli 2022</option>
-                                                <option>Kamis, 13 Juli 2022</option>
-                                                <option>Jum'at, 14 Juli 2022</option>
-                                                <option>Sabtu, 15 Juli 2022</option>
-                                                <option>Minggu, 16 Juli 2022</option>
-                                            </select>
                                         </div>
                                     </div>
+    
                                 </div>
-
+                            </div>
+    
+                        </div>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block  mb-2">
+                                    <i class="icon-close ml-0"></i>
+                                    Batal
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-primary btn-block mb-2 ">
+                                    <i class="icon-shopping-cart"></i>
+                                    Lakukan Pemesanan
+                                </button>
                             </div>
                         </div>
-
                     </div>
-                    <div class="row mt-5">
-                        <div class="col-sm-6">
-                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block  mb-2">
-                                <i class="icon-close ml-0"></i>
-                                Batal
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="<?= base_url() ?>/pesanan" class="btn btn-primary btn-block mb-2 ">
-                                <i class="icon-shopping-cart"></i>
-                                Lakukan Pemesanan
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

@@ -14,7 +14,7 @@ class PesananModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['kode_pesanan', 'date_pesanan', 'id_user', 'id_wisata', 'id_jadwal', 'no_hp', 'jumlah_rombongan'];
 
     // Dates
     protected $useTimestamps = false;

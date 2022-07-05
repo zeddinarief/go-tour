@@ -151,7 +151,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
+                                    <?php 
+                                        $no = 1;
+                                        foreach ($list_jadwal as $jadwal => $value) { 
+                                    ?>
+                                    <tr>
+                                        <td><?= $no ?></td>
+                                        <td><?= $value['date'] ?></td>
+                                        <td><?= $value['id_pembayaran'] ?></td>
+                                        <td>
+                                            <a href="#hapus-data" data-toggle="modal" type="button"
+                                                class="btn btn-block btn-danger">Hapus</a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                            $no++; 
+                                        } 
+                                    ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -230,7 +246,7 @@
                             <div class="form-group">
                                 <label for="selectDate">Pilih Tanggal Operasional Wisata</label> <br>
                                 <!-- <input id="selectDate" type="text" class="form-control " name="date" /> -->
-                                <input class="form-control" type="date" name="date" required>
+                                <input class="form-control" type="datetime-local" name="date" required>
                             </div>
 
                         </div>
@@ -238,7 +254,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary" type="submit">Simpan Data</button>
+                    <button class="btn btn-primary" type="submit">Simpan Data</button>
                 </div>
             </form>
         </div>
