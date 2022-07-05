@@ -75,7 +75,7 @@ class PaketWisata extends BaseController
     public function update($id)
     {
         if (!$this->validate([
-            'image_paket' => 'uploaded[image_paket]|max_size[image_paket,2048]|is_image[image_paket]|mime_in[image_paket,image/jpg,image/jpeg,image/png]'
+            'image_paket' => 'max_size[image_paket,2048]|is_image[image_paket]|mime_in[image_paket,image/jpg,image/jpeg,image/png]'
         ])) {
             return redirect()->to('admin/wisata/' . $id)->withInput();
         }
@@ -91,22 +91,18 @@ class PaketWisata extends BaseController
         }
 
         $jenis = $this->jenisWisataModel->find($this->request->getPost('id_jenis'));
-
+        $code = $this->getCode($jenis['kode_jenis'], $id);
+        
         $this->wisataModel->save([
+            'id' => $this->request->getVar('id'),
+            'kode_paket_wisata' => $code,
             'nama_paket_wisata' => $this->request->getVar('nama_paket'),
             'jumlah_rombongan' => $this->request->getVar('rombongan'),
             'harga' => $this->request->getVar('harga'),
             'id_jenis' => $this->request->getVar('id_jenis'),
             'img_paket_wisata' => $namaImg
         ]);
-        
-        $id = $this->wisataModel->getInsertID();
 
-        $code = $this->getCode($jenis['kode_jenis'], $id);
-        $this->wisataModel->save([
-            'id' => $id,
-            'kode_paket_wisata' => $code
-        ]);
         return redirect()->to('admin/wisata/' . $id)->with('data_edited', 'Data berhasil diubah');
     }
 

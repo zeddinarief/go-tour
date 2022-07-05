@@ -273,8 +273,8 @@
                         <div class="col-md-4">
                             <div class="product-gallery">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="assets/images/gunung-butak.jpg"
-                                        data-zoom-image="assets/images/gunung-butak.jpg" alt="product image">
+                                    <img id="product-zoom" src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                        data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="product image">
                                 </figure>
 
                             </div>
@@ -282,12 +282,12 @@
 
                         <div class="col-md-8 pl-4">
                             <div class="product-details">
-                                <span class="bg-gray ml-1 px-3">Kategori : Gunung</span>
+                                <span class="bg-gray ml-1 px-3">Kategori : <?= $jenis_wisata['jenis'] ?></span>
                                 <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> 3
                                     Orang</span>
-                                <h3 class="mt-2">Trip Gunung Butak</h3>
+                                <h3 class="mt-2"><?= $wisata['nama_paket_wisata'] ?></h3>
                                 <div class="product-price mb-2">
-                                    Rp 360.000,-
+                                    Rp <?= $wisata['harga'] ?>,-
                                 </div>
 
 
