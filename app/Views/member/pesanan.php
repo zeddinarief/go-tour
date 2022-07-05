@@ -401,10 +401,15 @@
 
                                 <div class="product-details-footer">
                                     <div class="product-cat">
-                                        <span>Status Pembayaran :</span>
-                                        <span class="text-success"><i class="fa-regular fa-circle-check"></i>
-                                            Sudah
-                                            Lunas</span>
+                                        <p class="mb-1">Pembayaran Melalui :
+                                            <i class="fa-solid fa-coins"></i>
+                                            Bank Mandiri
+                                        </p>
+                                        <p>Status Pembayaran :
+                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i>
+                                                Sudah
+                                                Lunas</span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -418,7 +423,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6">
-                            <a data-dismiss="modal" class="btn btn-primary btn-block ">
+                            <a data-dismiss="modal" class="btn btn-primary text-white btn-block ">
                                 <i class="icon-close ml-0"></i>
                                 Tutup
                             </a>

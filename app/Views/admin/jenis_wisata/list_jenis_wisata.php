@@ -19,11 +19,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                <?php if (session()->getFlashdata('data_added') !== NULL) { ?>
+                    <?php if (session()->getFlashdata('data_added') !== NULL) { ?>
                     <div class="alert alert-success" role="alert">
                         <?= session()->getFlashdata('data_added') ?>
                     </div>
-                <?php } ?>
+                    <?php } ?>
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Daftar jenis wisata</h3>
@@ -53,6 +53,8 @@
                                         <td>
                                             <a href="/admin/jenis_wisata/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
+                                            <a href="#hapus-data" data-toggle="modal" type="button"
+                                                class="btn btn-block btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php

@@ -21,9 +21,9 @@
             <div class="row">
                 <div class="col-12">
                     <?php if (session()->getFlashdata('data_added') !== NULL) { ?>
-                        <div class="alert alert-success" role="alert">
-                            <?= session()->getFlashdata('data_added') ?>
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('data_added') ?>
+                    </div>
                     <?php } ?>
                     <div class="card">
                         <div class="card-header">
@@ -54,7 +54,8 @@
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
-                                        <td style="max-width:60px"><img src="<?= base_url('img/wisata/' . $value['img_paket_wisata']) ?>"
+                                        <td style="max-width:60px"><img
+                                                src="<?= base_url('img/wisata/' . $value['img_paket_wisata']) ?>"
                                                 class="img-fluid" alt=""></td>
                                         <!-- <td><?= $value['img_paket_wisata'] ?></td> -->
                                         <td><?= $value['kode_paket_wisata'] ?></td>
@@ -66,6 +67,8 @@
                                         <td>
                                             <a href="/admin/wisata/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
+                                            <a href="#hapus-data" data-toggle="modal" type="button"
+                                                class="btn btn-block btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php
