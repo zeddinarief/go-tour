@@ -255,7 +255,7 @@
 
     <script>
     $(function() {
-        $('input[name="datefilter"]').daterangepicker({
+        $('#selectDate').daterangepicker({
             singleDatePicker: true,
             showDropdowns: true,
             minYear: 1901,

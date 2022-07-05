@@ -65,6 +65,7 @@ $routes->get('/admin/jenis_wisata/(:num)', 'Admin\JenisWisata::detail/$1'); // G
 $routes->post('/admin/jenis_wisata/(:num)', 'Admin\JenisWisata::update/$1'); // Action update jenis wisata admin
 $routes->get('/admin/member/(:num)', 'Admin\Member::detail/$1', ['as' => 'admin.member_detail']); // Go to detail member
 $routes->post('/admin/member/(:num)', 'Admin\Member::update/$1'); // Go to detail member
+$routes->post('/admin/jadwal/insert', 'Admin\PaketWisata::addJadwal'); // Go to detail member
 
 /*
  * --------------------------------------------------------------------

@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\JadwalKeberangkatanModel;
 use App\Models\JenisWisataModel;
 use App\Models\WisataModel;
 
@@ -11,12 +12,14 @@ class PaketWisata extends BaseController
 
     protected $wisataModel;
     protected $jenisWisataModel;
+    protected $jadwalModel;
 
     public function __construct()
     {
         // Call userModel fuction
         $this->wisataModel = new WisataModel();
         $this->jenisWisataModel = new JenisWisataModel();
+        $this->jadwalModel = new JadwalKeberangkatanModel();
     }
     
     public function index() 
@@ -44,11 +47,13 @@ class PaketWisata extends BaseController
 
         $wisata = $this->wisataModel->find($id);
         $listJenis = $this->jenisWisataModel->findAll();
+        $listJadwal = $this->jadwalModel->where(['id_paket_wisata' => $id])->findAll();
         
         $data = [
             'menu' => 'wisata',
             'list_jenis' => $listJenis,
             'wisata' => $wisata,
+            'list_jadwal' => $listJadwal,
             'validation' => \Config\Services::validation()
         ];
 
@@ -92,7 +97,7 @@ class PaketWisata extends BaseController
 
         $jenis = $this->jenisWisataModel->find($this->request->getPost('id_jenis'));
         $code = $this->getCode($jenis['kode_jenis'], $id);
-        
+
         $this->wisataModel->save([
             'id' => $this->request->getVar('id'),
             'kode_paket_wisata' => $code,
@@ -143,7 +148,17 @@ class PaketWisata extends BaseController
         return redirect()->to('admin/wisata')->with('data_added', 'Data berhasil ditambahkan');
     }
 
-    public function getCode($jenis, $id)
+    public function addJadwal()
+    {)
+        $this->jadwalModel->save([
+            'id_paket_wisata' => $this->request->getVar('id_wisata'),
+            'date' => $this->request->getVar('date')
+        ]);
+
+        return redirect()->to('admin/wisata/' . $this->request->getVar('id_wisata'))->with('jadwal_added', 'Jadwal berhasil ditambahkan');
+    }
+
+    public function getCode($jenis, $id) // This function is used for generate kode
     {
         $idUser = strval($id);
         $res = $jenis;

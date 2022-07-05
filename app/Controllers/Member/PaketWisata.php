@@ -34,10 +34,12 @@ class PaketWisata extends BaseController
     {
         $wisata = $this->wisataModel->where(['kode_paket_wisata' => $kode])->first();
         $jenisWisata = $this->jenisWisataModel->where(['id' => $wisata['id_jenis']])->first();
+        $listJadwal = $this->jadwalModel->where(['id_paket_wisata' => $wisata['id']])->findAll();
 
         $data = [
             'wisata' => $wisata,
-            'jenis_wisata' => $jenisWisata
+            'jenis_wisata' => $jenisWisata,
+            'list_jadwal' => $listJadwal
         ];
 
         return view('member/detail_wisata', $data);

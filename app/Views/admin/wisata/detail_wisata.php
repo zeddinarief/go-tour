@@ -126,6 +126,12 @@
                     </div>
                     <!-- /.card -->
 
+                    <?php if (session()->getFlashdata('jadwal_added') !== NULL) { ?>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('jadwal_added') ?>
+                    </div>
+                    <?php } ?>
+
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Jadwal Keberangkatan</h3>
@@ -145,7 +151,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -201,37 +207,40 @@
 <div class="modal fade" id="jadwal-wisata" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tanggal Operasional Wiasta</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post">
-                    <div class="form-group">
-                        <!-- <div class="form-group">
-                            <label for="exampleFormControlSelect1">Jumlah Hari Per-Operasional</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>1 Hari</option>
-                                <option>2 hari</option>
-                                <option>3 Hari</option>
-                                <option>4 Hari</option>
-                                <option>5 hari</option>
-                            </select>
-                        </div> -->
+            <form action="<?= base_url() ?>/admin/jadwal/insert" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tanggal Operasional Wiasta</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                        <input type="hidden" name="id_wisata" value="<?= $wisata['id'] ?>">
                         <div class="form-group">
-                            <label for="selectDate">Pilih Tanggal Operasional Wisata</label> <br>
-                            <input id="selectDate" type="text" class="form-control " name="datefilter" value="" />
-                        </div>
+                            <!-- <div class="form-group">
+                                <label for="exampleFormControlSelect1">Jumlah Hari Per-Operasional</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>1 Hari</option>
+                                    <option>2 hari</option>
+                                    <option>3 Hari</option>
+                                    <option>4 Hari</option>
+                                    <option>5 hari</option>
+                                </select>
+                            </div> -->
+                            <div class="form-group">
+                                <label for="selectDate">Pilih Tanggal Operasional Wisata</label> <br>
+                                <!-- <input id="selectDate" type="text" class="form-control " name="date" /> -->
+                                <input class="form-control" type="date" name="date" required>
+                            </div>
 
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                <button type="button" class="btn btn-primary" name="submit" type="submit">Simpan Data</button>
-            </div>
+                        </div>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary" type="submit">Simpan Data</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
