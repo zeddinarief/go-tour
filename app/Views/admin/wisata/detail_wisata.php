@@ -27,14 +27,14 @@
             <div class="row">
                 <div class="col-12">
                     <?php if (session()->getFlashdata('data_edited') !== NULL) { ?>
-                        <div class="alert alert-success" role="alert">
-                            <?= session()->getFlashdata('data_edited') ?>
-                        </div>
+                    <div class="alert alert-success" role="alert">
+                        <?= session()->getFlashdata('data_edited') ?>
+                    </div>
                     <?php } ?>
                     <?php foreach ($validation->getErrors() as $err => $val) { ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?= $val ?>
-                        </div>
+                    <div class="alert alert-danger" role="alert">
+                        <?= $val ?>
+                    </div>
                     <?php } ?>
                     <div class="card">
                         <div class="card-header">
@@ -42,11 +42,13 @@
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-pane" id="settings">
-                                <form action="<?= base_url() ?>/admin/wisata/<?= $wisata['id'] ?>" enctype="multipart/form-data" method="post" class="form-horizontal">
+                                <form action="<?= base_url() ?>/admin/wisata/<?= $wisata['id'] ?>"
+                                    enctype="multipart/form-data" method="post" class="form-horizontal">
                                     <?= csrf_field() ?>
 
                                     <input type="hidden" name="id" value="<?= $wisata['id'] ?>">
-                                    <input type="hidden" name="old_image_paket" value="<?= $wisata['img_paket_wisata'] ?>">
+                                    <input type="hidden" name="old_image_paket"
+                                        value="<?= $wisata['img_paket_wisata'] ?>">
                                     <div class="row">
                                         <div class="col-12 col-md-3">
                                             <img class="img-fluid pr-5"
@@ -102,7 +104,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Gambar Wisata</label>
+                                                <label class="col-sm-2 col-form-label">Ubah Gambar Wisata</label>
                                                 <div class="col-sm-10">
                                                     <input type="file" class="form-control" name="image_paket">
                                                 </div>
@@ -200,7 +202,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Waktu Tanggal Operasional Wiasta</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tanggal Operasional Wiasta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -208,7 +210,7 @@
             <div class="modal-body">
                 <form method="post">
                     <div class="form-group">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label for="exampleFormControlSelect1">Jumlah Hari Per-Operasional</label>
                             <select class="form-control" id="exampleFormControlSelect1">
                                 <option>1 Hari</option>
@@ -217,9 +219,9 @@
                                 <option>4 Hari</option>
                                 <option>5 hari</option>
                             </select>
-                        </div>
+                        </div> -->
                         <div class="form-group">
-                            <label for="selectDate">Tanggal Operasional Wisata</label> <br>
+                            <label for="selectDate">Pilih Tanggal Operasional Wisata</label> <br>
                             <input id="selectDate" type="text" class="form-control " name="datefilter" value="" />
                         </div>
 

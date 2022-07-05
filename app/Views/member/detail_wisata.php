@@ -20,8 +20,10 @@
                         <div class="product-gallery">
 
                             <figure class="product-main-image">
-                                <img id="product-zoom" src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
-                                    data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="product image">
+                                <img id="product-zoom"
+                                    src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                    data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                    alt="product image">
                             </figure>
                         </div>
                     </div>
@@ -29,47 +31,50 @@
                     <div class="col-md-8 pl-4">
                         <div class="product-details">
                             <span class="bg-gray ml-1 px-3">Kategori : <?= $jenis_wisata['jenis'] ?></span>
-                            <span class="bg-gray ml-1 px-3">Tersedia</span>
+                            <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i>
+                                <?= $wisata['jumlah_rombongan'] ?>
+                                Orang</span>
                             <h2 class="mt-2"><?= $wisata['nama_paket_wisata'] ?></h2>
-                            <div class="ratings-container">
+
+                            <!-- <div class="ratings-container">
                                 <div class="ratings">
                                     <div class="ratings-val" style="width: 80%;"></div>
                                 </div>
                                 <a class="ratings-text" href="#product-review-link" id="review-link">( 5
                                     Ulasan
                                     )</a>
-                            </div>
+                            </div> -->
 
                             <div class="product-price">
                                 Rp <?= $wisata['harga'] ?>,-
                             </div>
 
-                            <div class="product-content">
+                            <!-- <div class="product-content">
                                 <p>Gunung Butak adalah gunung stratovolcano yang terletak di perbatasan
                                     Kabupaten Malang dan Kabupaten Blitar, Jawa Timur, Indonesia. Gunung Butak
                                     terletak berdekatan dengan Gunung Kawi. Tidak diketemukan catatan sejarah
                                     atas erupsi dari Gunung Butak sampai saat ini.
                                 </p>
-                            </div>
+                            </div> -->
 
-                            <div class="product-details-action">
+                            <div class="product-details-action mt-5">
                                 <a href="#pesan-wisata" data-toggle="modal" class="btn-product btn-cart"><span>Pesan
                                         Paket
                                         Wisata</span></a>
                             </div>
 
-                            <div class="product-details-footer">
+                            <!-- <div class="product-details-footer">
                                 <div class="product-cat">
                                     <span>Kategori :</span>
                                     <a class="text-uppercase" href="#"><?= $jenis_wisata['jenis'] ?></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="product-details-tab">
+            <!-- <div class="product-details-tab">
                 <ul class="nav nav-pills justify-content-center" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="product-desc-link" data-toggle="tab" href="#product-desc-tab"
@@ -257,7 +262,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
         </div>
     </div>
 </main>
@@ -283,7 +289,8 @@
                         <div class="col-md-8 pl-4">
                             <div class="product-details">
                                 <span class="bg-gray ml-1 px-3">Kategori : <?= $jenis_wisata['jenis'] ?></span>
-                                <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> 3
+                                <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i>
+                                    <?= $wisata['jumlah_rombongan'] ?>
                                     Orang</span>
                                 <h3 class="mt-2"><?= $wisata['nama_paket_wisata'] ?></h3>
                                 <div class="product-price mb-2">

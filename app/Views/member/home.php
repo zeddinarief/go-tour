@@ -20,7 +20,7 @@
                     <h1 class="intro-title">Promo 30% <br>Trip Pantai Selatan</h1>
 
 
-                    <a href="category.html" class="btn btn-outline-primary-2">
+                    <a href="<?= base_url() ?>/wisata" class="btn btn-outline-primary-2">
                         <span>SELENGKAPNYA</span>
                         <i class="icon-long-arrow-right"></i>
                     </a>
@@ -32,7 +32,7 @@
                     <h3 class="intro-subtitle text-white">SUNRISE IN JULY</h3>
                     <h1 class="intro-title text-white">Promo 30% <br>Trip Gunung Panderman</h1>
 
-                    <a href="category.html" class="btn btn-primary min-width-sm">
+                    <a href="<?= base_url() ?>/wisata" class="btn btn-primary min-width-sm">
                         <span>SELENGKAPNYA</span>
                         <i class="icon-long-arrow-right"></i>
                     </a>
@@ -189,9 +189,11 @@
             <div class="product-item gunung col-6 col-md-4 col-lg-3">
                 <div class="product product-4">
                     <figure class="product-media">
-                        <!-- <span class="product-label bg-danger text-white">Promo</span> -->
+                        <span class="product-label bg-danger text-white"><i class="fa-solid fa-user-group fa-xs"></i>
+                            <?= $value['jumlah_rombongan'] ?> Orang</span>
                         <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>">
-                            <img src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="Product image" class="product-image">
+                            <img src="<?= base_url('img/wisata/' . $value['img_paket_wisata']) ?>" alt="Product image"
+                                class="product-image">
                         </a>
                         <div class="product-action">
                             <a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>" class="btn-product"
@@ -199,7 +201,8 @@
                         </div>
                     </figure>
                     <div class="product-body">
-                        <h3 class="product-title"><a href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"><?= $value['nama_paket_wisata'] ?></a>
+                        <h3 class="product-title"><a
+                                href="<?= base_url() ?>/wisata/<?= $value['kode_paket_wisata'] ?>"><?= $value['nama_paket_wisata'] ?></a>
                         </h3>
                         <div class="product-price">
                             Rp <?= $value['harga'] ?>,-
