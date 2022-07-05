@@ -168,6 +168,33 @@
             <!-- /.sidebar -->
         </aside>
 
+        <!-- Lihat Detail Riwayat Pesanan-->
+        <div class="modal fade" id="hapus-data" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-box">
+                            <h4 class="mt-3">
+                                Apakah Anda yakin akan menghapus data <br> <b> [nama-data]</b>
+                            </h4>
+                            <div class="row mt-5">
+                                <div class="col-sm-6">
+                                    <a href="#" data-dismiss="modal" class="btn btn-secondary btn-block ">
+                                        Batal
+                                    </a>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a data-dismiss="modal" class="btn btn-danger btn-block ">
+                                        Hapus Data
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <?= $this->renderSection('content') ?>
 
         <!-- <footer class="main-footer">
