@@ -149,7 +149,7 @@ class PaketWisata extends BaseController
     }
 
     public function addJadwal()
-    {)
+    {
         $this->jadwalModel->save([
             'id_paket_wisata' => $this->request->getVar('id_wisata'),
             'date' => $this->request->getVar('date')
