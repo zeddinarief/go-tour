@@ -279,8 +279,8 @@
                         <div class="col-md-4">
                             <div class="product-gallery">
                                 <figure class="product-main-image">
-                                    <img id="product-zoom" src="assets/images/gunung-butak.jpg"
-                                        data-zoom-image="assets/images/gunung-butak.jpg" alt="product image">
+                                    <img id="product-zoom" src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                        data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="product image">
                                 </figure>
 
                             </div>

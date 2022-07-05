@@ -3,6 +3,7 @@
 namespace App\Controllers\Member;
 
 use App\Controllers\BaseController;
+use App\Models\JadwalKeberangkatanModel;
 use App\Models\JenisWisataModel;
 use App\Models\WisataModel;
 
@@ -11,10 +12,12 @@ class PaketWisata extends BaseController
 
     protected $wisataModel;
     protected $jenisWisataModel;
+    protected $jadwalModel;
     public function __construct()
     {
         $this->wisataModel = new WisataModel();
         $this->jenisWisataModel = new JenisWisataModel();
+        $this->jadwalModel = new JadwalKeberangkatanModel();
     }
 
     public function index()
