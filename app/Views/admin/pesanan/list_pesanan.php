@@ -27,22 +27,18 @@
                     <?php } ?>
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Daftar paket wisata</h3>
+                            <h3 class="card-title">Daftar pesanan</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="<?= base_url() ?>/admin/wisata/insert" style="margin-bottom: 10px;"
-                                class="btn btn-info"><i class="fa fa-plus"></i> Tambah</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar</th>
-                                        <th>Kode</th>
+                                        <th>Kode pesanan</th>
                                         <th>Nama paket</th>
-                                        <th>Jumlah rombongan</th>
-                                        <th>Harga</th>
-                                        <th>Jenis</th>
+                                        <th>Nama pemesan</th>
+                                        <th>Status</th>
                                         <th>Tanggal</th>
                                         <th></th>
                                     </tr>
@@ -53,7 +49,20 @@
                                         foreach ($list_pesanan as $pesanan => $value) { 
                                     ?>
                                     <tr>
-                                        
+                                        <td><?= $no ?></td>
+                                        <td><?= $value['kode_pesanan'] ?></td>
+                                        <td><?= $value['nama_paket'] ?></td>
+                                        <td><?= $value['nama_member'] ?></td>
+                                        <td><?= ($value['bayar'] != NULL) ? 'Sudah dikonfirmasi' : 'Menunggu konfirmasi' ?></td>
+                                        <td><?= $value['date_pesanan'] ?></td>
+                                        <td>
+                                            <a href="<?= base_url() ?>/admin/pesanan/<?= $value['id'] ?>" type="button"
+                                                class="btn btn-block btn-primary">Detail</a>
+                                            <form action="<?= base_url() ?>/admin/pesanan" method="post">
+                                                <a href="#hapus-data" data-toggle="modal" type="button"
+                                                    class="btn btn-block btn-danger">Hapus</a>
+                                            </form>
+                                        </td>
                                     </tr>
                                     <?php
                                             $no++; 
@@ -63,12 +72,10 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>Gambar</th>
-                                        <th>Kode</th>
+                                        <th>Kode pesanan</th>
                                         <th>Nama paket</th>
-                                        <th>Jumlah rombongan</th>
-                                        <th>Harga</th>
-                                        <th>Jenis</th>
+                                        <th>Nama pemesan</th>
+                                        <th>Status</th>
                                         <th>Tanggal</th>
                                         <th></th>
                                     </tr>

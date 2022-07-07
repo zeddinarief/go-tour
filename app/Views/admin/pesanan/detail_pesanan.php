@@ -39,15 +39,15 @@
                                         <label for="inputName" class="col-sm-2 col-form-label">Kode Pesanan</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Kode Pesanan"
-                                                name="kode_pesanan" value="GN-0722P051" disabled required>
+                                                value="<?= $pesanan['kode_pesanan'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Waktu
                                             Pesanan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Waktu Pembayaran"
-                                                name="waktu_pembayaran" value="2 Juni 2022 14:34" disabled required>
+                                            <input type="text" class="form-control" placeholder="Waktu Pesanan"
+                                                value="<?= $pesanan['date_pesanan'] ?>" disabled >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -55,14 +55,14 @@
                                             Pemesan</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Nama Member Pemesan"
-                                                name="nama_pemesan" value="Agus Nur Hadi" disabled required>
+                                                value="<?= $pesanan['nama_member'] ?>" disabled >
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Nama Paket Wisata</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Nama Paket WIsata"
-                                                name="nama_wisata" value="Trip Gunung Butak" disabled required>
+                                                value="<?= $pesanan['nama_paket'] ?>" disabled >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -70,24 +70,15 @@
                                             Wisata</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Harga Paket Wisata"
-                                                name="harga_wisata" value="Rp 350.000,-" disabled required>
+                                                value="<?= $pesanan['harga'] ?>" disabled >
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Kuota Anggota
                                             Rombongan</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Harga Paket Wisata"
-                                                name="kuota_anggota_rombongan" value="Maksimal 3 Orang" disabled
-                                                required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="inputName" class="col-sm-2 col-form-label">Nama Koordinator
-                                            Wisata</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="Nama Member Pemesan"
-                                                name="nama_pemesan" value="Agus Nur Hadi" disabled required>
+                                            <input type="text" class="form-control" placeholder="Jumlah peserta"
+                                                value="<?= $pesanan['jumlah_rombongan'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -95,17 +86,15 @@
                                             Koordinator</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Nomor Telp Koordinator"
-                                                name="no_telp_koordinator" value="086765615444" disabled required>
+                                                value="<?= $pesanan['no_hp'] ?>" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Nama - Nama Peserta
                                             Wisata</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control"
-                                                placeholder="Nama - Nama Peserta Wisata" name="nama_peserta"
-                                                value="Agus Nur Hadi, Bagaskoro Anugerah, Nur Wahidah" disabled
-                                                required>
+                                            <input type="text" class="form-control" placeholder="Nama - Nama Peserta Wisata"
+                                                value="Agus Nur Hadi, Bagaskoro Anugerah, Nur Wahidah" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group row">

@@ -169,32 +169,34 @@
                                 <span class="cart-count bg-danger"></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-cart-products">
-                                    <div class="product">
-                                        <div class="product-cart-details">
-                                            <h4 class="product-title">
-                                                <a href="<?= base_url() ?>/wisata/detail">Trip Gunung Panderman</a>
-                                            </h4>
+                                <?php if ($pesanan['bayar'] == NULL) { ?>    
+                                    <div class="dropdown-cart-products">
+                                        <div class="product">
+                                            <div class="product-cart-details">
+                                                <h4 class="product-title">
+                                                    <a href="<?= base_url() ?>/wisata/detail"><?= $pesanan['nama_paket'] ?></a>
+                                                </h4>
 
-                                            <span class="small text-muted pr-3"><i
-                                                    class="fa-solid fa-user-group fa-xs"></i> 3
-                                                Orang</span>
+                                                <span class="small text-muted pr-3"><i
+                                                        class="fa-solid fa-user-group fa-xs"></i> <?= $pesanan['jumlah_rombongan'] ?>
+                                                    Orang</span>
+                                            </div>
+
+                                            <figure class="product-image-container">
+                                                <a href="<?= base_url() ?>/wisata/detail" class="product-image">
+                                                    <img src="assets/images/gunung-panderman.jpg" alt="product">
+                                                </a>
+                                            </figure>
+                                            <a href="#" class="btn-remove" title="Remove Product"><i
+                                                    class="icon-close"></i></a>
                                         </div>
-
-                                        <figure class="product-image-container">
-                                            <a href="<?= base_url() ?>/wisata/detail" class="product-image">
-                                                <img src="assets/images/gunung-panderman.jpg" alt="product">
-                                            </a>
-                                        </figure>
-                                        <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a>
                                     </div>
-                                </div>
 
-                                <div class="dropdown-cart-total">
-                                    <span>Total</span>
-                                    <span class="cart-total-price">Rp 350.000,-</span>
-                                </div>
+                                    <div class="dropdown-cart-total">
+                                        <span>Total</span>
+                                        <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
+                                    </div>
+                                <?php } ?>
 
                                 <div class="dropdown-cart-action">
                                     <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
@@ -213,28 +215,18 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    <div class="product d-block px-0 py-2">
-                                        <a class="text-dark" href="<?= base_url() ?>/pesanan">
-                                            <p class=" mb-0 text-dark"> Trip Gunung
-                                                Butak</p>
-                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i>
-                                                Sudah
-                                                Lunas</span>&emsp; <span class="pl-auto text-info"><i
-                                                    class="fa-regular fa-calendar-check"></i>
-                                                11 07 2022</span>
-                                        </a>
-                                    </div>
-                                    <div class="product d-block px-0 py-2">
-                                        <a class="text-dark" href="<?= base_url() ?>/pesanan">
-                                            <p class=" mb-0 text-dark"> Trip Gunung
-                                                Panderman</p>
-                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i>
-                                                Sudah
-                                                Lunas</span>&emsp; <span class="pl-auto text-info"><i
-                                                    class="fa-regular fa-calendar-check"></i>
-                                                11 07 2022</span>
-                                        </a>
-                                    </div>
+                                    <?php foreach ($history as $his => $val) { ?>
+                                        <div class="product d-block px-0 py-2">
+                                            <a class="text-dark" href="<?= base_url() ?>/pesanan">
+                                                <p class=" mb-0 text-dark"> <?= $val['nama_paket'] ?></p>
+                                                <span class="text-success"><i class="fa-regular fa-circle-check"></i>
+                                                <?= $val['status_bayar'] ?></span>&emsp; <span class="pl-auto text-info"><i
+                                                        class="fa-regular fa-calendar-check"></i>
+                                                        <?= $val['tgl_wisata'] ?></span>
+                                            </a>
+                                        </div>
+                                    <?php } ?>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -384,6 +376,40 @@
         })
     }
     
+    function simpanDataPesanan() {
+        let form = document.getElementById('updateDataPesanan');
+        let url = form.action;
+        let csrfToken = '<?= csrf_hash() ?>';
+        
+        const data = new FormData(form);
+
+        fetch(url, {
+            method: 'POST',
+            headers: {'<?= csrf_header() ?>': csrfToken},
+            body: data
+        }).then(response => {
+            return response.json()
+        }).then(responseJson => {
+            console.log(responseJson)
+            if (responseJson.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Data Berhasil Diperbaharui',
+                    text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
+                    confirmButtonText: 'Ok, saya mengerti'
+                }).then(function () {
+                    location.reload(); 
+                })
+            } else {
+                let validations = document.getElementById('validations');
+                validations.innerHTML = '';
+                Object.values(responseJson.messages).forEach(val => {
+                    validations.innerHTML += '* ' + val + '<br>'
+                });
+            }
+        });
+    }
+
     function simpanProfil() {
         let url = document.getElementById('updateProfile').action;
         let csrfToken = '<?= csrf_hash() ?>';
@@ -456,12 +482,39 @@
     }
 
     function bukti_pembayaran() {
-        Swal.fire({
-            icon: 'success',
-            title: 'Bukti Pembayaran Berhasil Terkirim',
-            text: "Sistem akan melakukan validasi pembayaran Anda segera. Terimakasih!",
-            confirmButtonText: 'Ok, saya mengerti'
-        })
+        let form = document.getElementById('uploadBukti');
+        let url = form.action;
+        let csrfToken = '<?= csrf_hash() ?>';
+        
+        const data = new FormData(form);
+
+        fetch(url, {
+            method: 'POST',
+            headers: {'<?= csrf_header() ?>': csrfToken},
+            body: data
+        }).then(response => {
+            return response.json()
+        }).then(responseJson => {
+            console.log(responseJson)
+            if (responseJson.status === 200) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Bukti Pembayaran Berhasil Terkirim',
+                    text: "Sistem akan melakukan validasi pembayaran Anda segera. Terimakasih!",
+                    confirmButtonText: 'Ok, saya mengerti'
+                }).then(function () {
+                    location.reload(); 
+                })
+                $('#unggah-bukti-pembayaran').modal('hide');
+            } else {
+                let validations = document.getElementById('validations');
+                validations.innerHTML = '';
+                Object.values(responseJson.messages).forEach(val => {
+                    validations.innerHTML += '* ' + val + '<br>'
+                });
+            }
+        });
+        
     }
 
     function hapus_pesanan() {

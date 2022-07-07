@@ -116,38 +116,40 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="product-col">
-                                                    <div class="product">
-                                                        <figure class="product-media">
-                                                            <a href="#"><img src="assets/images/gunung-panderman.jpg"
-                                                                    alt="Product image"> </a>
-                                                        </figure>
-                                                        <h2 class="product-title w-100">
-                                                            <a href="#">Trip Gunung Panderman</a><br>
-                                                            <span class="small text-muted pr-3"><i
-                                                                    class="fa-solid fa-user-group fa-xs"></i> 3
-                                                                Orang</span><br> <span class="small text-muted"><i
-                                                                    class="fa-solid fa-calendar-check"></i> Senin, 10
-                                                                Juli 2022</span>
-                                                        </h2>
-                                                    </div>
-                                                </td>
-                                                <td class="text-left">Rp 350.000,-</td>
-                                                <td class="text-left">
-                                                    <span class="text-success"><i
-                                                            class="fa-regular fa-circle-check"></i> Sudah
-                                                        Lunas</span>
-                                                </td>
-                                                <td class="price-col">
-                                                    <div class="tagcloud">
-                                                        <a href="#detail-riwayat-pesanan" data-toggle="modal"
-                                                            class="btn btn-outline-primary btn-rounded btn-shadow"><i
-                                                                class="fa-regular fa-eye"></i>Lihat
-                                                            Detail</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php foreach ($history as $his => $val) { ?>
+                                                <tr>
+                                                    <td class="product-col">
+                                                        <div class="product">
+                                                            <figure class="product-media">
+                                                                <a href="#"><img src="assets/images/gunung-panderman.jpg"
+                                                                        alt="Product image"> </a>
+                                                            </figure>
+                                                            <h2 class="product-title w-100">
+                                                                <a href="#"><?= $val['nama_paket'] ?></a><br>
+                                                                <span class="small text-muted pr-3"><i
+                                                                        class="fa-solid fa-user-group fa-xs"></i> <?= $val['jumlah_rombongan'] ?>
+                                                                    Orang</span><br> <span class="small text-muted"><i
+                                                                        class="fa-solid fa-calendar-check"></i> <?= $val['tgl_wisata'] ?></span>
+                                                            </h2>
+                                                        </div>
+                                                    </td>
+                                                    <td class="text-left">Rp <?= $val['total_biaya'] ?>,-</td>
+                                                    <td class="text-left">
+                                                        <span class="text-success"><i
+                                                                class="fa-regular fa-circle-check"></i> 
+                                                                <?= $val['status_bayar'] ?>
+                                                                </span>
+                                                    </td>
+                                                    <td class="price-col">
+                                                        <div class="tagcloud">
+                                                            <a href="#detail-riwayat-pesanan" data-toggle="modal"
+                                                                class="btn btn-outline-primary btn-rounded btn-shadow"><i
+                                                                    class="fa-regular fa-eye"></i>Lihat
+                                                                Detail</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
 
@@ -169,7 +171,7 @@
                 <div class="form-box">
                     <h5 class="mt-2">Opsi Pembayaran</h5>
                     <h5 class="product-price mb-2 text-danger bg-gray p-2"> Nominal Pembayaran : <b>&nbsp;
-                            Rp 360.000,-</b>
+                            Rp <?= $wisata['harga'] ?>,-</b>
                     </h5>
                     <div class="col-12">
                         <ul class="nav nav-pills justify-content-center" id="tabs-6" role="tablist">
@@ -285,83 +287,88 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="form-box">
-                    <h5 class="mb-4 mt-2">Unggah Bukti Pembayaran</h5>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="product-gallery">
+                    <form action="<?= base_url() ?>/pembayaran/upload" enctype="multipart/form-data" method="post" id="uploadBukti">
+                        <input type="hidden" name="id" value="<?= $pesanan['id'] ?>">
+                        <input type="hidden" name="nama_paket" value="<?= $wisata['nama_paket_wisata'] ?>">
+                        <input type="hidden" name="harga" value="<?= $wisata['harga'] ?>">
+                        <h5 class="mb-4 mt-2">Unggah Bukti Pembayaran</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="product-gallery">
 
-                                <figure class="product-main-image">
-                                    <img id="product-zoom" src="assets/images/gunung-butak.jpg"
-                                        data-zoom-image="assets/images/gunung-butak.jpg" alt="product image">
-                                </figure>
+                                    <figure class="product-main-image">
+                                        <img id="product-zoom" src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                            data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="product image">
+                                    </figure>
 
-                            </div>
-                        </div>
-
-                        <div class="col-md-8 pl-4">
-                            <div class="product-details">
-                                <span class="bg-gray ml-1 px-3">Kategori : Gunung</span>
-                                <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> 3
-                                    Orang</span>
-                                <h3 class="mt-2">Trip Gunung Butak</h3>
-                                <div class="product-price mb-2">
-                                    Rp 360.000,-
                                 </div>
+                            </div>
 
-                                <div class="product-details-footer">
-                                    <div class="product-cat">
-                                        <span>Pilih pembayaran yang sudah digunakan</span>
+                            <div class="col-md-8 pl-4">
+                                <div class="product-details">
+                                    <span class="bg-gray ml-1 px-3">Kategori : <?= $jenis['jenis'] ?></span>
+                                    <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> <?= $wisata['jumlah_rombongan'] ?>
+                                        Orang</span>
+                                    <h3 class="mt-2"><?= $wisata['nama_paket_wisata'] ?></h3>
+                                    <div class="product-price mb-2">
+                                        Rp <?= $wisata['harga'] ?>,-
+                                    </div>
 
-                                        <div class="w-100">
+                                    <div class="product-details-footer">
+                                        <div class="product-cat">
+                                            <span>Pilih pembayaran yang sudah digunakan</span>
 
-                                            <div class="input-group mb-2 mt-1">
-                                                <div class="input-group-prepend">
-                                                    <div class="input-group-text">
-                                                        <p class="fa-solid fa-coins text-primary px-1"></p>
+                                            <div class="w-100">
+
+                                                <div class="input-group mb-2 mt-1">
+                                                    <div class="input-group-prepend">
+                                                        <div class="input-group-text">
+                                                            <p class="fa-solid fa-coins text-primary px-1"></p>
+                                                        </div>
                                                     </div>
+                                                    <select class="form-control" name="metode_bayar" required>
+                                                        <option disabled="disabled" >Silahkan pilih
+                                                        </option>
+                                                        <option value="Bank BCA">Bank BCA</option>
+                                                        <option value="Bank BRI">Bank BRI</option>
+                                                        <option value="Bank Mandiri">Bank Mandiri</option>
+                                                        <option value="GOPAY">GOPAY</option>
+                                                        <option value="OVO">OVO</option>
+                                                        <option value="DANA">DANA</option>
+                                                    </select>
                                                 </div>
-                                                <select class="form-control" required>
-                                                    <option disabled="disabled" selected="selected">Silahkan pilih
-                                                    </option>
-                                                    <option>Bank BCA</option>
-                                                    <option>Bank BRI</option>
-                                                    <option>Bank Mandiri</option>
-                                                    <option>GOPAY</option>
-                                                    <option>OVO</option>
-                                                    <option>DANA</option>
-                                                </select>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="product-cat">
-                                        <span>Pastikan nominal pembayaran sudah benar. (format jpg, jpeg, png,
-                                            atau pdf)</span>
+                                        <div class="product-cat">
+                                            <span>Pastikan nominal pembayaran sudah benar. (format jpg, jpeg, png)</span>
 
-                                    </div>
-                                    <div class="custom-file mt-1">
-                                        <input type="file" class="custom-file-input" id="customFile">
-                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                        <div class="custom-file mt-1">
+                                            <input type="file" name="bukti_bayar" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
+                                        <span id="validations"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-sm-6">
-                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
-                                <i class="fa-solid fa-xmark"></i>
-                                Batal
-                            </a>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                                    <i class="fa-solid fa-xmark"></i>
+                                    Batal
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a onclick="bukti_pembayaran()"
+                                    class="btn btn-primary btn-block text-white ">
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                    Kirim Bukti
+                                </a>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <a data-dismiss="modal" onclick="bukti_pembayaran()"
-                                class="btn btn-primary btn-block text-white ">
-                                <i class="fa-solid fa-paper-plane"></i>
-                                Kirim Bukti
-                            </a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -439,81 +446,104 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="form-box">
-                    <h3 class="mb-4 mt-2">Data Tambahan</h3>
+                    <form action="<?= base_url() ?>/pesanan/data" id="updateDataPesanan" method="post">
+                        <input type="hidden" name="id" value="<?= $pesanan['id'] ?>">
+                        <h3 class="mb-4 mt-2">Data Tambahan</h3>
 
-                    <label class="text-primary">Nama Wisata</label>
-                    <input type="text" class="form-control" required value="Trip Gunung Panderman" disabled>
+                        <label class="text-primary">Nama Wisata</label>
+                        <input type="text" class="form-control" required value="<?= $wisata['nama_paket_wisata'] ?>" disabled>
 
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label class="text-primary">Jumlah Peserta yang Ikut</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <p class="fa-solid fa-user-group fa-xs text-primary px-1"></p>
-                                    </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="text-primary">Jumlah Peserta yang Ikut</label>
+                                <div class="input-group mb-2">
+                                    <!-- <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <p class="fa-solid fa-user-group fa-xs text-primary px-1"></p>
+                                        </div>
+                                    </div> -->
+                                    <input id="jumlahPeserta" class="form-control" name="jumlah_rombongan" type="number" onchange="setName()" max="<?= $wisata['jumlah_rombongan'] ?>" value="<?= $pesanan['jumlah_rombongan'] ?>">
                                 </div>
-                                <select class="form-control" required>
-                                    <option>1 orang</option>
-                                    <option>2 orang</option>
-                                    <option selected>3 orang</option>
-                                </select>
+                            </div>
+                            <!-- <div class="col-sm-6">
+                                <label class="text-primary">Tanggal Keberangkatan</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <p class="fa-solid fa-calendar-days text-primary px-1"></p>
+                                        </div>
+                                    </div>
+                                    <select class="form-control" required>
+                                        <option>Senin, 10 Juli 2022</option>
+                                        <option>Selasa, 11 Juli 2022</option>
+                                        <option>Rabu, 12 Juli 2022</option>
+                                        <option>Kamis, 13 Juli 2022</option>
+                                        <option>Jum'at, 14 Juli 2022</option>
+                                        <option>Sabtu, 15 Juli 2022</option>
+                                        <option>Minggu, 16 Juli 2022</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                            <div class="col-sm-6">
+                                <label class="text-primary">No HP Koordinator</label>
+                                <input type="text" id="koordinator" class="form-control" name="no_hp" required value="<?= $pesanan['no_hp'] ?>" >
+                            </div>
+                            <!-- <div class="col-sm-6">
+                                <label class="text-primary">Nama Peserta ke-1</label>
+                                <input type="text" class="form-control" name="nama_peserta" required value="Agus Faesal">
+                            </div>
+                            <div class="col-sm-6">
+                                <label class="text-primary">Nama Peserta ke-2</label>
+                                <input type="text" class="form-control" name="nama_peserta" required value="Nur Tahfid">
+                            </div> -->
+                            <div class="row" id="peserta">
+                            <!-- <div class="col-sm-6">
+                                <label class="text-primary">Nama Peserta ke-3</label>
+                                <input type="text" class="form-control" name="nama_peserta" required value="Febrian Firdaus">
+                            </div> -->
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label class="text-primary">Tanggal Keberangkatan</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <p class="fa-solid fa-calendar-days text-primary px-1"></p>
-                                    </div>
-                                </div>
-                                <select class="form-control" required>
-                                    <option>Senin, 10 Juli 2022</option>
-                                    <option>Selasa, 11 Juli 2022</option>
-                                    <option>Rabu, 12 Juli 2022</option>
-                                    <option>Kamis, 13 Juli 2022</option>
-                                    <option>Jum'at, 14 Juli 2022</option>
-                                    <option>Sabtu, 15 Juli 2022</option>
-                                    <option>Minggu, 16 Juli 2022</option>
-                                </select>
+                        <div class="row mt-5">
+                            <div class="col-sm-6">
+                                <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
+                                    <i class="fa-solid fa-xmark"></i>
+                                    Batal
+                                </a>
+                            </div>
+                            <div class="col-sm-6">
+                                <a href="#" onclick="simpanDataPesanan()" data-dismiss="modal" class="btn btn-primary btn-block ">
+                                    <i class="fa-solid fa-check"></i>
+                                    Simpan Perubahan
+                                </a>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <label class="text-primary">Nama Peserta ke-1</label>
-                            <input type="text" id="koordinator" class="form-control" required value="Agus Faesal">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="text-primary">Nama Peserta ke-2</label>
-                            <input type="text" id="koordinator" class="form-control" required value="Nur Tahfid">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="text-primary">Nama Peserta ke-3</label>
-                            <input type="text" id="koordinator" class="form-control" required value="Febrian Firdaus">
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="text-primary">No HP Aktif (untuk kontak)</label>
-                            <input type="text" id="koordinator" class="form-control" required value="08618239112">
-                        </div>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-sm-6">
-                            <a href="#" data-dismiss="modal" class="btn btn-outline-primary-2 btn-block ">
-                                <i class="fa-solid fa-xmark"></i>
-                                Batal
-                            </a>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="#" onclick="simpan()" data-dismiss="modal" class="btn btn-primary btn-block ">
-                                <i class="fa-solid fa-check"></i>
-                                Simpan Perubahan
-                            </a>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    console.log('test')
+    // console.log(document.getElementsByName('nama_peserta'))
+    function setName() {
+        let jumlah = document.getElementById('jumlahPeserta').value
+        console.log((jumlah))
+        let arr = []
+        let peserta = document.getElementsByName('nama_peserta[]')
+        for (let index = 0; index < peserta.length; index++) {
+            arr.push(peserta[index].value)
+            console.log(arr)
+        }
+        document.getElementById('peserta').innerHTML = ''
+        <?php $no = 0; ?>
+        for (let index = 0; index < jumlah; index++) {
+            document.getElementById('peserta').innerHTML +=`<div class="col-sm-6">
+                                <label class="text-primary">Nama Peserta ke-${index+1}</label>
+                                <input type="text" class="form-control" name="nama_peserta[]" value="${(arr[index]) ? arr[index] : ''}">
+                            </div>`
+        }
+    }
+</script>
 
 <?= $this->endSection() ?>
