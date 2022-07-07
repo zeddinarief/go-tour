@@ -57,6 +57,8 @@
                                         <td>
                                             <a href="/admin/wisata/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
+                                            <a href="#hapus-data" data-toggle="modal" type="button"
+                                                class="btn btn-block btn-danger">Hapus</a>
                                         </td>
                                     </tr>
                                     <?php
