@@ -75,8 +75,15 @@
                                                 </td>
                                                 <td class="text-left">Rp <?= $wisata['harga'] ?>,-</td>
                                                 <td class="text-left">
-                                                    <span class="text-danger"><i class="fa-regular fa-clock"></i> Belum
-                                                        Lunas</span>
+                                                    <?php if ($pesanan['bayar'] == NULL) { ?>
+                                                        <span class="text-danger"><i class="fa-regular fa-clock"></i> Menunggu pembayaran</span>
+                                                    <?php } else { ?>
+                                                        <?php if ($pembayaran['status_bayar'] != 'Pembayaran berhasil') { ?>
+                                                            <span class="text-danger"><i class="fa-regular fa-clock"></i> <?= $pembayaran['status_bayar'] ?></span>
+                                                        <?php } else { ?>
+                                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i> <?= $pembayaran['status_bayar'] ?></span>
+                                                        <?php } ?>
+                                                    <?php } ?>
                                                 </td>
                                                 <td class="price-col">
                                                     <div class="tagcloud">
@@ -121,7 +128,7 @@
                                                     <td class="product-col">
                                                         <div class="product">
                                                             <figure class="product-media">
-                                                                <a href="#"><img src="assets/images/gunung-panderman.jpg"
+                                                                <a href="#"><img src="<?= base_url('img/wisata/' . $val['img']) ?>"
                                                                         alt="Product image"> </a>
                                                             </figure>
                                                             <h2 class="product-title w-100">
@@ -135,10 +142,11 @@
                                                     </td>
                                                     <td class="text-left">Rp <?= $val['total_biaya'] ?>,-</td>
                                                     <td class="text-left">
-                                                        <span class="text-success"><i
-                                                                class="fa-regular fa-circle-check"></i> 
-                                                                <?= $val['status_bayar'] ?>
-                                                                </span>
+                                                        <?php if ($val['status_bayar'] != 'Pembayaran berhasil') { ?>
+                                                            <span class="text-danger"><i class="fa-regular fa-clock"></i> <?= $val['status_bayar'] ?></span>
+                                                        <?php } else { ?>
+                                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i> <?= $val['status_bayar'] ?></span>
+                                                        <?php } ?>
                                                     </td>
                                                     <td class="price-col">
                                                         <div class="tagcloud">

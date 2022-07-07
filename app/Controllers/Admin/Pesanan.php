@@ -36,8 +36,8 @@ class Pesanan extends BaseController
     {
         $pesanan = $this->pesananModel->getPesanan($id);
         $pembayaran = ($pesanan['bayar'] != NULL) ? $this->pembayaranModel->find($pesanan['bayar']) : NULL;
-        $peserta = $this->pesertaModel->where(['id_pesanan' => $id])->first();
-        dd($peserta);
+        $peserta = $this->pesertaModel->where(['id_pesanan' => $id])->orderBy('id', 'desc')->first();
+        // dd($pembayaran);
         $data = [
             'menu' => 'pesanan',
             'pesanan' => $pesanan,
@@ -46,5 +46,20 @@ class Pesanan extends BaseController
         ];
 
         return view('admin/pesanan/detail_pesanan', $data);
+    }
+
+    public function update()
+    {
+        if ($this->request->getPost('status_bayar') == 'accept') {
+            $status = 'Pembayaran berhasil';
+        } else {
+            $status = 'Pembayaran ditolak';
+        }
+        $this->pembayaranModel->save([
+            'id' => $this->request->getPost('id'),
+            'status_bayar' => $status
+        ]);
+
+        return redirect()->to('admin/pesanan');
     }
 }

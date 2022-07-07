@@ -57,7 +57,7 @@
                             <i class="icon-bars"></i>
                         </button>
 
-                        <a href="index.html" class="logo">
+                        <a href="<?= base_url() ?>" class="logo">
                             <img src="assets/images/logo.png" alt="Logo" width="82" height="25">
                         </a>
 
@@ -102,7 +102,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
-                                                    <a href="category.html" class="banner banner-menu">
+                                                    <a class="banner banner-menu">
                                                         <img src="assets/images/menu-promo.jpg" alt="Banner">
                                                         <div class="banner-content banner-content-top">
                                                             <div class="banner-title text-white">Ambil
@@ -162,75 +162,76 @@
                             </form>
                         </div> -->
 
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="fa-solid fa-bag-shopping fa-xs"></i>
-                                <span class="cart-count bg-danger"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <?php if ($pesanan['bayar'] == NULL) { ?>    
-                                    <div class="dropdown-cart-products">
-                                        <div class="product">
-                                            <div class="product-cart-details">
-                                                <h4 class="product-title">
-                                                    <a href="<?= base_url() ?>/wisata/detail"><?= $pesanan['nama_paket'] ?></a>
-                                                </h4>
+                        <?php if (session()->get('isLogin') == 'yes' && session()->get('role') == 'member') { ?>
+                            <div class="dropdown cart-dropdown">
+                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" data-display="static">
+                                    <i class="fa-solid fa-bag-shopping fa-xs"></i>
+                                    <span class="cart-count bg-danger"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <?php if ($pesanan['bayar'] == NULL) { ?>    
+                                        <div class="dropdown-cart-products">
+                                            <div class="product">
+                                                <div class="product-cart-details">
+                                                    <h4 class="product-title">
+                                                        <a href="<?= base_url() ?>/wisata/detail"><?= $pesanan['nama_paket'] ?></a>
+                                                    </h4>
 
-                                                <span class="small text-muted pr-3"><i
-                                                        class="fa-solid fa-user-group fa-xs"></i> <?= $pesanan['jumlah_rombongan'] ?>
-                                                    Orang</span>
+                                                    <span class="small text-muted pr-3"><i
+                                                            class="fa-solid fa-user-group fa-xs"></i> <?= $pesanan['jumlah_rombongan'] ?>
+                                                        Orang</span>
+                                                </div>
+
+                                                <figure class="product-image-container">
+                                                    <a href="<?= base_url() ?>/wisata/detail" class="product-image">
+                                                        <img src="assets/images/gunung-panderman.jpg" alt="product">
+                                                    </a>
+                                                </figure>
+                                                <a href="#" class="btn-remove" title="Remove Product"><i
+                                                        class="icon-close"></i></a>
                                             </div>
-
-                                            <figure class="product-image-container">
-                                                <a href="<?= base_url() ?>/wisata/detail" class="product-image">
-                                                    <img src="assets/images/gunung-panderman.jpg" alt="product">
-                                                </a>
-                                            </figure>
-                                            <a href="#" class="btn-remove" title="Remove Product"><i
-                                                    class="icon-close"></i></a>
                                         </div>
-                                    </div>
 
-                                    <div class="dropdown-cart-total">
-                                        <span>Total</span>
-                                        <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
-                                    </div>
-                                <?php } ?>
-
-                                <div class="dropdown-cart-action">
-                                    <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
-                                            class="fa-solid fa-eye"></i>Lihat
-                                        Pesanan</a>
-                                    <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
-                                            class="icon-long-arrow-right"></i></a> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="fa-solid fa-bell fa-xs"></i>
-                                <span class="cart-count bg-danger"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-cart-products">
-                                    <?php foreach ($history as $his => $val) { ?>
-                                        <div class="product d-block px-0 py-2">
-                                            <a class="text-dark" href="<?= base_url() ?>/pesanan">
-                                                <p class=" mb-0 text-dark"> <?= $val['nama_paket'] ?></p>
-                                                <span class="text-success"><i class="fa-regular fa-circle-check"></i>
-                                                <?= $val['status_bayar'] ?></span>&emsp; <span class="pl-auto text-info"><i
-                                                        class="fa-regular fa-calendar-check"></i>
-                                                        <?= $val['tgl_wisata'] ?></span>
-                                            </a>
+                                        <div class="dropdown-cart-total">
+                                            <span>Total</span>
+                                            <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
                                         </div>
                                     <?php } ?>
-                                    
+
+                                    <div class="dropdown-cart-action">
+                                        <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
+                                                class="fa-solid fa-eye"></i>Lihat
+                                            Pesanan</a>
+                                        <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
+                                                class="icon-long-arrow-right"></i></a> -->
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php if (session()->get('isLogin') == 'yes' && session()->get('role') == 'member') { ?>
+                            <div class="dropdown cart-dropdown">
+                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" data-display="static">
+                                    <i class="fa-solid fa-bell fa-xs"></i>
+                                    <span class="cart-count bg-danger"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-cart-products">
+                                        <?php foreach ($history as $his => $val) { ?>
+                                            <div class="product d-block px-0 py-2">
+                                                <a class="text-dark" href="<?= base_url() ?>/pesanan">
+                                                    <p class=" mb-0 text-dark"> <?= $val['nama_paket'] ?></p>
+                                                    <span class="text-success"><i class="fa-regular fa-circle-check"></i>
+                                                    <?= $val['status_bayar'] ?></span>&emsp; <span class="pl-auto text-info"><i
+                                                            class="fa-regular fa-calendar-check"></i>
+                                                            <?= $val['tgl_wisata'] ?></span>
+                                                </a>
+                                            </div>
+                                        <?php } ?>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
                             <div class="dropdown cart-dropdown">
                                 <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" data-display="static">
@@ -305,7 +306,7 @@
             <nav class="mobile-nav">
                 <ul class="mobile-menu">
                     <li class="active">
-                        <a href="index.html">Beranda</a>
+                        <a href="<?= base_url() ?>">Beranda</a>
                     </li>
                     <li>
                         <a href="#" class="sf-with-ul">Promo</a>

@@ -122,7 +122,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="<?= base_url() ?>/admin/pembayaran"
                                 class="nav-link <?= ($menu == 'pembayaran') ? 'active': '' ?>">
                                 <i class="fas fa-comments-dollar pl-1">&nbsp;&nbsp;</i>
@@ -130,7 +130,7 @@
                                     Pembayaran
                                 </p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="nav-item <?= ($menu == 'jenis_wisata' || $menu == 'wisata') ? 'menu-open': '' ?>">
                             <a href="#" class="nav-link">
                                 <i class="fas fa-map-marked-alt pl-1">&nbsp;&nbsp;</i>

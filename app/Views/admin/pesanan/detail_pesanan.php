@@ -32,8 +32,9 @@
                         </div><!-- /.card-header -->
                         <div class="card-body">
                             <div class="tab-pane" id="settings">
-                                <form action="<?= base_url() ?>/admin/pesanan/insert" enctype="multipart/form-data"
+                                <form action="<?= base_url() ?>/admin/pesanan" enctype="multipart/form-data"
                                     method="post" class="form-horizontal">
+                                    <input type="hidden" name="id" value="<?= ($bayar != NULL) ? $bayar['id'] : '' ?>">
                                     <?= csrf_field() ?>
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Kode Pesanan</label>
@@ -101,14 +102,14 @@
                                         <label for="inputName" class="col-sm-2 col-form-label">Metode Pembayaran</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Metodee Pembayaran"
-                                                name="metode_pembayaran" value="Transfer Bank BRI" disabled required>
+                                                value="<?= ($bayar != NULL) ? $bayar['metode_bayar'] : '' ?>" disabled required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">Status Pembayaran</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" placeholder="Status Pembayaran"
-                                                name="status_pembayaran" value="Sudah Melakukan Pembayaran" disabled
+                                                value="<?= ($bayar != NULL) ? $bayar['status_bayar'] : 'Menunggu pembayaran' ?>" disabled
                                                 required>
                                         </div>
                                     </div>
@@ -118,7 +119,7 @@
                                         <div class="col-sm-10">
                                             <div class="row">
                                                 <div class="col-md-6 col-12">
-                                                    <img src="https://www.jagel.id/api/listimage/v/Bukti-Kirim-Dan-Bukti-Transfer-0-2825bf08e67ee555.jpg"
+                                                    <img src="<?= ($bayar != NULL) ? base_url('img/pembayaran/' . $bayar['bukti_bayar']) : '' ?>"
                                                         class="img-fluid" alt="">
                                                 </div>
                                             </div>
@@ -130,15 +131,15 @@
                                             konfirmasi pembayaran?</label>
                                         <div class="col-sm-10">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios1" value="option1">
+                                                <input class="form-check-input" type="radio" name="status_bayar"
+                                                    id="exampleRadios1" value="accept">
                                                 <label class="form-check-label" for="exampleRadios1">
                                                     <b>Pembayaran valid</b>, nominal bukti pembayaran sudah sesuai.
                                                 </label>
                                             </div>
                                             <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios"
-                                                    id="exampleRadios3" value="option3">
+                                                <input class="form-check-input" type="radio" name="status_bayar"
+                                                    id="exampleRadios3" value="decline">
                                                 <label class="form-check-label" for="exampleRadios3">
                                                     <b>Pembayaran tidak valid</b>, ada ketidaksesuaian pada pembayaran.
                                                 </label>
@@ -146,14 +147,14 @@
                                         </div>
                                     </div>
 
-
-
-                                    <div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <button type="submit" class="btn btn-success mt-5">Simpan Konfirmasi
-                                                Pembayaran</button>
+                                    <?php if ($bayar != NULL) { ?>
+                                        <div class="form-group row">
+                                            <div class="offset-sm-2 col-sm-10">
+                                                <button type="submit" class="btn btn-success mt-5">Simpan Konfirmasi
+                                                    Pembayaran</button>
+                                            </div>
                                         </div>
-                                    </div>
+                                    <?php } ?>
                                 </form>
                             </div>
                             <!-- /.tab-pane -->

@@ -44,7 +44,7 @@ class PembayaranModel extends Model
     {
         return $this->select("pembayaran.*, p.*, 
         u.nama AS nama_member, 
-        w.nama_paket_wisata AS nama_paket,
+        w.nama_paket_wisata AS nama_paket, w.img_paket_wisata AS img, 
         j.date AS tgl_wisata,
         jn.jenis AS jenis")
         ->join("pemesanan p", "p.id = pembayaran.id_pesanan", "left")
