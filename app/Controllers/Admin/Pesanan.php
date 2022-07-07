@@ -20,7 +20,7 @@ class Pesanan extends BaseController
         $this->pesertaModel = new DaftarPesertaModel();
     }
 
-    public function index()
+    public function index() // Fungsi untuk menampilkan list pesanan beserta data yang dibutuhkan
     {
         $listPesanan = $this->pesananModel->getAllPesanan();
 
@@ -32,7 +32,7 @@ class Pesanan extends BaseController
         return view('admin/pesanan/list_pesanan', $data);
     }
 
-    public function detail($id)
+    public function detail($id) // Fungsi untuk menampilkan detail pesanan
     {
         $pesanan = $this->pesananModel->getPesanan($id);
         $pembayaran = ($pesanan['bayar'] != NULL) ? $this->pembayaranModel->find($pesanan['bayar']) : NULL;
@@ -48,7 +48,7 @@ class Pesanan extends BaseController
         return view('admin/pesanan/detail_pesanan', $data);
     }
 
-    public function update()
+    public function update() // Fungsi untuk melakukan konfirmasi pembayaran
     {
         if ($this->request->getPost('status_bayar') == 'accept') {
             $status = 'Pembayaran berhasil';

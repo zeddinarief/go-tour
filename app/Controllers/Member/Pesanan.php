@@ -28,7 +28,7 @@ class Pesanan extends BaseController
         $this->jenisWisataModel = new JenisWisataModel();
     }
 
-    public function index()
+    public function index() // Controller ini berfungsi untuk menampilkan halaman pesanan beserta data data yg di butuhkan
     {
         if ($this->session->get('isLogin') != 'yes' || $this->session->get('role') != 'member') {
             return redirect()->to('login');
@@ -53,13 +53,13 @@ class Pesanan extends BaseController
         return view('member/pesanan', $data);
     }
 
-    public function save()
+    public function save() // Controller ini berfungsi untuk menyimpan data pesanan baru
     {
-        if ($this->session->get('isLogin') != 'yes' || $this->session->get('role') != 'member') {
+        if ($this->session->get('isLogin') != 'yes' || $this->session->get('role') != 'member') { // Pengecekan login session -> apakah user sudah login
             return redirect()->to('login');
         }
 
-        $this->pesananModel->save([
+        $this->pesananModel->save([ // menyimpan record pesanan baru
             'id_user' => $this->session->get('user_id'),
             'id_wisata' => $this->request->getVar('id_wisata'),
             'id_jadwal' => $this->request->getVar('id_jadwal'),
@@ -77,9 +77,9 @@ class Pesanan extends BaseController
         return redirect()->to('pesanan');
     }
 
-    public function insertAdditionalData()
+    public function insertAdditionalData() // Controller ini berfungsi untuk menyimpan data tambahan pesanan seperti jumlah rombongan, no hp koordinator dan nama-nama peserta
     {
-        $this->pesananModel->save([
+        $this->pesananModel->save([ // update data tambahan pesanan 
             'id' => $this->request->getPost('id'),
             'jumlah_rombongan' => $this->request->getPost('jumlah_rombongan'),
             'no_hp' => $this->request->getPost('no_hp')
