@@ -31,7 +31,7 @@ class Member extends BaseController
             'members' => $members
         ];
 
-        return view('admin/list_member', $data);
+        return view('admin/member/list_member', $data);
     }
 
     public function detail($id)

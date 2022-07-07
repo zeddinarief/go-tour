@@ -8,8 +8,8 @@
     <section class="content-header">
         <div class="container-fluid">
             <blockquote class="quote-info mt-0 mb-0 ml-0">
-                <h5 id="tip">Pesanan</h5>
-                <p>Berikut adalah informasi terkait pesanan wisata yang dilakukan oleh seluruh member</p>
+                <h5 id="tip">Member</h5>
+                <p>Berikut adalah informasi terkait data member</p>
             </blockquote>
         </div><!-- /.container-fluid -->
     </section>
@@ -21,47 +21,44 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Daftar paket wisata</h3>
+                            <h3 class="card-title">Daftar member</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="<?= base_url() ?>/admin/wisata/insert" style="margin-bottom: 10px;"
-                                class="btn btn-info"><i class="fa fa-plus"></i> Tambah</a>
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kode</th>
-                                        <th>Nama Pemesan</th>
-                                        <th>Nama Paket Wisata</th>
+                                        <th>Username</th>
+                                        <th>Nama</th>
+                                        <th>Alamat</th>
                                         <th>No Hp</th>
-                                        <th>Jumlah Rombongan</th>
-                                        <th>Tanggal</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php 
                                         $no = 1;
-                                        foreach ($daftar_wisata as $wisata => $value) { 
+                                        foreach ($members as $member => $value) { 
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
-                                        <td><?= $value['img_paket_wisata'] ?></td>
-                                        <td><?= $value['kode_paket_wisata'] ?></td>
-                                        <td><?= $value['nama_paket_wisata'] ?></td>
-                                        <td><?= $value['jumlah_rombongan'] ?></td>
-                                        <td><?= $value['harga'] ?></td>
-                                        <td><?= $value['jenis'] ?></td>
-                                        <td><?= $value['date'] ?></td>
+                                        <td><?= $value['username'] ?></td>
+                                        <td><?= $value['nama'] ?></td>
+                                        <td><?= $value['alamat'] ?></td>
+                                        <td><?= $value['no_hp'] ?></td>
+                                        <td><?= $value['email'] ?></td>
+                                        <td><?= ($value['is_active']) == 'yes' ? 'Active' : 'Inactive' ?></td>
                                         <td>
-                                            <a href="/admin/wisata/<?= $value['id'] ?>" type="button"
+                                            <a href="/admin/member/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
                                             <a href="#hapus-data" data-toggle="modal" type="button"
                                                 class="btn btn-block btn-danger">Hapus</a>
                                         </td>
                                     </tr>
-                                    <?php
+                                    <?php   
                                             $no++; 
                                         } 
                                     ?>
@@ -69,12 +66,12 @@
                                 <tfoot>
                                     <tr>
                                         <th>No</th>
-                                        <th>Kode</th>
-                                        <th>Nama Pemesan</th>
-                                        <th>Nama Paket Wisata</th>
+                                        <th>Username</th>
+                                        <th>Nama</th>
+                                        <th>Alamat</th>
                                         <th>No Hp</th>
-                                        <th>Jumlah Rombongan</th>
-                                        <th>Tanggal</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </tfoot>

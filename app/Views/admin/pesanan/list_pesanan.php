@@ -58,10 +58,10 @@
                                         <td>
                                             <a href="<?= base_url() ?>/admin/pesanan/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
-                                            <form action="<?= base_url() ?>/admin/pesanan" method="post">
+                                            <!-- <form action="<?= base_url() ?>/admin/pesanan" method="post">
                                                 <a href="#hapus-data" data-toggle="modal" type="button"
                                                     class="btn btn-block btn-danger">Hapus</a>
-                                            </form>
+                                            </form> -->
                                         </td>
                                     </tr>
                                     <?php
