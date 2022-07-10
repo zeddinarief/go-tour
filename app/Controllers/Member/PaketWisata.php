@@ -8,6 +8,7 @@ use App\Models\JenisWisataModel;
 use App\Models\PembayaranModel;
 use App\Models\PesananModel;
 use App\Models\WisataModel;
+use phpDocumentor\Reflection\Types\Null_;
 
 class PaketWisata extends BaseController
 {
@@ -44,7 +45,7 @@ class PaketWisata extends BaseController
     {
         $wisata = $this->wisataModel->where(['kode_paket_wisata' => $kode])->first();
         $jenisWisata = $this->jenisWisataModel->where(['id' => $wisata['id_jenis']])->first();
-        $listJadwal = $this->jadwalModel->where(['id_paket_wisata' => $wisata['id']])->findAll();
+        $listJadwal = $this->jadwalModel->where(['id_paket_wisata' => $wisata['id'], 'id_pembayaran' => NULL])->findAll();
         $pesanan = $this->pesananModel->getPesananByUser($this->session->get('user_id'));
         $history = $this->pembayaranModel->getRiwayatPembayaran($this->session->get('user_id'));
 
