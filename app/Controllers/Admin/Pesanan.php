@@ -22,6 +22,10 @@ class Pesanan extends BaseController
 
     public function index() // Fungsi untuk menampilkan list pesanan beserta data yang dibutuhkan
     {
+        if ($this->session->get('isLogin') != 'yes' || $this->session->get('role') != 'admin') {
+            return redirect()->to('admin/login');
+        }
+        
         $listPesanan = $this->pesananModel->getAllPesanan();
 
         $data = [

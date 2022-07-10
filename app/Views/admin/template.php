@@ -175,20 +175,24 @@
                     <div class="modal-body">
                         <div class="form-box">
                             <h4 class="mt-3">
-                                Apakah Anda yakin akan menghapus data <br> <b> [nama-data]</b>
+                                Apakah Anda yakin akan menghapus data ini?
                             </h4>
-                            <div class="row mt-5">
-                                <div class="col-sm-6">
-                                    <a href="#" data-dismiss="modal" class="btn btn-secondary btn-block ">
-                                        Batal
-                                    </a>
+                            <form id="hapus-form" action="" method="post">
+                                <div class="row mt-5">
+                                    <input type="hidden" name="_method" value="DELETE" /> 
+                                    <input type="hidden" name="id" id="id-value">
+                                    <div class="col-sm-6">
+                                        <a href="#" data-dismiss="modal" class="btn btn-secondary btn-block ">
+                                            Batal
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <button type="submit" class="btn btn-danger btn-block ">
+                                            Hapus Data
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <a data-dismiss="modal" class="btn btn-danger btn-block ">
-                                        Hapus Data
-                                    </a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -289,6 +293,14 @@
             maxYear: parseInt(moment().format('YYYY'), 10)
         })
     });
+    </script>
+    <script>
+        function hapusData(url, id) {
+            document.getElementById('hapus-form').action = url;
+            document.getElementById('id-value').value = id;
+            console.log(url)
+            console.log(id)
+        }
     </script>
 </body>
 

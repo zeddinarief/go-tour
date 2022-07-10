@@ -58,6 +58,7 @@ $routes->addRedirect('/admin/paketwisata', 'admin.wisata'); // Go to list wisata
 $routes->get('/admin/wisata/insert', 'Admin\PaketWisata::insert', ['as' => 'admin.wisata_insert']); // Go to insert wisata admin
 $routes->post('/admin/wisata/insert', 'Admin\PaketWisata::save'); // Action insert wisata admin
 $routes->get('/admin/wisata/(:num)', 'Admin\PaketWisata::detail/$1', ['as' => 'admin.wisata_detail']); // Go to detail wisata admin
+$routes->delete('/admin/wisata', 'Admin\PaketWisata::delete'); // Action delete wisata admin
 $routes->post('/admin/wisata/(:num)', 'Admin\PaketWisata::update/$1'); // Action update wisata admin
 $routes->get('/admin/pesanan/(:num)', 'Admin\Pesanan::detail/$1', ['as' => 'admin.pesanan_detail']); // Go to detail pesanan admin
 $routes->post('/admin/pesanan', 'Admin\Pesanan::update'); // Action update pesanan admin
@@ -67,8 +68,10 @@ $routes->get('/admin/jenis_wisata/insert', 'Admin\JenisWisata::insert'); // Go t
 $routes->post('/admin/jenis_wisata/insert', 'Admin\JenisWisata::save'); // Action insert jenis wisata admin
 $routes->get('/admin/jenis_wisata/(:num)', 'Admin\JenisWisata::detail/$1'); // Go to form detail jenis wisata admin
 $routes->post('/admin/jenis_wisata/(:num)', 'Admin\JenisWisata::update/$1'); // Action update jenis wisata admin
+$routes->delete('/admin/jenis_wisata', 'Admin\JenisWisata::delete'); // Action delete jenis wisata admin
 $routes->get('/admin/member/(:num)', 'Admin\Member::detail/$1', ['as' => 'admin.member_detail']); // Go to detail member
 $routes->post('/admin/member/(:num)', 'Admin\Member::update/$1'); // Go to detail member
+$routes->delete('/admin/member', 'Admin\Member::delete'); // Action delete member
 $routes->post('/admin/jadwal/insert', 'Admin\PaketWisata::addJadwal'); // Go to detail member
 
 /*

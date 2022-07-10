@@ -148,6 +148,12 @@ class PaketWisata extends BaseController
         return redirect()->to('admin/wisata')->with('data_added', 'Data berhasil ditambahkan');
     }
 
+    public function delete() // This is function for delete paket wisata data
+    {
+        $this->wisataModel->delete($this->request->getPost('id'));
+        return redirect()->to('/admin/wisata')->with('data_added', 'Data berhasil dihapus');
+    }
+
     public function addJadwal()
     {
         $this->jadwalModel->save([

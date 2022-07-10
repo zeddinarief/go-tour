@@ -92,4 +92,10 @@ class JenisWisata extends BaseController
         return redirect()->to('admin/jenis_wisata')->with('data_added', 'Data berhasil ditambahkan');
     }
 
+    public function delete() // This is function for delete jenis wisata data
+    {
+        $this->jenisWisataModel->delete($this->request->getPost('id'));
+        return redirect()->to('/admin/jenis_wisata')->with('data_added', 'Data berhasil dihapus');
+    }
+
 }

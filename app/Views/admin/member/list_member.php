@@ -54,7 +54,7 @@
                                         <td>
                                             <a href="/admin/member/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
-                                            <a href="#hapus-data" data-toggle="modal" type="button"
+                                            <a href="#hapus-data" onclick="hapusData('<?= base_url() ?>/admin/member', <?= $value['id'] ?>)" data-toggle="modal" type="button"
                                                 class="btn btn-block btn-danger">Hapus</a>
                                         </td>
                                     </tr>

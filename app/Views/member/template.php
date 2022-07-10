@@ -170,7 +170,7 @@
                                     <span class="cart-count bg-danger"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <?php if ($pesanan['bayar'] == NULL) { ?>    
+                                    <?php if ($pesanan != NULL && $pesanan['bayar'] == NULL) { ?>    
                                         <div class="dropdown-cart-products">
                                             <div class="product">
                                                 <div class="product-cart-details">

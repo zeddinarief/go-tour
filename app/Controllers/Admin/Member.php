@@ -70,4 +70,10 @@ class Member extends BaseController
 
         return redirect()->to('/admin/member/' . $id);
     }
+
+    public function delete() // This is function for delete member data
+    {
+        $this->userModel->delete($this->request->getPost('id'));
+        return redirect()->to('/admin/member/');
+    }
 }
