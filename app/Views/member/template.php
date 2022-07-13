@@ -189,107 +189,110 @@
 
                                         <figure class="product-image-container">
                                             <a href="<?= base_url() ?>/wisata/detail" class="product-image">
-                                                <img src="assets/images/gunung-panderman.jpg" alt="product">
+                                                <img src="<?= base_url('img/wisata/' . $pesanan['img_wisata']) ?>"
+                                                    alt="product">
                                             </a>
                                         </figure>
                                         <!-- <a href="#" class="btn-remove" title="Remove Product"><i
-                                                class="icon-close"></i></a> -->
-                                    </div>
-                                </div>
-
-                                <div class="dropdown-cart-total">
-                                    <span>Total</span>
-                                    <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
-                                </div>
-                                <?php } ?>
-
-                                <div class="dropdown-cart-action">
-                                    <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
-                                            class="fa-solid fa-eye"></i>Lihat
-                                        Pesanan</a>
-                                    <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
-                                                class="icon-long-arrow-right"></i></a> -->
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="fa-solid fa-bell fa-xs"></i>
-                                <span class="cart-count bg-danger"></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-cart-products">
-                                    <?php foreach ($history as $his => $val) { ?>
-                                    <div class="product d-block px-0 py-2">
-                                        <a class="text-dark" href="<?= base_url() ?>/pesanan">
-                                            <p class=" mb-0 text-dark"> <?= $val['nama_paket'] ?></p>
-                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i>
-                                                <?= $val['status_bayar'] ?></span>&emsp; <br> <span
-                                                class="pl-auto text-info"><i class="fa-regular fa-calendar-check"></i>
-                                                <?= $val['tgl_wisata'] ?></span>
-                                        </a>
-                                    </div>
-                                    <?php } ?>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="dropdown cart-dropdown">
-                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" data-display="static">
-                                <i class="fa-solid fa-circle-user fa-xs"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" style="width:200px">
-                                <div class="dropdown-cart-products">
-                                    <div class="product d-block px-0 py-2">
-                                        <a class="product-title" href="<?= base_url() ?>/profile">
-                                            <p class=" mb-0"><i class="fa-solid fa-user-gear"></i>&nbsp; Detail
-                                                Profil</p>
-                                        </a>
-                                    </div>
-                                    <div class="product d-block px-0 py-2">
-                                        <a class="product-title" href="<?= base_url() ?>/logout">
-                                            <p class=" mb-0"> <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
-                                                Keluar / Logout</p>
-                                        </a>
+                                                        class="icon-close"></i></a> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <?php } else { ?>
-                        <div class="dropdown cart-dropdown">
-                            <a href="<?= base_url() ?>/login" class="btn btn-outline-primary" role="button"><i
-                                    class="fa-solid fa-right-to-bracket"></i>Masuk</a>
+
+                        <div class="dropdown-cart-total">
+                            <span>Total</span>
+                            <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
                         </div>
                         <?php } ?>
+
+                        <div class="dropdown-cart-action">
+                            <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
+                                    class="fa-solid fa-eye"></i>Lihat
+                                Pesanan</a>
+                            <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
+                                                class="icon-long-arrow-right"></i></a> -->
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
+                <div class="dropdown cart-dropdown">
+                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" data-display="static">
+                        <i class="fa-solid fa-bell fa-xs"></i>
+                        <span class="cart-count bg-danger"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <div class="dropdown-cart-products">
+                            <?php foreach ($history as $his => $val) { ?>
+                            <div class="product d-block px-0 py-2">
+                                <a class="text-dark" href="<?= base_url() ?>/pesanan">
+                                    <p class=" mb-0 text-dark"> <?= $val['nama_paket'] ?></p>
+                                    <span class="text-success"><i class="fa-regular fa-circle-check"></i>
+                                        <?= $val['status_bayar'] ?></span>&emsp; <br> <span class="pl-auto text-info"><i
+                                            class="fa-regular fa-calendar-check"></i>
+                                        <?= $val['tgl_wisata'] ?></span>
+                                </a>
+                            </div>
+                            <?php } ?>
 
-        <?= $this->renderSection('content') ?>
-
-        <footer class="footer footer-2">
-            <div class="footer-bottom">
-                <div class="container">
-                    <p class="footer-copyright">Copyright © 2022 Go Tour & Travel Malang. All Rights Reserved.</p>
-                    <div class="social-icons social-icons-color">
-                        <a href="<?= base_url() ?>/" class="social-icon social-facebook" title="Facebook"
-                            target="_blank"><i class="icon-facebook-f"></i></a>
-                        <a href="<?= base_url() ?>/" class="social-icon social-twitter" title="Twitter"
-                            target="_blank"><i class="icon-twitter"></i></a>
-                        <a href="<?= base_url() ?>/" class="social-icon social-instagram" title="Instagram"
-                            target="_blank"><i class="icon-instagram"></i></a>
-                        <a href="<?= base_url() ?>/" class="social-icon social-youtube" title="Youtube"
-                            target="_blank"><i class="icon-youtube"></i></a>
-                        <a href="<?= base_url() ?>/" class="social-icon social-pinterest" title="Pinterest"
-                            target="_blank"><i class="icon-pinterest"></i></a>
+                        </div>
                     </div>
                 </div>
+
+                <div class="dropdown cart-dropdown">
+                    <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" data-display="static">
+                        <i class="fa-solid fa-circle-user fa-xs"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" style="width:200px">
+                        <div class="dropdown-cart-products">
+                            <div class="product d-block px-0 py-2">
+                                <a class="product-title" href="<?= base_url() ?>/profile">
+                                    <p class=" mb-0"><i class="fa-solid fa-user-gear"></i>&nbsp; Detail
+                                        Profil</p>
+                                </a>
+                            </div>
+                            <div class="product d-block px-0 py-2">
+                                <a class="product-title" href="<?= base_url() ?>/logout">
+                                    <p class=" mb-0"> <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
+                                        Keluar / Logout</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php } else { ?>
+                <div class="dropdown cart-dropdown">
+                    <a href="<?= base_url() ?>/login" class="btn btn-outline-primary" role="button"><i
+                            class="fa-solid fa-right-to-bracket"></i>Masuk</a>
+                </div>
+                <?php } ?>
             </div>
-        </footer>
+    </div>
+    </div>
+    </header>
+
+    <?= $this->renderSection('content') ?>
+
+    <footer class="footer footer-2">
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="footer-copyright">Copyright © 2022 Go Tour & Travel Malang. All Rights Reserved.</p>
+                <div class="social-icons social-icons-color">
+                    <a href="<?= base_url() ?>/" class="social-icon social-facebook" title="Facebook" target="_blank"><i
+                            class="icon-facebook-f"></i></a>
+                    <a href="<?= base_url() ?>/" class="social-icon social-twitter" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>
+                    <a href="<?= base_url() ?>/" class="social-icon social-instagram" title="Instagram"
+                        target="_blank"><i class="icon-instagram"></i></a>
+                    <a href="<?= base_url() ?>/" class="social-icon social-youtube" title="Youtube" target="_blank"><i
+                            class="icon-youtube"></i></a>
+                    <a href="<?= base_url() ?>/" class="social-icon social-pinterest" title="Pinterest"
+                        target="_blank"><i class="icon-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
     </div>
     <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 

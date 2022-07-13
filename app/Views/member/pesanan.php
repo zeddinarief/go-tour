@@ -490,9 +490,7 @@
                                             <p class="fa-solid fa-user-group fa-xs text-primary px-1"></p>
                                         </div>
                                     </div> -->
-                                    <input id="jumlahPeserta" class="form-control" name="jumlah_rombongan" type="number"
-                                        onchange="setName()" max="<?= $wisata['jumlah_rombongan'] ?>"
-                                        value="<?= $pesanan['jumlah_rombongan'] ?>">
+                                    <input id="jumlahPeserta" class="form-control" name="jumlah_rombongan" type="number" onchange="setName()" min="1" max="<?= $wisata['jumlah_rombongan'] ?>" value="<?= $pesanan['jumlah_rombongan'] ?>">
                                 </div>
                             </div>
                             <!-- <div class="col-sm-6">

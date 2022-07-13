@@ -73,7 +73,7 @@ class PesananModel extends Model
     
     public function getPesananByUser($id)
     {
-        return $this->select("pemesanan.*, user.nama AS nama_member, paket_wisata.nama_paket_wisata AS nama_paket, paket_wisata.harga, j.date, 
+        return $this->select("pemesanan.*, user.nama AS nama_member, paket_wisata.nama_paket_wisata AS nama_paket, paket_wisata.harga, paket_wisata.img_paket_wisata AS img_wisata, j.date, 
         (SELECT b.id FROM pembayaran b WHERE b.id_pesanan = pemesanan.id ORDER BY b.id DESC LIMIT 1) AS bayar")
         ->join("user", "user.id = pemesanan.id_user", "left")
         ->join("paket_wisata", "paket_wisata.id = pemesanan.id_wisata", "left")
