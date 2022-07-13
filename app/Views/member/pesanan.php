@@ -65,24 +65,32 @@
                                                                     alt="Product image"> </a>
                                                         </figure>
                                                         <h2 class="product-title w-100">
-                                                            <a href="<?= base_url() ?>/wisata/<?= $wisata['id'] ?>"><?= $wisata['nama_paket_wisata'] ?></a> <br>
+                                                            <a
+                                                                href="<?= base_url() ?>/wisata/<?= $wisata['id'] ?>"><?= $wisata['nama_paket_wisata'] ?></a>
+                                                            <br>
                                                             <span class="small text-muted pr-3"><i
-                                                                    class="fa-solid fa-user-group fa-xs"></i> <?= $wisata['jumlah_rombongan'] ?>
+                                                                    class="fa-solid fa-user-group fa-xs"></i>
+                                                                <?= $wisata['jumlah_rombongan'] ?>
                                                                 Orang</span><br> <span class="small text-muted"><i
-                                                                    class="fa-solid fa-calendar-check"></i> <?= $jadwal['date'] ?></span>
+                                                                    class="fa-solid fa-calendar-check"></i>
+                                                                <?= $jadwal['date'] ?></span>
                                                         </h2>
                                                     </div>
                                                 </td>
                                                 <td class="text-left">Rp <?= $wisata['harga'] ?>,-</td>
                                                 <td class="text-left">
                                                     <?php if ($pesanan['bayar'] == NULL) { ?>
-                                                        <span class="text-danger"><i class="fa-regular fa-clock"></i> Menunggu pembayaran</span>
+                                                    <span class="text-danger"><i class="fa-regular fa-clock"></i>
+                                                        Menunggu pembayaran</span>
                                                     <?php } else { ?>
-                                                        <?php if ($pembayaran['status_bayar'] != 'Pembayaran berhasil') { ?>
-                                                            <span class="text-danger"><i class="fa-regular fa-clock"></i> <?= $pembayaran['status_bayar'] ?></span>
-                                                        <?php } else { ?>
-                                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i> <?= $pembayaran['status_bayar'] ?></span>
-                                                        <?php } ?>
+                                                    <?php if ($pembayaran['status_bayar'] != 'Pembayaran berhasil') { ?>
+                                                    <span class="text-danger"><i class="fa-regular fa-clock"></i>
+                                                        <?= $pembayaran['status_bayar'] ?></span>
+                                                    <?php } else { ?>
+                                                    <span class="text-success"><i
+                                                            class="fa-regular fa-circle-check"></i>
+                                                        <?= $pembayaran['status_bayar'] ?></span>
+                                                    <?php } ?>
                                                     <?php } ?>
                                                 </td>
                                                 <td class="price-col">
@@ -119,44 +127,50 @@
                                                 <th>Nama Wisata</th>
                                                 <th>Harga</th>
                                                 <th>Status Pembayaran</th>
-                                                <th>Aksi</th>
+                                                <!-- <th>Aksi</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php foreach ($history as $his => $val) { ?>
-                                                <tr>
-                                                    <td class="product-col">
-                                                        <div class="product">
-                                                            <figure class="product-media">
-                                                                <a href="#"><img src="<?= base_url('img/wisata/' . $val['img']) ?>"
-                                                                        alt="Product image"> </a>
-                                                            </figure>
-                                                            <h2 class="product-title w-100">
-                                                                <a href="#"><?= $val['nama_paket'] ?></a><br>
-                                                                <span class="small text-muted pr-3"><i
-                                                                        class="fa-solid fa-user-group fa-xs"></i> <?= $val['jumlah_rombongan'] ?>
-                                                                    Orang</span><br> <span class="small text-muted"><i
-                                                                        class="fa-solid fa-calendar-check"></i> <?= $val['tgl_wisata'] ?></span>
-                                                            </h2>
-                                                        </div>
-                                                    </td>
-                                                    <td class="text-left">Rp <?= $val['total_biaya'] ?>,-</td>
-                                                    <td class="text-left">
-                                                        <?php if ($val['status_bayar'] != 'Pembayaran berhasil') { ?>
-                                                            <span class="text-danger"><i class="fa-regular fa-clock"></i> <?= $val['status_bayar'] ?></span>
-                                                        <?php } else { ?>
-                                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i> <?= $val['status_bayar'] ?></span>
-                                                        <?php } ?>
-                                                    </td>
-                                                    <td class="price-col">
+                                            <tr>
+                                                <td class="product-col">
+                                                    <div class="product">
+                                                        <figure class="product-media">
+                                                            <a href="#"><img
+                                                                    src="<?= base_url('img/wisata/' . $val['img']) ?>"
+                                                                    alt="Product image"> </a>
+                                                        </figure>
+                                                        <h2 class="product-title w-100">
+                                                            <a href="#"><?= $val['nama_paket'] ?></a><br>
+                                                            <span class="small text-muted pr-3"><i
+                                                                    class="fa-solid fa-user-group fa-xs"></i>
+                                                                <?= $val['jumlah_rombongan'] ?>
+                                                                Orang</span><br> <span class="small text-muted"><i
+                                                                    class="fa-solid fa-calendar-check"></i>
+                                                                <?= $val['tgl_wisata'] ?></span>
+                                                        </h2>
+                                                    </div>
+                                                </td>
+                                                <td class="text-left">Rp <?= $val['total_biaya'] ?>,-</td>
+                                                <td class="text-left">
+                                                    <?php if ($val['status_bayar'] != 'Pembayaran berhasil') { ?>
+                                                    <span class="text-danger"><i class="fa-regular fa-clock"></i>
+                                                        <?= $val['status_bayar'] ?></span>
+                                                    <?php } else { ?>
+                                                    <span class="text-success"><i
+                                                            class="fa-regular fa-circle-check"></i>
+                                                        <?= $val['status_bayar'] ?></span>
+                                                    <?php } ?>
+                                                </td>
+                                                <!-- <td class="price-col">
                                                         <div class="tagcloud">
                                                             <a href="#detail-riwayat-pesanan" data-toggle="modal"
                                                                 class="btn btn-outline-primary btn-rounded btn-shadow"><i
                                                                     class="fa-regular fa-eye"></i>Lihat
                                                                 Detail</a>
                                                         </div>
-                                                    </td>
-                                                </tr>
+                                                    </td> -->
+                                            </tr>
                                             <?php } ?>
                                         </tbody>
                                     </table>
@@ -295,7 +309,8 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="form-box">
-                    <form action="<?= base_url() ?>/pembayaran/upload" enctype="multipart/form-data" method="post" id="uploadBukti">
+                    <form action="<?= base_url() ?>/pembayaran/upload" enctype="multipart/form-data" method="post"
+                        id="uploadBukti">
                         <input type="hidden" name="id" value="<?= $pesanan['id'] ?>">
                         <input type="hidden" name="nama_paket" value="<?= $wisata['nama_paket_wisata'] ?>">
                         <input type="hidden" name="harga" value="<?= $wisata['harga'] ?>">
@@ -305,8 +320,10 @@
                                 <div class="product-gallery">
 
                                     <figure class="product-main-image">
-                                        <img id="product-zoom" src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
-                                            data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>" alt="product image">
+                                        <img id="product-zoom"
+                                            src="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                            data-zoom-image="<?= base_url('img/wisata/' . $wisata['img_paket_wisata']) ?>"
+                                            alt="product image">
                                     </figure>
 
                                 </div>
@@ -315,7 +332,8 @@
                             <div class="col-md-8 pl-4">
                                 <div class="product-details">
                                     <span class="bg-gray ml-1 px-3">Kategori : <?= $jenis['jenis'] ?></span>
-                                    <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i> <?= $wisata['jumlah_rombongan'] ?>
+                                    <span class="bg-gray ml-1 px-3"><i class="fa-solid fa-user-group fa-xs"></i>
+                                        <?= $wisata['jumlah_rombongan'] ?>
                                         Orang</span>
                                     <h3 class="mt-2"><?= $wisata['nama_paket_wisata'] ?></h3>
                                     <div class="product-price mb-2">
@@ -335,7 +353,7 @@
                                                         </div>
                                                     </div>
                                                     <select class="form-control" name="metode_bayar" required>
-                                                        <option disabled="disabled" >Silahkan pilih
+                                                        <option disabled="disabled">Silahkan pilih
                                                         </option>
                                                         <option value="Bank BCA">Bank BCA</option>
                                                         <option value="Bank BRI">Bank BRI</option>
@@ -349,11 +367,13 @@
                                         </div>
 
                                         <div class="product-cat">
-                                            <span>Pastikan nominal pembayaran sudah benar. (format jpg, jpeg, png)</span>
+                                            <span>Pastikan nominal pembayaran sudah benar. (format jpg, jpeg,
+                                                png)</span>
 
                                         </div>
                                         <div class="custom-file mt-1">
-                                            <input type="file" name="bukti_bayar" class="custom-file-input" id="customFile">
+                                            <input type="file" name="bukti_bayar" class="custom-file-input"
+                                                id="customFile">
                                             <label class="custom-file-label" for="customFile">Choose file</label>
                                         </div>
                                         <span id="validations"></span>
@@ -369,8 +389,7 @@
                                 </a>
                             </div>
                             <div class="col-sm-6">
-                                <a onclick="bukti_pembayaran()"
-                                    class="btn btn-primary btn-block text-white ">
+                                <a onclick="bukti_pembayaran()" class="btn btn-primary btn-block text-white ">
                                     <i class="fa-solid fa-paper-plane"></i>
                                     Kirim Bukti
                                 </a>
@@ -459,7 +478,8 @@
                         <h3 class="mb-4 mt-2">Data Tambahan</h3>
 
                         <label class="text-primary">Nama Wisata</label>
-                        <input type="text" class="form-control" required value="<?= $wisata['nama_paket_wisata'] ?>" disabled>
+                        <input type="text" class="form-control" required value="<?= $wisata['nama_paket_wisata'] ?>"
+                            disabled>
 
                         <div class="row">
                             <div class="col-sm-6">
@@ -470,7 +490,9 @@
                                             <p class="fa-solid fa-user-group fa-xs text-primary px-1"></p>
                                         </div>
                                     </div> -->
-                                    <input id="jumlahPeserta" class="form-control" name="jumlah_rombongan" type="number" onchange="setName()" max="<?= $wisata['jumlah_rombongan'] ?>" value="<?= $pesanan['jumlah_rombongan'] ?>">
+                                    <input id="jumlahPeserta" class="form-control" name="jumlah_rombongan" type="number"
+                                        onchange="setName()" max="<?= $wisata['jumlah_rombongan'] ?>"
+                                        value="<?= $pesanan['jumlah_rombongan'] ?>">
                                 </div>
                             </div>
                             <!-- <div class="col-sm-6">
@@ -494,7 +516,8 @@
                             </div> -->
                             <div class="col-sm-6">
                                 <label class="text-primary">No HP Koordinator</label>
-                                <input type="text" id="koordinator" class="form-control" name="no_hp" required value="<?= $pesanan['no_hp'] ?>" >
+                                <input type="text" id="koordinator" class="form-control" name="no_hp" required
+                                    value="<?= $pesanan['no_hp'] ?>">
                             </div>
                             <!-- <div class="col-sm-6">
                                 <label class="text-primary">Nama Peserta ke-1</label>
@@ -505,7 +528,7 @@
                                 <input type="text" class="form-control" name="nama_peserta" required value="Nur Tahfid">
                             </div> -->
                             <div class="row" id="peserta">
-                            <!-- <div class="col-sm-6">
+                                <!-- <div class="col-sm-6">
                                 <label class="text-primary">Nama Peserta ke-3</label>
                                 <input type="text" class="form-control" name="nama_peserta" required value="Febrian Firdaus">
                             </div> -->
@@ -519,7 +542,8 @@
                                 </a>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#" onclick="simpanDataPesanan()" data-dismiss="modal" class="btn btn-primary btn-block ">
+                                <a href="#" onclick="simpanDataPesanan()" data-dismiss="modal"
+                                    class="btn btn-primary btn-block ">
                                     <i class="fa-solid fa-check"></i>
                                     Simpan Perubahan
                                 </a>
@@ -532,26 +556,26 @@
     </div>
 </div>
 <script>
-    console.log('test')
-    // console.log(document.getElementsByName('nama_peserta'))
-    function setName() {
-        let jumlah = document.getElementById('jumlahPeserta').value
-        console.log((jumlah))
-        let arr = []
-        let peserta = document.getElementsByName('nama_peserta[]')
-        for (let index = 0; index < peserta.length; index++) {
-            arr.push(peserta[index].value)
-            console.log(arr)
-        }
-        document.getElementById('peserta').innerHTML = ''
-        <?php $no = 0; ?>
-        for (let index = 0; index < jumlah; index++) {
-            document.getElementById('peserta').innerHTML +=`<div class="col-sm-6">
+console.log('test')
+// console.log(document.getElementsByName('nama_peserta'))
+function setName() {
+    let jumlah = document.getElementById('jumlahPeserta').value
+    console.log((jumlah))
+    let arr = []
+    let peserta = document.getElementsByName('nama_peserta[]')
+    for (let index = 0; index < peserta.length; index++) {
+        arr.push(peserta[index].value)
+        console.log(arr)
+    }
+    document.getElementById('peserta').innerHTML = ''
+    <?php $no = 0; ?>
+    for (let index = 0; index < jumlah; index++) {
+        document.getElementById('peserta').innerHTML += `<div class="col-sm-6">
                                 <label class="text-primary">Nama Peserta ke-${index+1}</label>
                                 <input type="text" class="form-control" name="nama_peserta[]" value="${(arr[index]) ? arr[index] : ''}">
                             </div>`
-        }
     }
+}
 </script>
 
 <?= $this->endSection() ?>
