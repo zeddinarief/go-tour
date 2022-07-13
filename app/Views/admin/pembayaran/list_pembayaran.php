@@ -45,15 +45,14 @@
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
-                                        <td><?= $value['img_paket_wisata'] ?></td>
-                                        <td><?= $value['kode_paket_wisata'] ?></td>
-                                        <td><?= $value['nama_paket_wisata'] ?></td>
-                                        <td><?= $value['jumlah_rombongan'] ?></td>
-                                        <td><?= $value['harga'] ?></td>
-                                        <td><?= $value['jenis'] ?></td>
+                                        <td><?= $value['kode_pembayaran'] ?></td>
+                                        <td><?= $value['kode_pesanan'] ?></td>
+                                        <td><?= $value['nama_paket'] ?></td>
+                                        <td><?= $value['total_biaya'] ?></td>
+                                        <td><?= $value['status_bayar'] ?></td>
                                         <td><?= $value['date'] ?></td>
                                         <td>
-                                            <a href="/admin/wisata/<?= $value['id'] ?>" type="button"
+                                            <a href="/admin/pembayaran/<?= $value['id'] ?>" type="button"
                                                 class="btn btn-block btn-primary">Detail</a>
                                         </td>
                                     </tr>

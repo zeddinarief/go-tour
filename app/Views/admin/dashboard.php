@@ -26,14 +26,14 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?= $users ?></h3>
 
                             <p>Jumlah Member</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-users pl-1">&nbsp;</i>
                         </div>
-                        <a href="#" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
+                        <a href="<?= base_url() ?>/admin/member" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -41,14 +41,14 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>54</h3>
+                            <h3><?= $wisatas ?></h3>
 
                             <p>Jumlah Wisata</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-map-marked-alt pl-1"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
+                        <a href="<?= base_url() ?>/admin/wisata" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
                     </div>
                 </div>
 
@@ -56,14 +56,14 @@
                     <!-- small box -->
                     <div class="small-box bg-danger">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3><?= $pesanans ?></h3>
 
                             <p>Jumlah Pesanan</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-shopping-bag pl-2"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
+                        <a href="<?= base_url() ?>/admin/pesanan" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -72,14 +72,14 @@
                     <!-- small box -->
                     <div class="small-box bg-purple">
                         <div class="inner">
-                            <h3>55</h3>
+                            <h3><?= $pembayarans ?></h3>
 
                             <p>Jumlah Pembayaran</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-comments-dollar pl-1"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
+                        <a href="<?= base_url() ?>/admin/pembayaran" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -89,14 +89,14 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>Rp 34.505.000,-</h3>
+                            <h3>Rp <?= $omset ?>,-</h3>
 
                             <p>Total Pendapatan</p>
                         </div>
                         <div class="icon">
                             <i class="fas fa-coins"></i>
                         </div>
-                        <a href="#" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a>
+                        <!-- <a href="#" class="small-box-footer"><i class="far fa-eye"></i> Selengkapnya</a> -->
                     </div>
                 </div>
                 <!-- ./col -->

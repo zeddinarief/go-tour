@@ -56,4 +56,44 @@ class PembayaranModel extends Model
         ->orderBy('pembayaran.id', 'DESC')
         ->get()->getResultArray();
     }
+    
+    public function getAllPembayaran()
+    {
+        return $this->select("pembayaran.*, p.kode_pesanan, 
+        u.nama AS nama_member, 
+        w.nama_paket_wisata AS nama_paket, w.img_paket_wisata AS img, 
+        j.date AS tgl_wisata,
+        jn.jenis AS jenis")
+        ->join("pemesanan p", "p.id = pembayaran.id_pesanan", "left")
+        ->join("user u", "u.id = p.id_user", "left")
+        ->join("paket_wisata w", "w.id = p.id_wisata", "left")
+        ->join("jadwal_keberangkatan j", "j.id = p.id_jadwal", "left")
+        ->join("jenis_wisata jn", "jn.id = w.id_jenis", "left")
+        ->orderBy('pembayaran.id', 'DESC')
+        ->get()->getResultArray();
+    }
+    
+    public function getPembayaranDetail($id)
+    {
+        return $this->select("pembayaran.*, p.kode_pesanan, 
+        u.nama AS nama_member, 
+        w.nama_paket_wisata AS nama_paket, w.img_paket_wisata AS img, 
+        j.date AS tgl_wisata,
+        jn.jenis AS jenis")
+        ->join("pemesanan p", "p.id = pembayaran.id_pesanan", "left")
+        ->join("user u", "u.id = p.id_user", "left")
+        ->join("paket_wisata w", "w.id = p.id_wisata", "left")
+        ->join("jadwal_keberangkatan j", "j.id = p.id_jadwal", "left")
+        ->join("jenis_wisata jn", "jn.id = w.id_jenis", "left")
+        ->where('pembayaran.id', $id)
+        ->orderBy('pembayaran.id', 'DESC')
+        ->first();
+    }
+
+    public function getOmset()
+    {
+        return $this->select('SUM(total_biaya) AS omset')
+        ->where('status_bayar', 'Pembayaran berhasil')
+        ->first();
+    }
 }
