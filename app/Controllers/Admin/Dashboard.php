@@ -30,7 +30,7 @@ class Dashboard extends BaseController
             return redirect()->to('admin/login');
         }
 
-        $users = $this->userModel->countAllResults();
+        $users = $this->userModel->where('role', 'member')->countAllResults();
         $wisatas = $this->wisataModel->countAllResults();
         $pesanans = $this->pesananModel->countAllResults();
         $pembayarans = $this->pembayaranModel->countAllResults();

@@ -53,7 +53,7 @@
                                         <td><?= $value['kode_pesanan'] ?></td>
                                         <td><?= $value['nama_paket'] ?></td>
                                         <td><?= $value['nama_member'] ?></td>
-                                        <td><?= ($value['bayar'] != NULL) ? 'Sudah dikonfirmasi' : 'Menunggu konfirmasi' ?></td>
+                                        <td><?= ($value['bayar'] != NULL) ? 'Sudah melakukan pembayaran' : 'Menunggu pembayaran' ?></td>
                                         <td><?= $value['date_pesanan'] ?></td>
                                         <td>
                                             <a href="<?= base_url() ?>/admin/pesanan/<?= $value['id'] ?>" type="button"

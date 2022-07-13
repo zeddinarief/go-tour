@@ -41,6 +41,7 @@ $routes->get('/wisata', 'Member\PaketWisata::index'); // Go to list wisata
 $routes->get('/wisata/(:alphanum)', 'Member\PaketWisata::detail/$1'); // Go to detail wisata 
 $routes->get('/pesanan', 'Member\Pesanan::index'); // Go to Pesanan page
 $routes->post('/pesanan', 'Member\Pesanan::save'); // Action add Pesanan page
+$routes->delete('/pesanan', 'Member\Pesanan::delete'); // Action delete Pesanan
 $routes->post('/pesanan/data', 'Member\Pesanan::insertAdditionalData'); // Action add Additional data Pesanan page
 $routes->post('/pembayaran/upload', 'Member\Pembayaran::uploadBukti'); // Action add bukti pembayaran page
 $routes->get('/profile', 'Member\User::index'); // Go to Pesanan page

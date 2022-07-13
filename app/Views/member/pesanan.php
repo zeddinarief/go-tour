@@ -95,9 +95,15 @@
                                                 </td>
                                                 <td class="price-col">
                                                     <div class="tagcloud">
+                                                        <form action="" id="hapus-pesan" method="POST">
+                                                            <input type="hidden" name="id" value="<?= $pesanan['id'] ?>">
+                                                            <input type="hidden" name="_method" value="DELETE" />
+                                                        </form>
+                                                        <?php if ($pesanan['bayar'] == NULL) { ?>
                                                         <a onclick="hapus_pesanan()"
                                                             class="btn btn-outline-primary btn-rounded btn-shadow"><i
                                                                 class="fa-solid fa-trash-can"></i><span>Hapus</span></a>
+                                                        <?php } ?>
                                                         <!-- <a href="#data-tambahan" data-toggle="modal"
                                                             class="btn btn-outline-primary text-dark btn-rounded btn-shadow"><i
                                                                 class="fa-solid fa-pen-to-square"></i><span>Data

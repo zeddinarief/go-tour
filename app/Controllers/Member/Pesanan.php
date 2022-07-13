@@ -88,6 +88,12 @@ class Pesanan extends BaseController
         return $this->respond(['status' => 200, 'message' => 'success']);
     }
 
+    public function delete()
+    {
+        $this->pesananModel->delete($this->request->getPost('id'));
+        return $this->respond(['status' => 200, 'message' => 'success']);
+    }
+
     public function getCode($jenis, $id) // This function is used for generate kode
     {
         $idUser = strval($id);

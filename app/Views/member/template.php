@@ -530,11 +530,28 @@
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Pesanan Telah Terhapus!',
-                    'Silahkan memilih paket wisata lain yang sesuai',
-                    'success'
-                )
+                let form = document.getElementById('hapus-pesan');
+                const data = new FormData(form);
+
+                fetch('<?= base_url() ?>/pesanan', {
+                    method: 'POST',
+                    headers: {'<?= csrf_header() ?>': '<?= csrf_hash() ?>'},
+                    body: data
+                }).then(response => {
+                    return response.json()
+                }).then(responseJson => {
+                    console.log(responseJson)
+                    if (responseJson.status === 200) {
+                        Swal.fire(
+                            'Pesanan Telah Terhapus!',
+                            'Silahkan memilih paket wisata lain yang sesuai',
+                            'success'
+                        ).then(function () {
+                            location.reload(); 
+                        })
+                    }
+                });
+                
             }
         })
     }
