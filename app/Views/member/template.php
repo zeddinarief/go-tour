@@ -185,7 +185,7 @@
 
                                                 <figure class="product-image-container">
                                                     <a href="<?= base_url() ?>/wisata/detail" class="product-image">
-                                                        <img src="assets/images/gunung-panderman.jpg" alt="product">
+                                                        <img src="<?= base_url('img/wisata/' . $pesanan['img_wisata']) ?>" alt="product">
                                                     </a>
                                                 </figure>
                                                 <a href="#" class="btn-remove" title="Remove Product"><i

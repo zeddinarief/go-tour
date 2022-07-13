@@ -60,6 +60,7 @@ class Pesanan extends BaseController
         }
 
         $this->pesananModel->save([ // menyimpan record pesanan baru
+            'jumlah_rombongan' => 1,
             'id_user' => $this->session->get('user_id'),
             'id_wisata' => $this->request->getVar('id_wisata'),
             'id_jadwal' => $this->request->getVar('id_jadwal'),
