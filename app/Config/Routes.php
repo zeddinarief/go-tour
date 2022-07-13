@@ -73,7 +73,8 @@ $routes->delete('/admin/jenis_wisata', 'Admin\JenisWisata::delete'); // Action d
 $routes->get('/admin/member/(:num)', 'Admin\Member::detail/$1', ['as' => 'admin.member_detail']); // Go to detail member
 $routes->post('/admin/member/(:num)', 'Admin\Member::update/$1'); // Go to detail member
 $routes->delete('/admin/member', 'Admin\Member::delete'); // Action delete member
-$routes->post('/admin/jadwal/insert', 'Admin\PaketWisata::addJadwal'); // Go to detail member
+$routes->post('/admin/jadwal/insert', 'Admin\PaketWisata::addJadwal'); // Action add jadwal wisata
+$routes->delete('/admin/jadwal/delete/(:num)', 'Admin\PaketWisata::deleteJadwal/$1'); // Action delete jadwal wisata
 
 /*
  * --------------------------------------------------------------------

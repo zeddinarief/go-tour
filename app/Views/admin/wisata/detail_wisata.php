@@ -160,7 +160,7 @@
                                         <td><?= $value['date'] ?></td>
                                         <td><?= $value['id_pembayaran'] ?></td>
                                         <td>
-                                            <a href="#hapus-data" data-toggle="modal" type="button"
+                                            <a href="#hapus-data" onclick="hapusData('<?= base_url() ?>/admin/jadwal/delete/<?= $wisata['id'] ?>', <?= $value['id'] ?>)" data-toggle="modal" type="button"
                                                 class="btn btn-block btn-danger">Hapus</a>
                                         </td>
                                     </tr>

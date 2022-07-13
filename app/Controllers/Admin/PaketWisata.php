@@ -164,6 +164,12 @@ class PaketWisata extends BaseController
         return redirect()->to('admin/wisata/' . $this->request->getVar('id_wisata'))->with('jadwal_added', 'Jadwal berhasil ditambahkan');
     }
 
+    public function deleteJadwal($idWisata)
+    {
+        $this->jadwalModel->delete($this->request->getPost('id'));
+        return redirect()->to('/admin/wisata/' . $idWisata)->with('jadwal_added', 'Jadwal berhasil dihapus');
+    }
+
     public function getCode($jenis, $id) // This function is used for generate kode
     {
         $idUser = strval($id);
