@@ -29,22 +29,24 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label class="text-primary">Nama Pengguna *</label>
-                                    <input type="text" class="form-control" required disabled value="<?= $member['nama'] ?>">
+                                    <input type="text" class="form-control" required disabled
+                                        value="<?= $member['nama'] ?>">
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="text-primary">Username *</label>
-                                    <input type="text" class="form-control" required disabled value="<?= $member['username'] ?>">
+                                    <input type="text" class="form-control" required disabled
+                                        value="<?= $member['username'] ?>">
                                 </div>
                             </div>
 
                             <label class="text-primary">Alamat Domisili </label>
-                            <input type="text" class="form-control" required disabled
-                                value="<?= $member['alamat'] ?>">
+                            <input type="text" class="form-control" required disabled value="<?= $member['alamat'] ?>">
 
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label class="text-primary">No Telp Aktif </label>
-                                    <input type="text" class="form-control" required disabled value="<?= $member['no_hp'] ?>">
+                                    <input type="text" class="form-control" required disabled
+                                        value="<?= $member['no_hp'] ?>">
                                 </div>
 
                                 <div class="col-sm-6">
@@ -69,7 +71,8 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label class="text-primary">Nama Pengguna *</label>
-                                    <input type="text" class="form-control" required disabled value="<?= $member['nama'] ?>">
+                                    <input type="text" class="form-control" required disabled
+                                        value="<?= $member['nama'] ?>">
                                 </div>
 
                                 <div class="col-sm-6">
@@ -101,11 +104,13 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label class="text-primary">Nama Pengguna *</label>
-                                <input type="text" class="form-control" name="nama" required value="<?= (old('nama')) ? old('nama') : $member['nama'] ?>">
+                                <input type="text" class="form-control" name="nama" required
+                                    value="<?= (old('nama')) ? old('nama') : $member['nama'] ?>">
                             </div>
                             <div class="col-sm-6">
                                 <label class="text-primary">Username *</label>
-                                <input type="text" class="form-control" name="username" required value="<?= (old('username')) ? old('username') : $member['username'] ?>">
+                                <input type="text" class="form-control" name="username" required
+                                    value="<?= (old('username')) ? old('username') : $member['username'] ?>">
                             </div>
                         </div>
 
@@ -116,12 +121,14 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <label class="text-primary">No Telp Aktif </label>
-                                <input type="tel" class="form-control" pattern="[0-9]*" name="no_hp" value="<?= (old('no_hp')) ? old('no_hp') : $member['no_hp'] ?>">
+                                <input type="tel" class="form-control" pattern="[0-9]*" name="no_hp"
+                                    value="<?= (old('no_hp')) ? old('no_hp') : $member['no_hp'] ?>">
                             </div>
 
                             <div class="col-sm-6">
                                 <label class="text-primary">Alamat Email Aktif *</label>
-                                <input type="email" class="form-control" name="email" required value="<?= (old('email')) ? old('email') : $member['email'] ?>">
+                                <input type="email" class="form-control" name="email" required
+                                    value="<?= (old('email')) ? old('email') : $member['email'] ?>">
                             </div>
                         </div>
                         <div class="row mt-5">
@@ -132,7 +139,7 @@
                                 </a>
                             </div>
                             <div class="col-sm-6">
-                                <a onclick="simpanProfil()" class="btn btn-primary btn-block ">
+                                <a onclick="simpanProfil()" class="btn btn-primary btn-block text-white">
                                     <i class="fa-solid fa-check"></i>
                                     Simpan Perubahan
                                 </a>
@@ -174,7 +181,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <label>Kata Sandi Baru</label>
-                                <input type="password" id="inputPassword2" class="form-control" name="new_password" required>
+                                <input type="password" id="inputPassword2" class="form-control" name="new_password"
+                                    required>
                             </div>
                         </div>
                         <div class="row mt-5">
@@ -185,7 +193,7 @@
                                 </a>
                             </div>
                             <div class="col-sm-6">
-                                <a onclick="simpanPassword()" class="btn btn-primary btn-block ">
+                                <a onclick="simpanPassword()" class="btn btn-primary btn-block text-whitex`">
                                     <i class="fa-solid fa-check"></i>
                                     Simpan Perubahan
                                 </a>

@@ -67,7 +67,7 @@
                                     <a href="<?= base_url() ?>/" class="sf-with-ul">Beranda</a>
                                 </li>
                                 <li>
-                                    <a href="#" class="sf-with-ul">Promo</a>
+                                    <a href="<?= base_url() ?>/" class="sf-with-ul">Promo</a>
                                     <div class="megamenu megamenu-md">
                                         <div class="row no-gutters">
                                             <div class="col-md-8">
@@ -76,24 +76,26 @@
                                                         <div class="col-md-6">
                                                             <div class="menu-title">Promo Trip Gunung</div>
                                                             <ul>
-                                                                <li><a href="#"><span>Trip Gunung Panderman<span
+                                                                <li><a href="<?= base_url() ?>/wisata"><span>Trip Gunung
+                                                                            Panderman<span
                                                                                 class="tip tip-new">New</span></span></a>
                                                                 </li>
                                                             </ul>
                                                             <div class="menu-title">Promo Trip Pantai</div>
                                                             <ul>
-                                                                <li><a href="#"><span>Trip Pantai
+                                                                <li><a href="<?= base_url() ?>/wisata"><span>Trip Pantai
                                                                             Selatan<span
                                                                                 class="tip tip-hot">Hot</span></span></a>
                                                                 </li>
-                                                                <li><a href="#">Trip Pantai
+                                                                <li><a href="<?= base_url() ?>/wisata">Trip Pantai
                                                                         Ngliyep</a></li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="menu-title">Promo Trip Rekreasi</div>
                                                             <ul>
-                                                                <li><a href="#" class="text-muted">Belum Tersedia</a>
+                                                                <li><a href="<?= base_url() ?>/wisata"
+                                                                        class="text-muted">Belum Tersedia</a>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -116,24 +118,24 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <a href="#" class="sf-with-ul">Kontak</a>
+                                    <a href="<?= base_url() ?>/" class="sf-with-ul">Kontak</a>
                                     <div class="megamenu megamenu-sm">
                                         <div class="row no-gutters">
                                             <div class="col-md-6">
                                                 <div class="menu-col">
                                                     <div class="menu-title">Kontak Kami</div>
                                                     <ul>
-                                                        <li><a href="#">WhatsApp</a></li>
-                                                        <li><a href="#">Telegram</a></li>
-                                                        <li><a href="#">Facebook</a></li>
-                                                        <li><a href="#">Instagram</a></li>
-                                                        <li><a href="#">Email</a></li>
+                                                        <li><a href="<?= base_url() ?>/">WhatsApp</a></li>
+                                                        <li><a href="<?= base_url() ?>/">Telegram</a></li>
+                                                        <li><a href="<?= base_url() ?>/">Facebook</a></li>
+                                                        <li><a href="<?= base_url() ?>/">Instagram</a></li>
+                                                        <li><a href="<?= base_url() ?>/">Email</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="banner banner-overlay">
-                                                    <a href="#">
+                                                    <a href="<?= base_url() ?>/">
                                                         <img src="assets/images/menu-kontak.jpg" alt="Banner">
                                                         <div class="banner-content banner-content-bottom">
                                                             <div class="banner-title text-white">Ingin
@@ -163,101 +165,104 @@
                         </div> -->
 
                         <?php if (session()->get('isLogin') == 'yes' && session()->get('role') == 'member') { ?>
-                            <div class="dropdown cart-dropdown">
-                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" data-display="static">
-                                    <i class="fa-solid fa-bag-shopping fa-xs"></i>
-                                    <span class="cart-count bg-danger"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <?php if ($pesanan != NULL && $pesanan['bayar'] == NULL) { ?>    
-                                        <div class="dropdown-cart-products">
-                                            <div class="product">
-                                                <div class="product-cart-details">
-                                                    <h4 class="product-title">
-                                                        <a href="<?= base_url() ?>/wisata/detail"><?= $pesanan['nama_paket'] ?></a>
-                                                    </h4>
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <i class="fa-solid fa-bag-shopping fa-xs"></i>
+                                <span class="cart-count bg-danger"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <?php if ($pesanan != NULL && $pesanan['bayar'] == NULL) { ?>
+                                <div class="dropdown-cart-products">
+                                    <div class="product">
+                                        <div class="product-cart-details">
+                                            <h4 class="product-title">
+                                                <a
+                                                    href="<?= base_url() ?>/wisata/detail"><?= $pesanan['nama_paket'] ?></a>
+                                            </h4>
 
-                                                    <span class="small text-muted pr-3"><i
-                                                            class="fa-solid fa-user-group fa-xs"></i> <?= $pesanan['jumlah_rombongan'] ?>
-                                                        Orang</span>
-                                                </div>
-
-                                                <figure class="product-image-container">
-                                                    <a href="<?= base_url() ?>/wisata/detail" class="product-image">
-                                                        <img src="<?= base_url('img/wisata/' . $pesanan['img_wisata']) ?>" alt="product">
-                                                    </a>
-                                                </figure>
-                                                <a href="#" class="btn-remove" title="Remove Product"><i
-                                                        class="icon-close"></i></a>
-                                            </div>
+                                            <span class="small text-muted pr-3"><i
+                                                    class="fa-solid fa-user-group fa-xs"></i>
+                                                <?= $pesanan['jumlah_rombongan'] ?>
+                                                Orang</span>
                                         </div>
 
-                                        <div class="dropdown-cart-total">
-                                            <span>Total</span>
-                                            <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
-                                        </div>
+                                        <figure class="product-image-container">
+                                            <a href="<?= base_url() ?>/wisata/detail" class="product-image">
+                                                <img src="<?= base_url('img/wisata/' . $pesanan['img_wisata']) ?>"
+                                                    alt="product">
+                                            </a>
+                                        </figure>
+                                        <!-- <a href="#" class="btn-remove" title="Remove Product"><i
+                                                class="icon-close"></i></a> -->
+                                    </div>
+                                </div>
+
+                                <div class="dropdown-cart-total">
+                                    <span>Total</span>
+                                    <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
+                                </div>
+                                <?php } ?>
+
+                                <div class="dropdown-cart-action">
+                                    <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
+                                            class="fa-solid fa-eye"></i>Lihat
+                                        Pesanan</a>
+                                    <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
+                                                class="icon-long-arrow-right"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <i class="fa-solid fa-bell fa-xs"></i>
+                                <span class="cart-count bg-danger"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <div class="dropdown-cart-products">
+                                    <?php foreach ($history as $his => $val) { ?>
+                                    <div class="product d-block px-0 py-2">
+                                        <a class="text-dark" href="<?= base_url() ?>/pesanan">
+                                            <p class=" mb-0 text-dark"> <?= $val['nama_paket'] ?></p>
+                                            <span class="text-success"><i class="fa-regular fa-circle-check"></i>
+                                                <?= $val['status_bayar'] ?></span>&emsp; <br> <span
+                                                class="pl-auto text-info"><i class="fa-regular fa-calendar-check"></i>
+                                                <?= $val['tgl_wisata'] ?></span>
+                                        </a>
+                                    </div>
                                     <?php } ?>
 
-                                    <div class="dropdown-cart-action">
-                                        <a href="<?= base_url() ?>/pesanan" class="btn btn-block btn-primary"><i
-                                                class="fa-solid fa-eye"></i>Lihat
-                                            Pesanan</a>
-                                        <!-- <a href="#" class="btn btn-outline-primary-2"><span>Bayar</span><i
-                                                class="icon-long-arrow-right"></i></a> -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown cart-dropdown">
+                            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false" data-display="static">
+                                <i class="fa-solid fa-circle-user fa-xs"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" style="width:200px">
+                                <div class="dropdown-cart-products">
+                                    <div class="product d-block px-0 py-2">
+                                        <a class="product-title" href="<?= base_url() ?>/profile">
+                                            <p class=" mb-0"><i class="fa-solid fa-user-gear"></i>&nbsp; Detail
+                                                Profil</p>
+                                        </a>
+                                    </div>
+                                    <div class="product d-block px-0 py-2">
+                                        <a class="product-title" href="<?= base_url() ?>/logout">
+                                            <p class=" mb-0"> <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
+                                                Keluar / Logout</p>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="dropdown cart-dropdown">
-                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" data-display="static">
-                                    <i class="fa-solid fa-bell fa-xs"></i>
-                                    <span class="cart-count bg-danger"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <div class="dropdown-cart-products">
-                                        <?php foreach ($history as $his => $val) { ?>
-                                            <div class="product d-block px-0 py-2">
-                                                <a class="text-dark" href="<?= base_url() ?>/pesanan">
-                                                    <p class=" mb-0 text-dark"> <?= $val['nama_paket'] ?></p>
-                                                    <span class="text-success"><i class="fa-regular fa-circle-check"></i>
-                                                    <?= $val['status_bayar'] ?></span>&emsp; <span class="pl-auto text-info"><i
-                                                            class="fa-regular fa-calendar-check"></i>
-                                                            <?= $val['tgl_wisata'] ?></span>
-                                                </a>
-                                            </div>
-                                        <?php } ?>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="dropdown cart-dropdown">
-                                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false" data-display="static">
-                                    <i class="fa-solid fa-circle-user fa-xs"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" style="width:200px">
-                                    <div class="dropdown-cart-products">
-                                        <div class="product d-block px-0 py-2">
-                                            <a class="product-title" href="<?= base_url() ?>/profile">
-                                                <p class=" mb-0"><i class="fa-solid fa-user-gear"></i>&nbsp; Detail
-                                                    Profil</p>
-                                            </a>
-                                        </div>
-                                        <div class="product d-block px-0 py-2">
-                                            <a class="product-title" href="<?= base_url() ?>/logout">
-                                                <p class=" mb-0"> <i class="fa-solid fa-right-from-bracket"></i> &nbsp;
-                                                    Keluar / Logout</p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        </div>
                         <?php } else { ?>
                         <div class="dropdown cart-dropdown">
-                            <a href="<?= base_url() ?>/login" class="btn btn-outline-primary"
-                                role="button"><i class="fa-solid fa-right-to-bracket"></i>Masuk</a>
+                            <a href="<?= base_url() ?>/login" class="btn btn-outline-primary" role="button"><i
+                                    class="fa-solid fa-right-to-bracket"></i>Masuk</a>
                         </div>
                         <?php } ?>
                     </div>
@@ -272,16 +277,16 @@
                 <div class="container">
                     <p class="footer-copyright">Copyright © 2022 Go Tour & Travel Malang. All Rights Reserved.</p>
                     <div class="social-icons social-icons-color">
-                        <a href="#" class="social-icon social-facebook" title="Facebook" target="_blank"><i
-                                class="icon-facebook-f"></i></a>
-                        <a href="#" class="social-icon social-twitter" title="Twitter" target="_blank"><i
-                                class="icon-twitter"></i></a>
-                        <a href="#" class="social-icon social-instagram" title="Instagram" target="_blank"><i
-                                class="icon-instagram"></i></a>
-                        <a href="#" class="social-icon social-youtube" title="Youtube" target="_blank"><i
-                                class="icon-youtube"></i></a>
-                        <a href="#" class="social-icon social-pinterest" title="Pinterest" target="_blank"><i
-                                class="icon-pinterest"></i></a>
+                        <a href="<?= base_url() ?>/" class="social-icon social-facebook" title="Facebook"
+                            target="_blank"><i class="icon-facebook-f"></i></a>
+                        <a href="<?= base_url() ?>/" class="social-icon social-twitter" title="Twitter"
+                            target="_blank"><i class="icon-twitter"></i></a>
+                        <a href="<?= base_url() ?>/" class="social-icon social-instagram" title="Instagram"
+                            target="_blank"><i class="icon-instagram"></i></a>
+                        <a href="<?= base_url() ?>/" class="social-icon social-youtube" title="Youtube"
+                            target="_blank"><i class="icon-youtube"></i></a>
+                        <a href="<?= base_url() ?>/" class="social-icon social-pinterest" title="Pinterest"
+                            target="_blank"><i class="icon-pinterest"></i></a>
                     </div>
                 </div>
             </div>
@@ -296,12 +301,12 @@
         <div class="mobile-menu-wrapper">
             <span class="mobile-menu-close"><i class="icon-close"></i></span>
 
-            <form action="#" method="get" class="mobile-search">
+            <!-- <form action="#" method="get" class="mobile-search">
                 <label for="mobile-search" class="sr-only">Search</label>
                 <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Cari..."
                     required>
                 <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
-            </form>
+            </form> -->
 
             <nav class="mobile-nav">
                 <ul class="mobile-menu">
@@ -309,31 +314,35 @@
                         <a href="<?= base_url() ?>">Beranda</a>
                     </li>
                     <li>
-                        <a href="#" class="sf-with-ul">Promo</a>
+                        <a href="<?= base_url() ?>/wisata" class="sf-with-ul">Promo</a>
                         <ul>
-                            <li><a href="#">Trip Gunung Panderman</a></li>
-                            <li><a href="#">Trip Pantai Selatan</a></li>
-                            <li><a href="#">Trip Pantai Ngliyep</a></li>
+                            <li><a href="<?= base_url() ?>/wisata">Trip Gunung Panderman</a></li>
+                            <li><a href="<?= base_url() ?>/wisata">Trip Pantai Selatan</a></li>
+                            <li><a href="<?= base_url() ?>/wisata">Trip Pantai Ngliyep</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="sf-with-ul">Kontak</a>
+                        <a href="<?= base_url() ?>/" class="sf-with-ul">Kontak</a>
                         <ul>
-                            <li><a href="#">WhatsApp</a></li>
-                            <li><a href="#">Telegram</a></li>
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Instagram</a></li>
-                            <li><a href="#">Email</a></li>
+                            <li><a href="<?= base_url() ?>/">WhatsApp</a></li>
+                            <li><a href="<?= base_url() ?>/">Telegram</a></li>
+                            <li><a href="<?= base_url() ?>/">Facebook</a></li>
+                            <li><a href="<?= base_url() ?>/">Instagram</a></li>
+                            <li><a href="<?= base_url() ?>/">Email</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
 
             <div class="social-icons">
-                <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
-                <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+                <a href="<?= base_url() ?>/" class="social-icon" target="_blank" title="Facebook"><i
+                        class="icon-facebook-f"></i></a>
+                <a href="<?= base_url() ?>/" class="social-icon" target="_blank" title="Twitter"><i
+                        class="icon-twitter"></i></a>
+                <a href="<?= base_url() ?>/" class="social-icon" target="_blank" title="Instagram"><i
+                        class="icon-instagram"></i></a>
+                <a href="<?= base_url() ?>/" class="social-icon" target="_blank" title="Youtube"><i
+                        class="icon-youtube"></i></a>
             </div>
         </div>
     </div>
@@ -376,17 +385,19 @@
             confirmButtonText: 'Ok, saya mengerti'
         })
     }
-    
+
     function simpanDataPesanan() {
         let form = document.getElementById('updateDataPesanan');
         let url = form.action;
         let csrfToken = '<?= csrf_hash() ?>';
-        
+
         const data = new FormData(form);
 
         fetch(url, {
             method: 'POST',
-            headers: {'<?= csrf_header() ?>': csrfToken},
+            headers: {
+                '<?= csrf_header() ?>': csrfToken
+            },
             body: data
         }).then(response => {
             return response.json()
@@ -398,8 +409,8 @@
                     title: 'Data Berhasil Diperbaharui',
                     text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
                     confirmButtonText: 'Ok, saya mengerti'
-                }).then(function () {
-                    location.reload(); 
+                }).then(function() {
+                    location.reload();
                 })
             } else {
                 let validations = document.getElementById('validations');
@@ -414,13 +425,15 @@
     function simpanProfil() {
         let url = document.getElementById('updateProfile').action;
         let csrfToken = '<?= csrf_hash() ?>';
-        
+
         let form = document.getElementById('updateProfile');
         const data = new FormData(form);
 
         fetch(url, {
             method: 'POST',
-            headers: {'<?= csrf_header() ?>': csrfToken},
+            headers: {
+                '<?= csrf_header() ?>': csrfToken
+            },
             body: data
         }).then(response => {
             return response.json()
@@ -432,8 +445,8 @@
                     title: 'Data Berhasil Diperbaharui',
                     text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
                     confirmButtonText: 'Ok, saya mengerti'
-                }).then(function () {
-                    location.reload(); 
+                }).then(function() {
+                    location.reload();
                 })
                 $('#ubah-profil').modal('hide');
                 // location.reload();
@@ -446,17 +459,19 @@
             }
         });
     }
-    
+
     function simpanPassword() {
         let url = document.getElementById('updatePassword').action;
         let csrfToken = '<?= csrf_hash() ?>';
-        
+
         let form = document.getElementById('updatePassword');
         const data = new FormData(form);
 
         fetch(url, {
             method: 'POST',
-            headers: {'<?= csrf_header() ?>': csrfToken},
+            headers: {
+                '<?= csrf_header() ?>': csrfToken
+            },
             body: data
         }).then(response => {
             return response.json()
@@ -468,8 +483,8 @@
                     title: 'Data Berhasil Diperbaharui',
                     text: "Sistem sudah menyimpan semua informasi Anda. Terimakasih!",
                     confirmButtonText: 'Ok, saya mengerti'
-                }).then(function () {
-                    location.reload(); 
+                }).then(function() {
+                    location.reload();
                 })
                 $('#ubah-akun').modal('hide');
             } else {
@@ -486,12 +501,14 @@
         let form = document.getElementById('uploadBukti');
         let url = form.action;
         let csrfToken = '<?= csrf_hash() ?>';
-        
+
         const data = new FormData(form);
 
         fetch(url, {
             method: 'POST',
-            headers: {'<?= csrf_header() ?>': csrfToken},
+            headers: {
+                '<?= csrf_header() ?>': csrfToken
+            },
             body: data
         }).then(response => {
             return response.json()
@@ -503,8 +520,8 @@
                     title: 'Bukti Pembayaran Berhasil Terkirim',
                     text: "Sistem akan melakukan validasi pembayaran Anda segera. Terimakasih!",
                     confirmButtonText: 'Ok, saya mengerti'
-                }).then(function () {
-                    location.reload(); 
+                }).then(function() {
+                    location.reload();
                 })
                 $('#unggah-bukti-pembayaran').modal('hide');
             } else {
@@ -515,7 +532,7 @@
                 });
             }
         });
-        
+
     }
 
     function hapus_pesanan() {
