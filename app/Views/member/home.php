@@ -201,7 +201,7 @@
                                 Harga :
                             </h3>
 
-                            <div class="filter-price pr-5">
+                            <div class="filter-price pr-5 mr-5">
                                 <div class="filter-price-text">
                                     Rentang Harga:
                                     <span id="filter-price-range"></span>

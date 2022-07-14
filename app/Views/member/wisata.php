@@ -21,14 +21,27 @@
                         </div> -->
 
                         <div class="toolbox-right">
-                            <div class="toolbox-sort">
-
+                            <!-- <div class="toolbox-sort">
                                 <div class="select-custom">
                                     <select name="sortby" id="sortby" class="form-control">
                                         <option value="popularity" selected="selected">Terbaru</option>
                                         <option value="rating">Terdahulu</option>
                                     </select>
                                 </div>
+                            </div> -->
+
+                            <div class="header-search header-search-visible d-none d-lg-block mx-auto">
+                                <a href="<?= base_url() ?>/wisata" class="search-toggle" role="button"><i
+                                        class="icon-search"></i></a>
+                                <form action="#" method="get">
+                                    <div class="header-search-wrapper search-wrapper-wide">
+                                        <label for="q" class="sr-only">Search</label>
+                                        <button class="btn" type="submit" style="margin-top:-5px"><i
+                                                class="icon-search"></i></button>
+                                        <input type="search" class="form-control" name="q" id="q"
+                                            placeholder="cari wisata ..." required="">
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -151,10 +164,10 @@
                                 </a>
                             </h3>
 
-                            <div class="collapse show" id="widget-4">
+                            <div class="collapse" id="widget-4">
                                 <div class="widget-body">
                                     <div class="filter-items">
-                                        <div class="filter-item">
+                                        <!-- <div class="filter-item">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="brand-1">
                                                 <label class="custom-control-label" for="brand-1">Promo</label>
@@ -172,6 +185,14 @@
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="brand-3">
                                                 <label class="custom-control-label" for="brand-3">Rating</label>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="filter-item">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="radio" class="custom-control-input" checked id="sort-4"
+                                                    name="sortby">
+                                                <label class="custom-control-label" for="sort-4">Terbaru</label>
                                             </div>
                                         </div>
 
@@ -203,9 +224,9 @@
                                 </a>
                             </h3>
 
-                            <div class="collapse show" id="widget-5">
+                            <div class="collapse" id="widget-5">
                                 <div class="widget-body">
-                                    <div class="filter-price">
+                                    <div class="filter-price pr-5 mr-5">
                                         <div class="filter-price-text">
                                             Rentang Harga:
                                             <span id="filter-price-range"></span>
@@ -215,6 +236,10 @@
                                 </div>
                             </div>
                         </div>
+                        <a href="<?= base_url() ?>/wisata" class="btn btn-outline-primary-2">
+                            <span>Terapkan FIlter</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </a>
                     </div>
                 </aside>
             </div>
