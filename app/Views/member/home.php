@@ -46,16 +46,49 @@
     <div class="container">
         <div class="toolbox toolbox-filter">
             <div class="toolbox-left">
-                <a href="#" class="filter-toggler">Filter</a>
+                <div class="row">
+                    <div class="col-6">
+                        <a href="#" class="filter-toggler">Filter</a>
+                    </div>
+                    <div class="col-6">
 
+                        <div class="header-search header-search-visible d-none d-lg-block">
+                            <a href="<?= base_url() ?>/wisata" class="search-toggle" role="button"><i
+                                    class="icon-search"></i></a>
+                            <form action="#" method="get">
+                                <div class="header-search-wrapper search-wrapper-wide">
+                                    <label for="q" class="sr-only">Search</label>
+                                    <button class="btn" type="submit" style="margin-top:-5px"><i
+                                            class="icon-search"></i></button>
+                                    <input type="search" class="form-control" name="q" id="q"
+                                        placeholder="cari wisata ..." required="">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="toolbox-right">
-                <ul class="nav-filter product-filter">
+                <!-- <ul class="nav-filter product-filter">
                     <li class="active"><a href="#" data-filter="*">Semua</a></li>
                     <li><a href="#" data-filter=".gunung">Gunung</a></li>
                     <li><a href="#" data-filter=".pantai">Pantai</a></li>
                     <li><a href="#" data-filter=".rekreasi">Rekreasi</a></li>
-                </ul>
+                </ul> -->
+                <!-- <div class="header-search  header-search-no-radius d-none d-lg-block">
+                    <a href="<?= base_url() ?>/wisata" class="search-toggle" role="button"><i
+                            class="icon-search"></i></a>
+                    <form action="#" method="get">
+                        <div class="header-search-wrapper search-wrapper-wide">
+                            <label for="q" class="sr-only">Search</label>
+                            <input type="search" class="form-control" name="q" id="q" placeholder="Cari wisata ..."
+                                required="">
+                            <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+                        </div>
+                    </form>
+                </div> -->
+
+
             </div>
         </div>
 
@@ -113,7 +146,7 @@
                             </h3>
 
                             <div class="filter-items">
-                                <div class="filter-item">
+                                <!-- <div class="filter-item">
                                     <div class="custom-control custom-checkbox">
                                         <input type="radio" class="custom-control-input" checked id="sort-1"
                                             name="sortby">
@@ -133,11 +166,12 @@
                                         <input type="radio" class="custom-control-input" id="sort-3" name="sortby">
                                         <label class="custom-control-label" for="sort-3">Rating</label>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class="filter-item">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="radio" class="custom-control-input" id="sort-4" name="sortby">
+                                        <input type="radio" class="custom-control-input" checked id="sort-4"
+                                            name="sortby">
                                         <label class="custom-control-label" for="sort-4">Terbaru</label>
                                     </div>
                                 </div>
@@ -167,7 +201,7 @@
                                 Harga :
                             </h3>
 
-                            <div class="filter-price">
+                            <div class="filter-price pr-5">
                                 <div class="filter-price-text">
                                     Rentang Harga:
                                     <span id="filter-price-range"></span>
@@ -175,6 +209,19 @@
 
                                 <div id="price-slider"></div>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="widget">
+                            <h3 class="widget-title">
+                                Aksi :
+                            </h3>
+
+                            <a href="<?= base_url() ?>/wisata" class="btn btn-outline-primary-2">
+                                <span>Terapkan FIlter</span>
+                                <i class="icon-long-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
