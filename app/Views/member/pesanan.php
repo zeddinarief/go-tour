@@ -388,7 +388,7 @@
                                         </div>
                                         <div class="custom-file mt-1">
                                             <input type="file" name="bukti_bayar" class="custom-file-input"
-                                                id="customFile">
+                                                id="customFile" required>
                                             <label class="custom-file-label" for="customFile" data-browse="Unggah">Pilih
                                                 berkas</label>
                                         </div>
