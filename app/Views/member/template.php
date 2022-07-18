@@ -202,6 +202,7 @@
                                     <span>Total</span>
                                     <span class="cart-total-price">Rp <?= $pesanan['harga'] ?>,-</span>
                                 </div>
+
                                 <?php } ?>
 
                                 <div class="dropdown-cart-action">
@@ -552,7 +553,9 @@
 
                 fetch('<?= base_url() ?>/pesanan', {
                     method: 'POST',
-                    headers: {'<?= csrf_header() ?>': '<?= csrf_hash() ?>'},
+                    headers: {
+                        '<?= csrf_header() ?>': '<?= csrf_hash() ?>'
+                    },
                     body: data
                 }).then(response => {
                     return response.json()
@@ -563,12 +566,12 @@
                             'Pesanan Telah Terhapus!',
                             'Silahkan memilih paket wisata lain yang sesuai',
                             'success'
-                        ).then(function () {
-                            location.reload(); 
+                        ).then(function() {
+                            location.reload();
                         })
                     }
                 });
-                
+
             }
         })
     }

@@ -96,7 +96,8 @@
                                                 <td class="price-col">
                                                     <div class="tagcloud">
                                                         <form action="" id="hapus-pesan" method="POST">
-                                                            <input type="hidden" name="id" value="<?= $pesanan['id'] ?>">
+                                                            <input type="hidden" name="id"
+                                                                value="<?= $pesanan['id'] ?>">
                                                             <input type="hidden" name="_method" value="DELETE" />
                                                         </form>
                                                         <?php if ($pesanan['bayar'] == NULL) { ?>
@@ -380,8 +381,10 @@
                                         <div class="custom-file mt-1">
                                             <input type="file" name="bukti_bayar" class="custom-file-input"
                                                 id="customFile">
-                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                            <label class="custom-file-label" for="customFile" data-browse="Unggah">Pilih
+                                                berkas</label>
                                         </div>
+
                                         <span id="validations"></span>
                                     </div>
                                 </div>
@@ -496,7 +499,9 @@
                                             <p class="fa-solid fa-user-group fa-xs text-primary px-1"></p>
                                         </div>
                                     </div> -->
-                                    <input id="jumlahPeserta" class="form-control" name="jumlah_rombongan" type="number" onchange="setName()" min="1" max="<?= $wisata['jumlah_rombongan'] ?>" value="<?= $pesanan['jumlah_rombongan'] ?>">
+                                    <input id="jumlahPeserta" class="form-control" name="jumlah_rombongan" type="number"
+                                        onchange="setName()" min="1" max="<?= $wisata['jumlah_rombongan'] ?>"
+                                        value="<?= $pesanan['jumlah_rombongan'] ?>">
                                 </div>
                             </div>
                             <!-- <div class="col-sm-6">
@@ -559,6 +564,13 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).on('change', '.custom-file-input', function(event) {
+    $(this).next('.custom-file-label').html(event.target.files[0].name);
+})
+</script>
+
 <script>
 console.log('test')
 // console.log(document.getElementsByName('nama_peserta'))
