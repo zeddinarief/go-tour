@@ -77,7 +77,7 @@
                                                         </h2>
                                                     </div>
                                                 </td>
-                                                <td class="text-left">Rp <?= $wisata['harga'] ?>,-</td>
+                                                <td class="text-left">Rp <?= $wisata['harga'] ?>,- </td>
                                                 <td class="text-left">
                                                     <?php if ($pesanan['bayar'] == NULL) { ?>
                                                     <span class="text-danger"><i class="fa-regular fa-clock"></i>
@@ -92,6 +92,9 @@
                                                         <?= $pembayaran['status_bayar'] ?></span>
                                                     <?php } ?>
                                                     <?php } ?>
+                                                    <br><i class="fas fa-money-check text-info"></i><span class="small">
+                                                        Kode Pesanan
+                                                        : P00012</span>
                                                 </td>
                                                 <td class="price-col">
                                                     <div class="tagcloud">
@@ -168,6 +171,9 @@
                                                             class="fa-regular fa-circle-check"></i>
                                                         <?= $val['status_bayar'] ?></span>
                                                     <?php } ?>
+                                                    <br><i class="fas fa-money-check text-info"></i><span class="small">
+                                                        Kode Pembayaran
+                                                        : B00012</span>
                                                 </td>
                                                 <!-- <td class="price-col">
                                                         <div class="tagcloud">
@@ -204,25 +210,23 @@
                     </h5>
                     <div class="col-12">
                         <ul class="nav nav-pills justify-content-center" id="tabs-6" role="tablist">
+
                             <li class="nav-item">
                                 <a class="nav-link active" id="tab-21-tab" data-toggle="tab" href="#tab-21" role="tab"
-                                    aria-controls="tab-21" aria-selected="true">QRIS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="tab-22-tab" data-toggle="tab" href="#tab-22" role="tab"
                                     aria-controls="tab-22" aria-selected="false">Rekening Bank</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link " id="tab-22-tab" data-toggle="tab" href="#tab-22" role="tab"
+                                    aria-controls="tab-21" aria-selected="true">QRIS</a>
+                            </li>
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" id="tab-23-tab" data-toggle="tab" href="#tab-23" role="tab"
                                     aria-controls="tab-23" aria-selected="false">E-Wallet</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <div class="tab-content" id="tab-content-6">
                             <div class="tab-pane fade show active" id="tab-21" role="tabpanel"
                                 aria-labelledby="tab-21-tab">
-                                <img class="img-fluid" src="assets/images/qr-code.jpg" alt="">
-                            </div>
-                            <div class="tab-pane fade" id="tab-22" role="tabpanel" aria-labelledby="tab-22-tab">
                                 <div class="row mt-3">
                                     <div class="col-md-2 col-12">
                                         <b>BCA</b>
@@ -258,7 +262,11 @@
                                 </div>
 
                             </div>
-                            <div class="tab-pane fade" id="tab-23" role="tabpanel" aria-labelledby="tab-23-tab">
+                            <div class="tab-pane fade " id="tab-22" role="tabpanel" aria-labelledby="tab-22-tab">
+                                <img class="img-fluid" src="assets/images/qr-code.jpg" alt="">
+                            </div>
+
+                            <!-- <div class="tab-pane fade" id="tab-23" role="tabpanel" aria-labelledby="tab-23-tab">
                                 <div class="row mt-3">
                                     <div class="col-md-2 col-12">
                                         <b>GOPAY</b>
@@ -292,7 +300,7 @@
                                         A/N : Nur Hamidah
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="row mt-5">
@@ -360,14 +368,14 @@
                                                         </div>
                                                     </div>
                                                     <select class="form-control" name="metode_bayar" required>
-                                                        <option disabled="disabled">Silahkan pilih
+                                                        <option disabled="disabled" selected="selected">Silahkan pilih
                                                         </option>
                                                         <option value="Bank BCA">Bank BCA</option>
                                                         <option value="Bank BRI">Bank BRI</option>
                                                         <option value="Bank Mandiri">Bank Mandiri</option>
-                                                        <option value="GOPAY">GOPAY</option>
+                                                        <!-- <option value="GOPAY">GOPAY</option>
                                                         <option value="OVO">OVO</option>
-                                                        <option value="DANA">DANA</option>
+                                                        <option value="DANA">DANA</option> -->
                                                     </select>
                                                 </div>
                                             </div>
@@ -536,12 +544,13 @@
                                 <label class="text-primary">Nama Peserta ke-2</label>
                                 <input type="text" class="form-control" name="nama_peserta" required value="Nur Tahfid">
                             </div> -->
-                            <div class="row" id="peserta">
-                                <!-- <div class="col-sm-6">
+
+                        </div>
+                        <div class="row" id="peserta">
+                            <!-- <div class="col-sm-6">
                                 <label class="text-primary">Nama Peserta ke-3</label>
                                 <input type="text" class="form-control" name="nama_peserta" required value="Febrian Firdaus">
                             </div> -->
-                            </div>
                         </div>
                         <div class="row mt-5">
                             <div class="col-sm-6">
