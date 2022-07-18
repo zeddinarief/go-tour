@@ -76,7 +76,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
 
-            <img src="assets/img/logo-bg-dark.png" alt="AdminLTE Logo" class="img-fluid px-5 py-3" style="opacity: .8">
+            <img src="assets/img/logo-bg-dark.png" alt="Logo" class="img-fluid px-5 py-3" style="opacity: .8">
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -179,7 +179,7 @@
                             </h4>
                             <form id="hapus-form" action="" method="post">
                                 <div class="row mt-5">
-                                    <input type="hidden" name="_method" value="DELETE" /> 
+                                    <input type="hidden" name="_method" value="DELETE" />
                                     <input type="hidden" name="id" id="id-value">
                                     <div class="col-sm-6">
                                         <a href="#" data-dismiss="modal" class="btn btn-secondary btn-block ">
@@ -295,12 +295,12 @@
     });
     </script>
     <script>
-        function hapusData(url, id) {
-            document.getElementById('hapus-form').action = url;
-            document.getElementById('id-value').value = id;
-            console.log(url)
-            console.log(id)
-        }
+    function hapusData(url, id) {
+        document.getElementById('hapus-form').action = url;
+        document.getElementById('id-value').value = id;
+        console.log(url)
+        console.log(id)
+    }
     </script>
 </body>
 
