@@ -94,7 +94,7 @@
                                                     <?php } ?>
                                                     <br><i class="fas fa-money-check text-info"></i><span class="small">
                                                         Kode Pesanan
-                                                        : P00012</span>
+                                                        : <?= $pesanan['kode_pesanan'] ?></span>
                                                 </td>
                                                 <td class="price-col">
                                                     <div class="tagcloud">
@@ -173,7 +173,7 @@
                                                     <?php } ?>
                                                     <br><i class="fas fa-money-check text-info"></i><span class="small">
                                                         Kode Pembayaran
-                                                        : B00012</span>
+                                                        : <?= $val['kode_pembayaran'] ?></span>
                                                 </td>
                                                 <!-- <td class="price-col">
                                                         <div class="tagcloud">
